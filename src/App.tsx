@@ -9,15 +9,18 @@ import { GlobalStyles } from './styles/GlobalStyles'
 
 // TS Types
 // import { Pokemon } from './types/pokemonTypes'
+import { IPokemon } from 'pokeapi-typescript'
+import { AppDispatch } from '.'
+import { AnyAction } from 'redux'
 
 const App = () => {
-  const pokemons = useSelector((state: any) => state.pokemon.pokemons, shallowEqual)
-  const loading = useSelector((state: any) => state.ui.loading)
+  const pokemons: IPokemon[] = useSelector((state: any) => state.pokemon.pokemons, shallowEqual)
+  const loading: boolean = useSelector((state: any) => state.ui.loading)
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<AppDispatch>()
 
   useEffect(() => {
-    dispatch(fetchPokemonsWithDetails() as any)
+    dispatch(fetchPokemonsWithDetails() as any) // TODO
   }
   , [])
 

@@ -26,3 +26,5 @@ if (container) {
     </Provider>
   )
 }
+
+export type AppDispatch = typeof store.dispatch;
