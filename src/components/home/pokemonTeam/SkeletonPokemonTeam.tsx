@@ -1,4 +1,4 @@
-import { SkeletonPokemonItem } from '@styles/Home/PokemonTeam/SkeletonPokemonItem'
+import { SkeletonPokemonItem } from '@styles/Home/PokemonTeam/SkeletonTeamItem'
 import React from 'react'
 
 const SkeletonPokemonTeam = () => {

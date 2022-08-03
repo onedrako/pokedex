@@ -7,11 +7,13 @@ const PokedexImage = styled.img`
 `
 
 export const PokedexImageTop = styled(PokedexImage)`
-  position: absolute;
+  position: fixed;
   top: -35px;
+  z-index: 5;
 `
 
 export const PokedexImagebot = styled(PokedexImage)`
-  position: absolute;
+  position: fixed;
   bottom: -35px;
+  z-index: 5;
 `

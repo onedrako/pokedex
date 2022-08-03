@@ -7,11 +7,12 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     font-family: 'Lato', sans-serif;
     font-family: 'Nunito Sans', sans-serif;
+    overflow-x: hidden; 
   }
   body{
     font-size: 62.5%;
     background: #2b2e2e;
-    color: #fff; 
+    color: #000; 
     overflow-x: hidden; 
   }
 `
