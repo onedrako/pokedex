@@ -4,7 +4,6 @@ export interface Pokemon{
   name: string
   url: string
 }
-
 export interface PokemonWithDetails extends IPokemon{
   team: boolean
 }
