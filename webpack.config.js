@@ -13,7 +13,16 @@ module.exports = {
     publicPath: '/'
   },
   resolve: {
-    extensions: ['.ts', '.tsx', 'js']
+    extensions: ['.ts', '.tsx', 'js'],
+    alias: {
+      '@components': path.resolve('src/components/*'),
+      '@utils': path.resolve('src/utils/*'),
+      '@assets': path.resolve('src/assets/*'),
+      '@styles': path.resolve('src/styles/*'),
+      '@pages': path.resolve('src/pages/*'),
+      '@redux': path.resolve('src/redux/*'),
+      '@hooks': path.resolve('src/hooks/*')
+    }
   },
   module: {
     rules: [

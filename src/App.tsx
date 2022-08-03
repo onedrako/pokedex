@@ -11,7 +11,7 @@ import { GlobalStyles } from './styles/GlobalStyles'
 // import { Pokemon } from './types/pokemonTypes'
 import { IPokemon } from 'pokeapi-typescript'
 import { AppDispatch } from '.'
-import { AnyAction } from 'redux'
+import Home from '@pages/Home'
 
 const App = () => {
   const pokemons: IPokemon[] = useSelector((state: any) => state.pokemon.pokemons, shallowEqual)
@@ -29,9 +29,7 @@ const App = () => {
   return (
     <>
       <GlobalStyles />
-      <div>
-        <h1>Hello World</h1>
-      </div>
+      <Home/>
     </>
   )
 }

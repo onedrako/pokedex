@@ -1,11 +1,21 @@
 {
   "compilerOptions": {
+      "baseUrl": "./src",
       "target": "es5",
       "lib": [
           "dom",
           "dom.iterable",
           "esnext"
       ],
+      "paths": {
+        "@components/*": ["components/*"],
+        "@customTypes/*": ["types/*"],
+        "@hooks/*": ["hooks/*"],
+        "@pages/*": ["pages/*"],
+        "@redux/*": ["redux/*"],
+        "@styles/*": ["styles/*"],
+        "@utils/*": ["utils/*"]
+      },
       "allowJs": true,
       "skipLibCheck": true,
       "esModuleInterop": true,

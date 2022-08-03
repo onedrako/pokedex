@@ -11,6 +11,8 @@ import { Pokemon } from '../../types/pokemonTypes'
 import { IPokemon } from 'pokeapi-typescript'
 
 // Dispatch to set the loading state and bring data from the API (pokemon with details)
+// This is a async thunk, it will change loading state and bring data from the API
+// first it get the list of pokemon from the API and then it get the details of each pokemon to render on the App, and finally change the loading state
 export const fetchPokemonsWithDetails = createAsyncThunk(
   'pokemon/fetchPokemonWithDetails',
   async (_, { dispatch }) => {
