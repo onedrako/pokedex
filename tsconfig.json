@@ -8,6 +8,7 @@
           "esnext"
       ],
       "paths": {
+        "@assets/*": ["assets/*"],
         "@components/*": ["components/*"],
         "@customTypes/*": ["types/*"],
         "@hooks/*": ["hooks/*"],
@@ -30,7 +31,5 @@
       "noEmit": false,
       "jsx": "react-jsx"
   },
-  "include": [
-      "src"
-  ]
+  "include": ["src", "./module.d.ts" ]
 }

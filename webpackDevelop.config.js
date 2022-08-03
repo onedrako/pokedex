@@ -7,11 +7,13 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: '/',
+    assetModuleFilename: 'images/[name][ext]'
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
     alias: {
+      '@assets': path.resolve(__dirname, 'src/assets/*'),
       '@components': path.resolve(__dirname, 'src/components/'),
       '@customTypes': path.resolve(__dirname, 'src/customTypes/'),
       '@hooks': path.resolve(__dirname, 'src/hooks/'),
@@ -41,6 +43,10 @@ module.exports = {
             options: { minimize: true }
           }
         ]
+      },
+      {
+        test: /\.(png|jpg)$/,
+        type: 'asset/resource'
       }
     ]
   },
