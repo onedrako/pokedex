@@ -7,12 +7,12 @@ import { Provider } from 'react-redux'
 import { applyMiddleware, compose, legacy_createStore as createStore } from 'redux'
 import thunk from 'redux-thunk'
 import rootReducer from './redux/reducers/rootReducer'
+// import { addFavoriteAttribute } from '@redux/Middleware/addFavoriteAttributte'
 
 // Components
 import App from './App'
 
-const composeEnhancers = compose(applyMiddleware(thunk))
-
+const composeEnhancers = compose(applyMiddleware(thunk ))
 const store = createStore(rootReducer, composeEnhancers)
 
 const container = document.getElementById('root')

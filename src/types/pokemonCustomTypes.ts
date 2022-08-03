@@ -1,6 +1,12 @@
+import { IPokemon } from "pokeapi-typescript"
+
 export interface Pokemon{
   name: string
   url: string
+}
+
+export interface PokemonWithDetails extends IPokemon{
+  team: boolean
 }
 
 export enum POKEMON_TYPE_COLOR{

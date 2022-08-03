@@ -4,10 +4,19 @@ import { PokemonItemContainer } from '@styles/Home/PokemonList/PokemonItem'
 import { capitalizeFirstLetter } from '@utils/capitalize'
 import { PokemonType } from './PokemonType'
 import { IPokemonType } from 'pokeapi-typescript'
-import { POKEMON_TYPE_NAME } from '@customTypes/pokemonCustomTypes'
+import { PokemonWithDetails, POKEMON_TYPE_NAME } from '@customTypes/pokemonCustomTypes'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
+import { AppDispatch } from 'index'
+import { setPokemonsTeam } from '@redux/slices/pokemonSlice'
+import { addPokemonToTeam } from '@utils/reduxFuctions/addPokemonToTeam'
 
 
-const PokemonItem = ({ pokemon }: {pokemon: IPokemon}) => {
+const PokemonItem = ({ pokemon }: {pokemon: PokemonWithDetails}) => {
+
+  const pokemonTeam = useSelector((state: any) => state.pokemon.pokemonTeam, shallowEqual)
+  const dispatch = useDispatch<AppDispatch>()
+
+  console.log(pokemonTeam)
   return (
     <PokemonItemContainer onClick={() => console.log("click-container")}>
       <img 
@@ -16,9 +25,9 @@ const PokemonItem = ({ pokemon }: {pokemon: IPokemon}) => {
         alt="icon-to-add/remove"
         onClick={(e) => {
           e.stopPropagation()
-          console.log("click-add")}
+          addPokemonToTeam(pokemon, pokemonTeam, dispatch)
+          }
         }
-          
         />
       <img className='pokemon-item__sprite' src={pokemon.sprites.front_default} alt={`Imagen de ${pokemon.name}`} />
       <p className='pokemon-item__name'>{ capitalizeFirstLetter(pokemon.name)}</p>

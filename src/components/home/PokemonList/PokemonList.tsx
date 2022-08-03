@@ -5,9 +5,10 @@ import SkeletonPokemonItem from './SkeletonPokemonItem'
 import PokemonItem from './PokemonItem'
 import { IPokemon } from 'pokeapi-typescript'
 import { PokemonListContainer } from '@styles/Home/PokemonList/PokemonList'
+import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
 
 const PokemonList = () => {
-  const pokemons: IPokemon[] = useSelector((state: any) => state.pokemon.pokemons, shallowEqual)
+  const pokemons: PokemonWithDetails[] = useSelector((state: any) => state.pokemon.pokemons, shallowEqual)
   const loading: boolean = useSelector((state: any) => state.ui.loading)
 
   console.log('data', pokemons)
@@ -28,7 +29,7 @@ const PokemonList = () => {
         }
 
         {!loading &&
-          pokemons?.map((pokemon: IPokemon) => (
+          pokemons?.map((pokemon: PokemonWithDetails) => (
             <PokemonItem key={`pokemon-list-${pokemon.id}`} pokemon={pokemon} />
           ))
         }
