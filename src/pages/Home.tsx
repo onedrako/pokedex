@@ -1,4 +1,6 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+
 import { Main } from '@styles/Home/Home.js'
 import { PokedexImageTop, PokedexImagebot } from '@styles/Home/PokedexImages/PokedexImages'
 import { PokemonTeam } from '@components/home/pokemonTeam/PokemonTeam'

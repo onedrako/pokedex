@@ -15,7 +15,6 @@ import Home from '@pages/Home'
 
 const App = () => {
   const pokemons: IPokemon[] = useSelector((state: any) => state.pokemon.pokemons, shallowEqual)
-  const loading: boolean = useSelector((state: any) => state.ui.loading)
 
   const dispatch = useDispatch<AppDispatch>()
 
@@ -23,8 +22,6 @@ const App = () => {
     dispatch(fetchPokemonsWithDetails() as any) // TODO
   }
   , [])
-
-  console.log('data', pokemons)
 
   return (
     <>

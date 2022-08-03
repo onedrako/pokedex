@@ -20,6 +20,10 @@ module.exports = {
     '@typescript-eslint'
   ],
   rules: {
-    'ts-config.json': 'off'
+    'ts-config.json': 'off',
+    [
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+    ]
   }
 }
