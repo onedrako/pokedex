@@ -12,7 +12,7 @@ import rootReducer from './redux/reducers/rootReducer'
 // Components
 import App from './App'
 
-const composeEnhancers = compose(applyMiddleware(thunk ))
+const composeEnhancers = compose(applyMiddleware(thunk))
 const store = createStore(rootReducer, composeEnhancers)
 
 const container = document.getElementById('root')

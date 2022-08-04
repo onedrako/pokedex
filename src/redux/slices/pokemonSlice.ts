@@ -10,7 +10,6 @@ import { getData } from '../../utils/getData'
 import { Pokemon, PokemonWithDetails } from '../../types/pokemonCustomTypes'
 import { IPokemon } from 'pokeapi-typescript'
 import { getTeamFromLocalStorage } from '@utils/manageLocalStorage'
-import { PokemonTeam } from '@components/home/pokemonTeam/PokemonTeam'
 
 // Dispatch to set the loading state and bring data from the API (pokemon with details)
 // This is a async thunk, it will change loading state and bring data from the API
@@ -38,8 +37,15 @@ export const fetchPokemonsWithDetails = createAsyncThunk(
   }
 )
 
+
+type PokemonState = {
+  pokemon: PokemonWithDetails[], 
+  pokemonTeam: PokemonWithDetails[],  
+  paginationOffset: number
+}
+
 // state
-const initialState: {pokemon: PokemonWithDetails[], pokemonTeam: PokemonWithDetails[],  paginationOffset: number} = {
+const initialState: PokemonState = {
   pokemon: [],
   pokemonTeam: getTeamFromLocalStorage(),
   paginationOffset: 0,
@@ -73,7 +79,7 @@ export const {
   setPokemonsTeamOnList,  
   setPaginationOffset,
 
-  setPokemonTeam
+  setPokemonTeam,
 
 } = pokemonSlice.actions
 export default pokemonSlice.reducer

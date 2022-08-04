@@ -7,6 +7,7 @@ const rootReducer = combineReducers({
   pokemon: pokemonSlice,
   ui: uiSlice,
   uiError: uiErrorSlice,
+  pokemonSearcher: pokemonSlice,
 })
 
 export default rootReducer
