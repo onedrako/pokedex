@@ -11,8 +11,10 @@ const SearchBar = () => {
   const dispatch = useDispatch()
   const waitForDebouncer = 150;
   
+  //When user type on input data is going here and term executes the effect to fetch pokemon data by search
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
+    
     dispatch(setTerm(value))
   }
   
@@ -21,7 +23,6 @@ const SearchBar = () => {
   useEffect(() => {
     dispatch(setPokemonSearched({} as PokemonWithDetails))
     const timeoutId = window.setTimeout(() => {
-      console.log('useEffect')
       if(term.length > 0) {
         dispatch(fetchPokemonSearched(term) as any)
       }
@@ -32,7 +33,6 @@ const SearchBar = () => {
     }
   }, [term])
 
-  console.log(pokemonSearched)
 
   return (
     <SearchBarContainer>

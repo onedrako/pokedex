@@ -11,6 +11,8 @@ import { getTeamFromLocalStorage } from '@utils/manageLocalStorage'
 //utils
 import { pokemonListLimit } from '@utils/constants/constants'
 
+
+//Action to get pokemon when user search a pokemon
 export const fetchPokemonSearched = createAsyncThunk(
   "pokemonSeacher/fetchPokemonSearched",
   async (pokemon: string, { dispatch }) => {
