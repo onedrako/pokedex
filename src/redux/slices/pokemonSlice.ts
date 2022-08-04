@@ -9,6 +9,7 @@ import { getData } from '../../utils/getData'
 // Types
 import { Pokemon, PokemonWithDetails } from '../../types/pokemonCustomTypes'
 import { IPokemon } from 'pokeapi-typescript'
+import { getTeamFromLocalStorage } from '@utils/manageLocalStorage'
 
 // Dispatch to set the loading state and bring data from the API (pokemon with details)
 // This is a async thunk, it will change loading state and bring data from the API
@@ -17,11 +18,19 @@ export const fetchPokemonsWithDetails = createAsyncThunk(
   'pokemon/fetchPokemonWithDetails',
   async (_, { dispatch }) => {
     dispatch(setLoading(true))
+    
     const pokemonList: Pokemon[] = await api.get('/pokemon?limit=10').then(res => res.data.results)
+    
     const pokemonWithDetail: PokemonWithDetails[] = 
       await Promise.all(pokemonList.map((pokemon) => getData(pokemon.url)))
       .then((res) => res.map((pokemon: IPokemon) => {
-        return {...pokemon,team: false,}
+        const userTeam: PokemonWithDetails[] = getTeamFromLocalStorage()
+        if(userTeam.find(member => member.id === pokemon.id)) {
+          console.log('pokemon already in team')
+          return { ...pokemon, team: true }
+        } else{
+          return {...pokemon,team: false,}
+        }
       })
     )
     dispatch(setPokemons(pokemonWithDetail))

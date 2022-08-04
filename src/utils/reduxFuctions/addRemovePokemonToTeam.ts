@@ -40,6 +40,9 @@ export const removePokemonFromTeam = (pokemonToRemove: PokemonWithDetails, pokem
   pokemonToRemoveCopy["team"] = false
   pokemonListCopy[pokemonToRemoveIndex] = pokemonToRemoveCopy
 
+  const PokemonTeam = pokemonListCopy.filter(pokemon => pokemon.team)
+  saveTeamToLocalStorage(PokemonTeam)
+
   return dispatch(setPokemonsTeam(pokemonListCopy))
 }
 
