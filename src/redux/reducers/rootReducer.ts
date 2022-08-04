@@ -1,3 +1,4 @@
+import pokemonSearcherSlice from '@redux/slices/pokemonSearcherSlice'
 import uiErrorSlice from '@redux/slices/uiErrorSlice'
 import { combineReducers } from 'redux'
 import pokemonSlice from '../slices/pokemonSlice'
@@ -7,7 +8,7 @@ const rootReducer = combineReducers({
   pokemon: pokemonSlice,
   ui: uiSlice,
   uiError: uiErrorSlice,
-  pokemonSearcher: pokemonSlice,
+  pokemonSearcher: pokemonSearcherSlice,
 })
 
 export default rootReducer

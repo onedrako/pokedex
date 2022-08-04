@@ -1,23 +1,35 @@
-import React, { ChangeEvent } from 'react'
+import React, { ChangeEvent, useEffect } from 'react'
 import { SearchBarContainer } from '@styles/Home/SearchBar/SearchBar'
-import { useDebounce } from '@hooks/useDebounce'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
-import { fetchPokemonSearched } from '@redux/slices/pokemonSearcherSlice'
+import { fetchPokemonSearched, setTerm } from '@redux/slices/pokemonSearcherSlice'
+import PokemonItem from '../PokemonList/PokemonItem'
+import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
 
 const SearchBar = () => {
-  const pokemonSearched = useSelector((state: any) => state.pokemon.pokemonSearched, shallowEqual)
-  const term = useSelector((state: any) => state.pokemon.term)
+  const pokemonSearched: PokemonWithDetails = useSelector((state: any) => state.pokemonSearcher.pokemonSearched, shallowEqual)
+  const term = useSelector((state: any) => state.pokemonSearcher.term)
+  const dispatch = useDispatch()
+  const waitForDebouncer = 250;
   
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
-    if(value.length > 0) {
-    dispatch(fetchPokemonSearched(value) as any)
-    }
+    dispatch(setTerm(value))
   }
   
-  const dispatch = useDispatch()
-  const searchItem = useDebounce<string>(term, 500)
-  console.log(searchItem)
+
+  //Debouncer
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      console.log('useEffect')
+      if(term.length > 0) {
+        dispatch(fetchPokemonSearched(term) as any)
+      }
+    }, waitForDebouncer);
+
+    return () => {
+      window.clearTimeout(timeoutId)
+    }
+  }, [term])
 
   console.log(pokemonSearched)
 
@@ -25,6 +37,8 @@ const SearchBar = () => {
     <SearchBarContainer>
       <input type="text" placeholder="Busca a un Pokémon" onChange={(e) => handleChange(e)} />
       <p>Busca por nombre o número</p>
+      {term.length > 0 && pokemonSearched.id && <PokemonItem pokemon={pokemonSearched}/>}
+      
     </SearchBarContainer>
   )
 }
