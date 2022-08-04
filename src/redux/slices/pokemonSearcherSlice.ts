@@ -7,24 +7,37 @@ import { api } from '../../utils/axiosConfig'
 // Types
 import { PokemonWithDetails } from '../../types/pokemonCustomTypes'
 import { getTeamFromLocalStorage } from '@utils/manageLocalStorage'
-import { useEffect } from 'react'
 
-
+//utils
+import { pokemonListLimit } from '@utils/constants/constants'
 
 export const fetchPokemonSearched = createAsyncThunk(
   "pokemonSeacher/fetchPokemonSearched",
   async (pokemon: string, { dispatch }) => {
+    // Verify that pokemon is on the limit of the requested limit pokemon
+    if(!isNaN(parseInt(pokemon))){
+      if(parseInt(pokemon) > pokemonListLimit){
+        return
+    }} 
+    
+    //Init the request
     const pokemonSearched = pokemon.toString().toLowerCase()
-  
     try{
-      const pokemon: PokemonWithDetails = await api.get(`pokemon/${pokemonSearched}`).then(res => res.data)
-      if(pokemon){
+      // request pokemonInfo
+      const pokemonRequested: PokemonWithDetails = await api.get(`pokemon/${pokemonSearched}`).then(res => res.data)
+      if(pokemonRequested){
+        // Verify that pokemon is on the limit of the requested limit pokemon
+        if(pokemonRequested.id > pokemonListLimit){
+          return
+        }
+
+        // verify team status with local storage for pokemon Team 
         const userTeam: PokemonWithDetails[] = getTeamFromLocalStorage()
         let pokemonWithDetail: PokemonWithDetails
-        if(userTeam.find(member => member.id === pokemon.id)) {
-          pokemonWithDetail = { ...pokemon, team: true }
+        if(userTeam.find(member => member.id === pokemonRequested.id)) {
+          pokemonWithDetail = { ...pokemonRequested, team: true }
         } else{
-          pokemonWithDetail = {...pokemon,team: false,}
+          pokemonWithDetail = {...pokemonRequested,team: false,}
         }
         dispatch(setPokemonSearched(pokemonWithDetail))
       }

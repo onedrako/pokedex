@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useEffect } from 'react'
 import { SearchBarContainer } from '@styles/Home/SearchBar/SearchBar'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
-import { fetchPokemonSearched, setTerm } from '@redux/slices/pokemonSearcherSlice'
+import { fetchPokemonSearched, setPokemonSearched, setTerm } from '@redux/slices/pokemonSearcherSlice'
 import PokemonItem from '../PokemonList/PokemonItem'
 import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
 
@@ -9,7 +9,7 @@ const SearchBar = () => {
   const pokemonSearched: PokemonWithDetails = useSelector((state: any) => state.pokemonSearcher.pokemonSearched, shallowEqual)
   const term = useSelector((state: any) => state.pokemonSearcher.term)
   const dispatch = useDispatch()
-  const waitForDebouncer = 250;
+  const waitForDebouncer = 150;
   
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
@@ -19,6 +19,7 @@ const SearchBar = () => {
 
   //Debouncer
   useEffect(() => {
+    dispatch(setPokemonSearched({} as PokemonWithDetails))
     const timeoutId = window.setTimeout(() => {
       console.log('useEffect')
       if(term.length > 0) {
