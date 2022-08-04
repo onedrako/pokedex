@@ -48,10 +48,10 @@ export const pokemonSlice = createSlice({
   initialState,
   reducers: {
     setPokemons: (state: any, action: PayloadAction<PokemonWithDetails[]>) => {
-      state.pokemons = action.payload
+      state.pokemon.push(...action.payload)
     },
     setPokemonsTeam: (state: any, action: PayloadAction<PokemonWithDetails[]>) => {
-      state.pokemonTeam.push(...action.payload)
+      state.pokemon = [...action.payload]
     }
   }
 })

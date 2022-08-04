@@ -13,22 +13,38 @@ import { addPokemonToTeam } from '@utils/reduxFuctions/addPokemonToTeam'
 
 const PokemonItem = ({ pokemon }: {pokemon: PokemonWithDetails}) => {
 
-  const pokemonTeam = useSelector((state: any) => state.pokemon.pokemonTeam, shallowEqual)
+  const pokemonTeam = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
   const dispatch = useDispatch<AppDispatch>()
 
   console.log(pokemonTeam)
   return (
     <PokemonItemContainer onClick={() => console.log("click-container")}>
-      <img 
+      {!pokemon.team ? 
+      (
+        <img 
+          className='pokemon-item__add-remove' 
+          src="https://i.imgur.com/3C0Kzrn.png" 
+          alt="icon-to-add/remove"
+          onClick={(e) => {
+            e.stopPropagation()
+            addPokemonToTeam(pokemon, pokemonTeam, dispatch)
+            }
+          }
+          />
+      )  :
+      (
+        <img 
         className='pokemon-item__add-remove' 
-        src="https://i.imgur.com/3C0Kzrn.png" 
+        src="https://i.imgur.com/Bd6iXm8.png" 
         alt="icon-to-add/remove"
         onClick={(e) => {
           e.stopPropagation()
-          addPokemonToTeam(pokemon, pokemonTeam, dispatch)
+          console.log("remove")
           }
         }
         />
+      )
+    }
       <img className='pokemon-item__sprite' src={pokemon.sprites.front_default} alt={`Imagen de ${pokemon.name}`} />
       <p className='pokemon-item__name'>{ capitalizeFirstLetter(pokemon.name)}</p>
       <div className='pokemon-item__types'>

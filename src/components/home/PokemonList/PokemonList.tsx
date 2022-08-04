@@ -8,7 +8,7 @@ import { PokemonListContainer } from '@styles/Home/PokemonList/PokemonList'
 import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
 
 const PokemonList = () => {
-  const pokemons: PokemonWithDetails[] = useSelector((state: any) => state.pokemon.pokemons, shallowEqual)
+  const pokemons: PokemonWithDetails[] = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
   const loading: boolean = useSelector((state: any) => state.ui.loading)
 
   console.log('data', pokemons)
