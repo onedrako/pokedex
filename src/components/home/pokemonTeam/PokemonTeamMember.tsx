@@ -1,11 +1,19 @@
-import { Pokemon, PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
-import { PokemonMember } from '@styles/Home/PokemonTeam/PokemonMember'
-import { capitalizeFirstLetter } from '@utils/capitalize'
+//Libraries
 import React from 'react'
-import { POKEMON_TYPE_COLOR } from '@customTypes/pokemonCustomTypes'
-import { removePokemonFromTeam } from '@utils/reduxFuctions/addRemovePokemonToTeam'
-import { AppDispatch } from 'index'
+//Redux
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
+import { AppDispatch } from 'index'
+import { removePokemonFromTeam } from '@utils/reduxFuctions/addRemovePokemonToTeam'
+
+//Utils
+import { capitalizeFirstLetter } from '@utils/capitalize'
+
+//Styles
+import { PokemonMember } from '@styles/Home/PokemonTeam/PokemonMember'
+
+// Types
+import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
+import { POKEMON_TYPE_COLOR } from '@customTypes/pokemonCustomTypes'
 
 
 const PokemonTeamMember = ({pokemon}: {pokemon: PokemonWithDetails}) => {

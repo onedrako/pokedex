@@ -1,9 +1,16 @@
+// Libraries
 import React from 'react'
+//Redux
 import { shallowEqual, useSelector } from 'react-redux'
 
-import SkeletonPokemonItem from './SkeletonPokemonItem'
+//Components
 import PokemonItem from './PokemonItem'
+import SkeletonPokemonItem from './SkeletonPokemonItem'
+
+//Styles
 import { PokemonListContainer } from '@styles/Home/PokemonList/PokemonList'
+
+//Types
 import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
 
 const PokemonList = () => {

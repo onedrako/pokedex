@@ -1,7 +1,9 @@
 import { Dispatch } from "redux"
 
-import { setMaxPokemonError, setPokemonAlreadyInTeamError } from "@redux/slices/uiErrorSlice"
+import { setMaxPokemonError } from "@redux/slices/uiErrorSlice"
 import { setPokemonsTeam } from "@redux/slices/pokemonSlice"
+
+import { saveTeamToLocalStorage } from "@utils/manageLocalStorage"
 
 import { PokemonWithDetails } from "@customTypes/pokemonCustomTypes"
 
@@ -25,6 +27,9 @@ export const addPokemonToTeam = (newPokemon: PokemonWithDetails, pokemonList: Po
   pokemonToBeAdded["team"] = true
   PokemonListCopy[IndexOfPokemonInList] = pokemonToBeAdded
 
+  const PokemonTeam = PokemonListCopy.filter(pokemon => pokemon.team)
+  saveTeamToLocalStorage(PokemonTeam)
+
   return dispatch(setPokemonsTeam(PokemonListCopy))
 }
 
@@ -37,3 +42,4 @@ export const removePokemonFromTeam = (pokemonToRemove: PokemonWithDetails, pokem
 
   return dispatch(setPokemonsTeam(pokemonListCopy))
 }
+
