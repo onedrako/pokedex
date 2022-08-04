@@ -3,15 +3,12 @@ import { shallowEqual, useSelector } from 'react-redux'
 
 import SkeletonPokemonItem from './SkeletonPokemonItem'
 import PokemonItem from './PokemonItem'
-import { IPokemon } from 'pokeapi-typescript'
 import { PokemonListContainer } from '@styles/Home/PokemonList/PokemonList'
 import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
 
 const PokemonList = () => {
   const pokemons: PokemonWithDetails[] = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
   const loading: boolean = useSelector((state: any) => state.ui.loading)
-
-  console.log('data', pokemons)
   return (
     <>
       <h2>Elige hasta 6 Pokémon para tu equipo</h2>

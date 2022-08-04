@@ -1,22 +1,27 @@
+//Libraries
 import React from 'react'
-import { IPokemon } from 'pokeapi-typescript'
-import { PokemonItemContainer } from '@styles/Home/PokemonList/PokemonItem'
-import { capitalizeFirstLetter } from '@utils/capitalize'
-import { PokemonType } from './PokemonType'
-import { IPokemonType } from 'pokeapi-typescript'
-import { PokemonWithDetails, POKEMON_TYPE_NAME } from '@customTypes/pokemonCustomTypes'
+//Redux
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { AppDispatch } from 'index'
-import { setPokemonsTeam } from '@redux/slices/pokemonSlice'
 import { addPokemonToTeam } from '@utils/reduxFuctions/addPokemonToTeam'
+
+//Utils
+import { capitalizeFirstLetter } from '@utils/capitalize'
+
+//Styles
+import { PokemonItemContainer } from '@styles/Home/PokemonList/PokemonItem'
+
+//Types
+import { PokemonWithDetails, POKEMON_TYPE_NAME } from '@customTypes/pokemonCustomTypes'
+import { IPokemonType } from 'pokeapi-typescript'
+import { PokemonType } from './PokemonType'
 
 
 const PokemonItem = ({ pokemon }: {pokemon: PokemonWithDetails}) => {
 
-  const pokemonTeam = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
+  const pokemonList = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
   const dispatch = useDispatch<AppDispatch>()
 
-  console.log(pokemonTeam)
   return (
     <PokemonItemContainer onClick={() => console.log("click-container")}>
       {!pokemon.team ? 
@@ -27,7 +32,7 @@ const PokemonItem = ({ pokemon }: {pokemon: PokemonWithDetails}) => {
           alt="icon-to-add/remove"
           onClick={(e) => {
             e.stopPropagation()
-            addPokemonToTeam(pokemon, pokemonTeam, dispatch)
+            addPokemonToTeam(pokemon, pokemonList, dispatch)
             }
           }
           />
@@ -46,12 +51,12 @@ const PokemonItem = ({ pokemon }: {pokemon: PokemonWithDetails}) => {
       )
     }
       <img className='pokemon-item__sprite' src={pokemon.sprites.front_default} alt={`Imagen de ${pokemon.name}`} />
-      <p className='pokemon-item__name'>{ capitalizeFirstLetter(pokemon.name)}</p>
       <div className='pokemon-item__types'>
         {pokemon.types.map((type: IPokemonType ) => 
           <PokemonType key={`${pokemon.id}-${type.type.name}`} pokemonType={type.type.name as keyof typeof POKEMON_TYPE_NAME} />
         )}
       </div>
+      <p className='pokemon-item__name'>{ capitalizeFirstLetter(pokemon.name)}</p>
   </PokemonItemContainer>
   )
 }

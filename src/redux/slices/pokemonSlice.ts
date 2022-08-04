@@ -22,24 +22,16 @@ export const fetchPokemonsWithDetails = createAsyncThunk(
       await Promise.all(pokemonList.map((pokemon) => getData(pokemon.url)))
       .then((res) => res.map((pokemon: IPokemon) => {
         return {...pokemon,team: false,}
-      }
+      })
     )
-    )
-    
-    // const pokemonWithDetail: IPokemon[] = await Promise.all(pokemonList.map((pokemon) => getData(pokemon.url)))
-    // const pokemonWithTeamOption: PokemonWithDetails[] = [...pokemonWithDetail].map((pokemon: IPokemon) => {
-    //   return { ...pokemon, team: false }
-    // })
-    console.log(pokemonWithDetail)
     dispatch(setPokemons(pokemonWithDetail))
     dispatch(setLoading(false))
   }
 )
 
 // state
-const initialState: {pokemon: PokemonWithDetails[], pokemonTeam: PokemonWithDetails[]} = {
+const initialState: {pokemon: PokemonWithDetails[]} = {
   pokemon: [],
-  pokemonTeam: []
 }
 
 // slice for pokemon

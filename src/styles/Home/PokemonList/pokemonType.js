@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { POKEMON_TYPE_COLOR } from '@customTypes/pokemonCustomTypes'
 
 export const Type = styled.p`
     display: flex;
