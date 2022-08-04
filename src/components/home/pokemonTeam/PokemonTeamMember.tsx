@@ -3,7 +3,7 @@ import React from 'react'
 //Redux
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { AppDispatch } from 'index'
-import { removePokemonFromTeam } from '@utils/reduxFuctions/addRemovePokemonToTeam'
+import { removePokemonFromTeamOnList } from '@utils/reduxFuctions/addRemovePokemonTeamOnList'
 
 //Utils
 import { capitalizeFirstLetter } from '@utils/capitalize'
@@ -14,6 +14,7 @@ import { PokemonMember } from '@styles/Home/PokemonTeam/PokemonMember'
 // Types
 import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
 import { POKEMON_TYPE_COLOR } from '@customTypes/pokemonCustomTypes'
+import { removePokemonFromTeam } from '@utils/reduxFuctions/addRemovePokemonTeam'
 
 
 const PokemonTeamMember = ({pokemon}: {pokemon: PokemonWithDetails}) => {
@@ -25,6 +26,7 @@ const PokemonTeamMember = ({pokemon}: {pokemon: PokemonWithDetails}) => {
   const gradient = `linear-gradient(80deg,${POKEMON_TYPE_COLOR[type1]} 0%,${POKEMON_TYPE_COLOR[type2]} 100%)`
 
   const pokemonList = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
+  const pokemonTeam = useSelector((state: any) => state.pokemon.pokemonTeam, shallowEqual)
   const dispatch = useDispatch<AppDispatch>()
 
   return (
@@ -35,7 +37,8 @@ const PokemonTeamMember = ({pokemon}: {pokemon: PokemonWithDetails}) => {
           alt="icon-to-add/remove"
           onClick={(e) => {
             e.stopPropagation()
-            removePokemonFromTeam( pokemon, pokemonList, dispatch )
+            removePokemonFromTeamOnList( pokemon, pokemonList, dispatch )
+            removePokemonFromTeam( pokemon, pokemonTeam, dispatch )
             }
           }
         />

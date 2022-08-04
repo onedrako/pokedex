@@ -3,7 +3,7 @@ import React from 'react'
 //Redux
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { AppDispatch } from 'index'
-import { addPokemonToTeam, removePokemonFromTeam } from '@utils/reduxFuctions/addRemovePokemonToTeam'
+import { addPokemonToTeamOnList, removePokemonFromTeamOnList } from '@utils/reduxFuctions/addRemovePokemonTeamOnList'
 
 //Utils
 import { capitalizeFirstLetter } from '@utils/capitalize'
@@ -15,11 +15,13 @@ import { PokemonItemContainer } from '@styles/Home/PokemonList/PokemonItem'
 import { PokemonWithDetails, POKEMON_TYPE_NAME } from '@customTypes/pokemonCustomTypes'
 import { IPokemonType } from 'pokeapi-typescript'
 import { PokemonType } from './PokemonType'
+import { addPokemonToTeam, removePokemonFromTeam } from '@utils/reduxFuctions/addRemovePokemonTeam'
 
 
 const PokemonItem = ({ pokemon }: {pokemon: PokemonWithDetails}) => {
 
   const pokemonList = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
+  const pokemonTeam = useSelector((state: any) => state.pokemon.pokemonTeam, shallowEqual)
   const dispatch = useDispatch<AppDispatch>()
 
   return (
@@ -32,7 +34,8 @@ const PokemonItem = ({ pokemon }: {pokemon: PokemonWithDetails}) => {
           alt="icon-to-add/remove"
           onClick={(e) => {
             e.stopPropagation()
-            addPokemonToTeam(pokemon, pokemonList, dispatch)
+            addPokemonToTeamOnList(pokemon, pokemonList, dispatch)
+            addPokemonToTeam(pokemon, pokemonTeam, dispatch)
             }
           }
           />
@@ -44,7 +47,8 @@ const PokemonItem = ({ pokemon }: {pokemon: PokemonWithDetails}) => {
         alt="icon-to-add/remove"
         onClick={(e) => {
           e.stopPropagation()
-          removePokemonFromTeam( pokemon, pokemonList, dispatch )
+          removePokemonFromTeamOnList( pokemon, pokemonList, dispatch )
+          removePokemonFromTeam( pokemon, pokemonTeam, dispatch )
           }
         }
         />

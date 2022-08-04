@@ -10,23 +10,23 @@ import { getData } from '../../utils/getData'
 import { Pokemon, PokemonWithDetails } from '../../types/pokemonCustomTypes'
 import { IPokemon } from 'pokeapi-typescript'
 import { getTeamFromLocalStorage } from '@utils/manageLocalStorage'
+import { PokemonTeam } from '@components/home/pokemonTeam/PokemonTeam'
 
 // Dispatch to set the loading state and bring data from the API (pokemon with details)
 // This is a async thunk, it will change loading state and bring data from the API
 // first it get the list of pokemon from the API and then it get the details of each pokemon to render on the App, and finally change the loading state
 export const fetchPokemonsWithDetails = createAsyncThunk(
   'pokemon/fetchPokemonWithDetails',
-  async (_, { dispatch }) => {
+  async (apiParameters: string, { dispatch }) => {
     dispatch(setLoading(true))
-    
-    const pokemonList: Pokemon[] = await api.get('/pokemon?limit=10').then(res => res.data.results)
+
+    const pokemonList: Pokemon[] = await api.get(apiParameters).then(res => res.data.results)
     
     const pokemonWithDetail: PokemonWithDetails[] = 
       await Promise.all(pokemonList.map((pokemon) => getData(pokemon.url)))
       .then((res) => res.map((pokemon: IPokemon) => {
         const userTeam: PokemonWithDetails[] = getTeamFromLocalStorage()
         if(userTeam.find(member => member.id === pokemon.id)) {
-          console.log('pokemon already in team')
           return { ...pokemon, team: true }
         } else{
           return {...pokemon,team: false,}
@@ -39,8 +39,10 @@ export const fetchPokemonsWithDetails = createAsyncThunk(
 )
 
 // state
-const initialState: {pokemon: PokemonWithDetails[]} = {
+const initialState: {pokemon: PokemonWithDetails[], pokemonTeam: PokemonWithDetails[],  paginationOffset: number} = {
   pokemon: [],
+  pokemonTeam: getTeamFromLocalStorage(),
+  paginationOffset: 0,
 }
 
 // slice for pokemon
@@ -51,12 +53,27 @@ export const pokemonSlice = createSlice({
     setPokemons: (state: any, action: PayloadAction<PokemonWithDetails[]>) => {
       state.pokemon.push(...action.payload)
     },
-    setPokemonsTeam: (state: any, action: PayloadAction<PokemonWithDetails[]>) => {
+    setPokemonsTeamOnList: (state: any, action: PayloadAction<PokemonWithDetails[]>) => {
       state.pokemon = [...action.payload]
+    },
+    setPaginationOffset: (state: any, action: PayloadAction<number>) => {
+      state.paginationOffset = action.payload
+    },
+
+    setPokemonTeam: (state: any, action: PayloadAction<PokemonWithDetails[]>) => {
+      state.pokemonTeam =  [...action.payload]
     }
   }
 })
 
 
-export const { setPokemons, setPokemonsTeam } = pokemonSlice.actions
+export const { 
+  // To change Pokemon List
+  setPokemons, 
+  setPokemonsTeamOnList,  
+  setPaginationOffset,
+
+  setPokemonTeam
+
+} = pokemonSlice.actions
 export default pokemonSlice.reducer
