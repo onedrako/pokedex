@@ -16,7 +16,7 @@ export enum POKEMON_TYPE_COLOR{
   electric = '#f9c233',
   ghost = '#5c5c8f',
   fire = '#e5502f',
-  fairy = '##e5b3df',
+  fairy = '#e5b3df',
   ice = '#94c2d0',
   fighting = '#ac5140',
   normal = '#b7aeaa',
@@ -24,7 +24,7 @@ export enum POKEMON_TYPE_COLOR{
   psychic = '#df5087',
   rock = '#ae9556',
   dark = '#65554b',
-  earth = '#dab855',
+  ground = '#dab855',
   poison = '#733f68',
   flying = '#5380c0',
 }
@@ -45,7 +45,7 @@ export enum POKEMON_TYPE_NAME{
   psychic = 'Psíquico',
   rock = 'Roca',
   dark = 'Siniestro',
-  earth = 'Tierra',
+  ground = 'Tierra',
   poison = 'Veneno',
   flying = 'Volador',
 }

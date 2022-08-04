@@ -29,6 +29,7 @@ const PokemonTeamMember = ({pokemon}: {pokemon: PokemonWithDetails}) => {
   const pokemonTeam = useSelector((state: any) => state.pokemon.pokemonTeam, shallowEqual)
   const dispatch = useDispatch<AppDispatch>()
 
+
   return (
     <PokemonMember gradient={gradient}  >
         <img 
