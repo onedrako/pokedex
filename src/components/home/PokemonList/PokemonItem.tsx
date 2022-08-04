@@ -3,7 +3,7 @@ import React from 'react'
 //Redux
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { AppDispatch } from 'index'
-import { addPokemonToTeam } from '@utils/reduxFuctions/addPokemonToTeam'
+import { addPokemonToTeam, removePokemonFromTeam } from '@utils/reduxFuctions/addRemovePokemonToTeam'
 
 //Utils
 import { capitalizeFirstLetter } from '@utils/capitalize'
@@ -44,7 +44,7 @@ const PokemonItem = ({ pokemon }: {pokemon: PokemonWithDetails}) => {
         alt="icon-to-add/remove"
         onClick={(e) => {
           e.stopPropagation()
-          console.log("remove")
+          removePokemonFromTeam( pokemon, pokemonList, dispatch )
           }
         }
         />
