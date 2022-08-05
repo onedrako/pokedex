@@ -10,4 +10,14 @@ export const PokemonListContainer = styled.section`
   align-items: center;
   justify-content: center;
 
+  @media (min-width: 740px) {
+    max-width: 720px;
+    gap: 20px;
+  }
+
+`
+
+export const PokemonListTitle = styled.h2`
+    font-size: 1.2rem;
+    text-align: center;
 `

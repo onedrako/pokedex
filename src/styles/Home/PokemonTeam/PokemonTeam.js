@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const TeamContainer = styled.section`
   margin-top: 100px;
-  padding: 25px 10px 25px 10px; 
+  padding: 25px 10px 0 10px; 
   width: 100%;
   max-width: 850px;
   display: grid;
@@ -28,6 +28,10 @@ export const TeamContainer = styled.section`
     font-size: 1.2rem;
     padding: 10px;
     text-align: center;
+  }
+
+  @media (min-width: 590px) {
+    max-width: 570px;
   }
   `
 

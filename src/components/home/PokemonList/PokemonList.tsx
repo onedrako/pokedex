@@ -8,7 +8,7 @@ import PokemonItem from './PokemonItem'
 import SkeletonPokemonItem from './SkeletonPokemonItem'
 
 //Styles
-import { PokemonListContainer } from '@styles/Home/PokemonList/PokemonList'
+import { PokemonListContainer, PokemonListTitle } from '@styles/Home/PokemonList/PokemonList'
 
 //Types
 import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
@@ -18,7 +18,7 @@ const PokemonList = () => {
   const loading: boolean = useSelector((state: any) => state.ui.loading)
   return (
     <>
-      <h2>Elige hasta 6 Pokémon para tu equipo</h2>
+      <PokemonListTitle>Elige hasta 6 Pokémon para tu equipo</PokemonListTitle>
       <PokemonListContainer>
 
         {pokemons.length > 0 &&
