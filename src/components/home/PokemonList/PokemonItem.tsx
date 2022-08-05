@@ -37,7 +37,7 @@ const PokemonItem = ({ pokemon }: {pokemon: PokemonWithDetails}) => {
       (
         <img 
           className='pokemon-item__add-remove' 
-          src="https://i.imgur.com/3C0Kzrn.png" 
+          src="https://i.imgur.com/Qrm7Qrn.png" 
           alt="icon to add pokemon to team"
           onClick={(e) => {
             e.stopPropagation()
@@ -50,7 +50,7 @@ const PokemonItem = ({ pokemon }: {pokemon: PokemonWithDetails}) => {
       (
         <img 
         className='pokemon-item__add-remove' 
-        src="https://i.imgur.com/Bd6iXm8.png" 
+        src="https://i.imgur.com/LsQQ1EM.png" 
         alt="icon to remove pokemon to team"
         onClick={(e) => {
           e.stopPropagation()

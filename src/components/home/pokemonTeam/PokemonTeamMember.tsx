@@ -39,7 +39,7 @@ const PokemonTeamMember = ({pokemon}: {pokemon: PokemonWithDetails}) => {
     <PokemonMember gradient={gradient} onClick={() => openPokemonDetail()}>
         <img 
           className='pokemon-item__add-remove' 
-          src="https://i.imgur.com/Bd6iXm8.png" 
+          src="https://i.imgur.com/LsQQ1EM.png" 
           alt="icon-to-add/remove"
           onClick={(e) => {
             e.stopPropagation()

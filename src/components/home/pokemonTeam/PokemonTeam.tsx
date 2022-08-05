@@ -20,7 +20,7 @@ const PokemonTeam = () => {
   return (
     <TeamContainer showDetails={showDetails}>
       <PokemonTeamTitles/>
-      <img src="https://i.imgur.com/Q5tAVHW.png" alt=""/>
+      <img src="https://i.imgur.com/XzODe9l.png" alt=""/>
       {userPokemonTeam.length === 0 &&
         <h2 className='pokemon-team-empty'>Es peligro andar por la hierba alta sin pokemon, elige a tus Pokemon favoritos para tu equipo</h2>
       }

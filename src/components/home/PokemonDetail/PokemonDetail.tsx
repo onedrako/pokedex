@@ -24,9 +24,9 @@ import { updateTeamStateOnDetail } from '@utils/reduxFuctions/updateTeamStateOnD
 
 const PokemonDetail = () => {
   const pokemonSelected: PokemonWithDetails = useSelector((state: any) => state.pokemonDetail.pokemon, shallowEqual)
-  const pokemonTeam = useSelector((state: any) => state.pokemon.pokemonTeam, shallowEqual)
-  const pokemonList = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
-  const showDetails = useSelector((state: any) => state.ui.showDetails)
+  const pokemonTeam: PokemonWithDetails[] = useSelector((state: any) => state.pokemon.pokemonTeam, shallowEqual)
+  const pokemonList: PokemonWithDetails[] = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
+  const showDetails: boolean = useSelector((state: any) => state.ui.showDetails)
   const dispatch = useDispatch()
 
 
@@ -67,13 +67,13 @@ const PokemonDetail = () => {
       (
         <img 
           className='pokemon-item__add-remove' 
-          src="https://i.imgur.com/3C0Kzrn.png" 
+          src="https://i.imgur.com/Qrm7Qrn.png" 
           alt="icon to add pokemon to team"
           onClick={(e) => {
             e.stopPropagation()
             addPokemonToTeamOnList(pokemonSelected, pokemonList, dispatch)
             addPokemonToTeam(pokemonSelected, pokemonTeam, dispatch)
-            updateTeamStateOnDetail(pokemonSelected, showDetails, dispatch )
+            updateTeamStateOnDetail(pokemonSelected, showDetails, dispatch, pokemonTeam.length)
             }
           }
           />
@@ -81,13 +81,13 @@ const PokemonDetail = () => {
       (
         <img 
         className='pokemon-item__add-remove' 
-        src="https://i.imgur.com/Bd6iXm8.png" 
+        src="https://i.imgur.com/LsQQ1EM.png" 
         alt="icon to remove pokemon to team"
         onClick={(e) => {
           e.stopPropagation()
           removePokemonFromTeamOnList( pokemonSelected, pokemonList, dispatch )
           removePokemonFromTeam( pokemonSelected, pokemonTeam, dispatch )
-          updateTeamStateOnDetail(pokemonSelected, showDetails, dispatch )
+          updateTeamStateOnDetail(pokemonSelected, showDetails, dispatch, pokemonTeam.length)
           }
         }
         />
