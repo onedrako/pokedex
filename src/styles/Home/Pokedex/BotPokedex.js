@@ -85,7 +85,10 @@ export const BotPokedexStyled = styled.div`
           background: #51cb33;
         }
       }
-
+  }
+  @media (min-width: 1024px) {
+    max-width: 70%;
+    left: 0;
   }
 
   }

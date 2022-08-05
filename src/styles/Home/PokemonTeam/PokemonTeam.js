@@ -33,6 +33,16 @@ export const TeamContainer = styled.section`
   @media (min-width: 590px) {
     max-width: 570px;
   }
+
+  @media (min-width: 1024px) {
+    position: fixed;
+    max-width: 30vw;
+    right: 0;
+    background: #f4fafc;
+    margin-top: 0;
+    height: 100%;
+
+  }
   `
 
 export const PokemonTeamTitlesStyled = styled.div`
@@ -61,6 +71,11 @@ export const PokemonChosenStyled = styled.div`
 
   @media (min-width: 768px) {
     padding: 25px;
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr;
+    grid-gap: 0px;
   }
 
 `

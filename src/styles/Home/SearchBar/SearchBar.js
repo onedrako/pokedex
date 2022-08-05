@@ -21,6 +21,10 @@ export const SearchBarContainer = styled.div`
     @media (min-width: 735px) {
     max-width: 570px;
     }
+
+    @media (min-width: 1024px) {
+      margin-top: 100px;
+    }
   }
 
   & > p{

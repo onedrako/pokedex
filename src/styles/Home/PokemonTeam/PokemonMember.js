@@ -40,4 +40,14 @@ export const PokemonMember = styled.div`
     z-index: 1;
     cursor: pointer;
   }  
+
+  @media (min-width: 1024px) {
+    height: 100px;
+    margin-top: 10px;
+    margin: 10px auto 0 auto; 
+    & > .pokemon-member__image{
+      width: 75px;
+      height: 75px;
+    }
+  }
 `

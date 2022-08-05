@@ -13,6 +13,12 @@ export const TopPokedexStyled = styled.div`
   z-index: 4;
   border-bottom: 4px solid #fff;
 
+  
+  @media (min-width: 1024px) {
+    max-width: 70%;
+    left: 0;
+  }
+
   @media (min-width: 400px) {
     & > .speaker-background{
     /* background: #fff; */
@@ -38,14 +44,9 @@ export const TopPokedexStyled = styled.div`
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        
       }
     }
-  }
-
-  }
-
- 
+  }}
 
   & > .container{
     width: 320px;
@@ -74,5 +75,4 @@ export const TopPokedexStyled = styled.div`
       z-index: 2;
       border: 25px solid #2b2e2e;
     }
-
 `
