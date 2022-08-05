@@ -21,7 +21,6 @@ const PokemonList = () => {
       <h2>Elige hasta 6 Pokémon para tu equipo</h2>
       <PokemonListContainer>
 
-
         {pokemons.length > 0 &&
           pokemons?.map((pokemon: PokemonWithDetails) => (
             <PokemonItem key={`pokemon-list-${pokemon.id}`} pokemon={pokemon} />

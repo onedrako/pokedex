@@ -6,13 +6,10 @@ export const PokemonItemContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  /* height: 150px; */
   border-radius: 5px;
   background-color: #88cedb;
-  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
   box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
   position: relative;
-  /* padding: 5px; */
   cursor: pointer;
 
   & > .pokemon-item__add-remove{
@@ -48,13 +45,11 @@ export const PokemonItemContainer = styled.div`
 
   & > .pokemon-item__types{
     width: 100%;
-    height: 30px;
+    height: 40px;
     display: flex;
     gap: 10px;
     align-items: center;
     justify-content: center;
     margin-bottom: 5px;
     }
-
-  }
 `

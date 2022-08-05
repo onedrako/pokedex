@@ -32,8 +32,8 @@ export const PokemonMember = styled.div`
     position: absolute;
     top: 5px;
     right: 5px;
-    width: 25px;
-    height: 25px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     background-color: #fff;
     z-index: 1;

@@ -16,6 +16,8 @@ import { PokemonWithDetails, POKEMON_TYPE_NAME } from '@customTypes/pokemonCusto
 import { IPokemonType } from 'pokeapi-typescript'
 import { PokemonType } from './PokemonType'
 import { addPokemonToTeam, removePokemonFromTeam } from '@utils/reduxFuctions/addRemovePokemonTeam'
+import { setPokemonDetail } from '@redux/slices/pokemonDetailSlice'
+import { setShowDetails } from '@redux/slices/uiSlice'
 
 
 const PokemonItem = ({ pokemon }: {pokemon: PokemonWithDetails}) => {
@@ -24,8 +26,13 @@ const PokemonItem = ({ pokemon }: {pokemon: PokemonWithDetails}) => {
   const pokemonTeam = useSelector((state: any) => state.pokemon.pokemonTeam, shallowEqual)
   const dispatch = useDispatch<AppDispatch>()
 
+  const openPokemonDetail = () => {
+    dispatch(setPokemonDetail(pokemon))
+    dispatch(setShowDetails(true))
+  }
+
   return (
-    <PokemonItemContainer onClick={() => console.log("click-container")}>
+    <PokemonItemContainer onClick={() => openPokemonDetail()}>
       {!pokemon.team ? 
       (
         <img 

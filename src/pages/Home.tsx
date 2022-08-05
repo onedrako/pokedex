@@ -10,6 +10,7 @@ import { AppDispatch } from 'index'
 import { PokemonTeam } from '@components/home/pokemonTeam/PokemonTeam'
 import { SearchBar } from '@components/home/SearchBar/SearchBar'
 import { PokemonList } from '@components/home/PokemonList/PokemonList'
+import { PokemonDetail } from '@components/home/PokemonDetail/PokemonDetail'
 
 // Styles
 import { PokedexImageTop, PokedexImagebot } from '@styles/Home/PokedexImages/PokedexImages'
@@ -17,12 +18,17 @@ import { Main } from '@styles/Home/Home.js'
 
 //Utils
 import { limitOfPokemonToAPIRequest, pokemonListLimit } from '@utils/constants/constants'
+import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
 
 
 const Home = () => {
-  const paginationOffset = useSelector((state: any) => state.pokemon.paginationOffset)
-  const pokemonList = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
+  const paginationOffset: number = useSelector((state: any) => state.pokemon.paginationOffset)
+  const pokemonList: PokemonWithDetails[] = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
+  const showDetails: boolean = useSelector((state: any) => state.ui.showDetails)
+
   const dispatch = useDispatch<AppDispatch>()
+
+  //Intersection Observer
   const { ref, inView } = useInView({
     threshold: 0.50
   })
@@ -42,19 +48,20 @@ const Home = () => {
 
     //This is in case the user scroll and there are elements to charge when pokemon number is less than the limit per page
     const newLimit =  (pokemonListLimit - pokemonList.length) % limitOfPokemonToAPIRequest
-    dispatch(fetchPokemonsWithDetails(`/pokemon?limit=${newLimit}&offset=${paginationOffset}`) as any) //TODO: fix type
-    dispatch(setPaginationOffset(paginationOffset + newLimit))
+      dispatch(fetchPokemonsWithDetails(`/pokemon?limit=${newLimit}&offset=${paginationOffset}`) as any) //TODO: fix type
+      dispatch(setPaginationOffset(paginationOffset + newLimit))
+    }, [inView])
 
-}, [inView])
 
   return (
     <Main>
-      <PokedexImageTop src="https://i.imgur.com/JkWQOWK.png" alt="" />
+      <PokedexImageTop src="https://i.imgur.com/JkWQOWK.png" alt="top pokedex image" />      
+        {showDetails && <PokemonDetail/>}
         <PokemonTeam/>
         <SearchBar/>
         <PokemonList />
         {pokemonList.length !== pokemonListLimit && <div ref={ref} ></div>}
-      <PokedexImagebot src="https://i.imgur.com/cWjlyxp.png" alt="" />
+      <PokedexImagebot src="https://i.imgur.com/cWjlyxp.png" alt="bottom pokedex image" />
     </Main>
   )
 }

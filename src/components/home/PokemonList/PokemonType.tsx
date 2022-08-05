@@ -1,9 +1,9 @@
-import { Type } from '@styles/Home/PokemonList/pokemonType'
+// Libraries
 import React from 'react'
+
+// Types TS
+import { Type } from '@styles/Home/PokemonList/pokemonType'
 import { POKEMON_TYPE_NAME,POKEMON_TYPE_COLOR } from '@customTypes/pokemonCustomTypes'
-
-
-
 
 const PokemonType = ({pokemonType}: {pokemonType: keyof typeof POKEMON_TYPE_NAME }) => {
   return (

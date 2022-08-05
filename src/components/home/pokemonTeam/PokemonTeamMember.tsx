@@ -15,15 +15,11 @@ import { PokemonMember } from '@styles/Home/PokemonTeam/PokemonMember'
 import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
 import { POKEMON_TYPE_COLOR } from '@customTypes/pokemonCustomTypes'
 import { removePokemonFromTeam } from '@utils/reduxFuctions/addRemovePokemonTeam'
+import { getGradientByType } from '@utils/getGradientByType'
 
 
 const PokemonTeamMember = ({pokemon}: {pokemon: PokemonWithDetails}) => {
-  const type1 = pokemon.types[0].type.name as keyof typeof POKEMON_TYPE_COLOR
-  const type2 = pokemon.types[1] 
-    ? pokemon.types[1].type.name as keyof typeof POKEMON_TYPE_COLOR 
-    : pokemon.types[0].type.name as keyof typeof POKEMON_TYPE_COLOR
-
-  const gradient = `linear-gradient(80deg,${POKEMON_TYPE_COLOR[type1]} 0%,${POKEMON_TYPE_COLOR[type2]} 100%)`
+  const gradient = getGradientByType(pokemon.types)
 
   const pokemonList = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
   const pokemonTeam = useSelector((state: any) => state.pokemon.pokemonTeam, shallowEqual)
@@ -31,7 +27,7 @@ const PokemonTeamMember = ({pokemon}: {pokemon: PokemonWithDetails}) => {
 
 
   return (
-    <PokemonMember gradient={gradient}  >
+    <PokemonMember gradient={gradient} onClick={() => console.log("click-container")}>
         <img 
           className='pokemon-item__add-remove' 
           src="https://i.imgur.com/Bd6iXm8.png" 

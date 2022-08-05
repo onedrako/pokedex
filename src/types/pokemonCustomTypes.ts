@@ -49,3 +49,12 @@ export enum POKEMON_TYPE_NAME{
   poison = 'Veneno',
   flying = 'Volador',
 }
+
+export enum POKEMON_STATS{
+  hp = 'HP',
+  attack = 'Ataque',
+  defense = 'Defensa',
+  sA = 'Ataque Especial',
+  sD = 'Defensa Especial',
+  speed = 'Velocidad',
+}
