@@ -19,6 +19,8 @@ import { Main } from '@styles/Home/Home.js'
 //Utils
 import { limitOfPokemonToAPIRequest, pokemonListLimit } from '@utils/constants/constants'
 import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
+import { Header } from '@components/home/Header'
+import { Footer } from '@components/home/Footer'
 
 
 const Home = () => {
@@ -54,21 +56,25 @@ const Home = () => {
 
 
   return (
-    <Main>
-      <PokedexImageTop src="https://i.imgur.com/JkWQOWK.png" alt="top pokedex image" />      
-        {showDetails && <PokemonDetail/>}
-        {!showDetails &&
-        (
-          <>
-            <PokemonTeam/>
-            <SearchBar/>
-            <PokemonList />
-            {pokemonList.length !== pokemonListLimit && <div ref={ref} ></div>}
-          </>
-        )
-      }
-      <PokedexImagebot src="https://i.imgur.com/cWjlyxp.png" alt="bottom pokedex image" />
-    </Main>
+    <>
+      <Main>
+      <Header/>
+        <PokedexImageTop src="https://i.imgur.com/JkWQOWK.png" alt="top pokedex image" />      
+          {showDetails && <PokemonDetail/>}
+          {!showDetails &&
+          (
+            <>
+              <PokemonTeam/>
+              <SearchBar/>
+              <PokemonList />
+              {pokemonList.length !== pokemonListLimit && <div ref={ref} ></div>}
+            </>
+          )
+        }
+        <PokedexImagebot src="https://i.imgur.com/cWjlyxp.png" alt="bottom pokedex image" />
+        <Footer/>
+      </Main>
+    </>
   )
 }
 

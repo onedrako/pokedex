@@ -13,8 +13,7 @@ const SearchBar = () => {
   
   //When user type on input data is going here and term executes the effect to fetch pokemon data by search
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target
-    
+    const { value } = e.target    
     dispatch(setTerm(value))
   }
   

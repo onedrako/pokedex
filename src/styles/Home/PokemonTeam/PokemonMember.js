@@ -6,6 +6,7 @@ export const PokemonMember = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  max-width: 200px;
   height: 125px;
   border-radius: 10px;
   border: 1px solid #000;
