@@ -11,16 +11,17 @@ import { PokemonTeam } from '@components/home/pokemonTeam/PokemonTeam'
 import { SearchBar } from '@components/home/SearchBar/SearchBar'
 import { PokemonList } from '@components/home/PokemonList/PokemonList'
 import { PokemonDetail } from '@components/home/PokemonDetail/PokemonDetail'
+import { TopPokedex } from '@components/home/Pokedex/TopPokedex'
+import { BotPokedex } from '@components/home/Pokedex/BotPokedex'
 
 // Styles
-import { PokedexImageTop, PokedexImagebot } from '@styles/Home/PokedexImages/PokedexImages'
 import { Main } from '@styles/Home/Home.js'
 
 //Utils
 import { limitOfPokemonToAPIRequest, pokemonListLimit } from '@utils/constants/constants'
+
+//Types TS
 import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
-import { TopPokedex } from '@components/home/Pokedex/TopPokedex'
-import { BotPokedex } from '@components/home/Pokedex/BotPokedex'
 
 
 const Home = () => {
@@ -54,24 +55,19 @@ const Home = () => {
       dispatch(setPaginationOffset(paginationOffset + newLimit))
     }, [inView])
 
-
   return (
     <>
       <Main>
       <TopPokedex/>
-        {/* <PokedexImageTop src="https://i.imgur.com/JkWQOWK.png" alt="top pokedex image" />       */}
           {showDetails && <PokemonDetail/>}
-          {!showDetails &&
-          (
+          <PokemonTeam />
+          {!showDetails && (
             <>
-              <PokemonTeam/>
               <SearchBar/>
               <PokemonList />
               {pokemonList.length !== pokemonListLimit && <div ref={ref} ></div>}
             </>
-          )
-        }
-        {/* <PokedexImagebot src="https://i.imgur.com/cWjlyxp.png" alt="bottom pokedex image" /> */}
+          )}
         <BotPokedex/>
       </Main>
     </>

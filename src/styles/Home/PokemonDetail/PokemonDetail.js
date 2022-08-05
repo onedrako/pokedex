@@ -81,12 +81,15 @@ export const PokemonDetailContainer = styled.section`
     }
   } 
 
-
-  & > .pokemon-details__image{
+  & > .pokemon-details__image-container{
+    width: 100%;
     position: absolute;
-    width: 80%;
-    /* top: 60px; */
-    right: 30px;
+    display: flex;
+    justify-content: center;
+    & > .pokemon-details__image{
+      width: 228px;
+      right: 30px;
+    }
   }
 
   & > .pokemon-details__back{
@@ -102,6 +105,11 @@ export const PokemonDetailContainer = styled.section`
     right: 10px;
     top: 10px;
   }
+
+  @media (min-width: 600px) {
+    max-width: 550px;
+  }
+
   `
 export const PokemonDetailHeader = styled.div`
   height: 30%;

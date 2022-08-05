@@ -4,6 +4,8 @@ import React from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { AppDispatch } from 'index'
 import { removePokemonFromTeamOnList } from '@utils/reduxFuctions/addRemovePokemonTeamOnList'
+import { setPokemonDetail } from '@redux/slices/pokemonDetailSlice'
+import { setShowDetails } from '@redux/slices/uiSlice'
 
 //Utils
 import { capitalizeFirstLetter } from '@utils/capitalize'
@@ -13,7 +15,6 @@ import { PokemonMember } from '@styles/Home/PokemonTeam/PokemonMember'
 
 // Types
 import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
-import { POKEMON_TYPE_COLOR } from '@customTypes/pokemonCustomTypes'
 import { removePokemonFromTeam } from '@utils/reduxFuctions/addRemovePokemonTeam'
 import { getGradientByType } from '@utils/getGradientByType'
 
@@ -25,9 +26,14 @@ const PokemonTeamMember = ({pokemon}: {pokemon: PokemonWithDetails}) => {
   const pokemonTeam = useSelector((state: any) => state.pokemon.pokemonTeam, shallowEqual)
   const dispatch = useDispatch<AppDispatch>()
 
+  const openPokemonDetail = () => {
+    dispatch(setPokemonDetail(pokemon))
+    dispatch(setShowDetails(true))
+  }
+
 
   return (
-    <PokemonMember gradient={gradient} onClick={() => console.log("click-container")}>
+    <PokemonMember gradient={gradient} onClick={() => openPokemonDetail()}>
         <img 
           className='pokemon-item__add-remove' 
           src="https://i.imgur.com/Bd6iXm8.png" 

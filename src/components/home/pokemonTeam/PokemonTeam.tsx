@@ -1,16 +1,24 @@
+//Libraries
 import React from 'react'
-import { PokemonChosenStyled, TeamContainer } from '@styles/Home/PokemonTeam/PokemonTeam'
-import PokemonTeamTitles from './PokemonTeamTitles'
-import SkeletonPokemonTeam from './SkeletonPokemonTeam'
+//Redux
 import { shallowEqual, useSelector } from 'react-redux'
-import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
+
+//Styles
+import { PokemonChosenStyled, TeamContainer } from '@styles/Home/PokemonTeam/PokemonTeam'
+
+//Cpmponents
+import {PokemonTeamTitles} from './PokemonTeamTitles'
 import {PokemonTeamMember} from './PokemonTeamMember'
+
+//Types TS
+import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
 
 const PokemonTeam = () => {
   const userPokemonTeam: PokemonWithDetails[] = useSelector((state: any) => state.pokemon.pokemonTeam, shallowEqual)
-  const loading: boolean = useSelector((state: any) => state.ui.loading)
+  const showDetails = useSelector((state: any) => state.ui.showDetails, shallowEqual)
+
   return (
-    <TeamContainer>
+    <TeamContainer showDetails={showDetails}>
       <PokemonTeamTitles/>
       <img src="https://i.imgur.com/Q5tAVHW.png" alt=""/>
       {userPokemonTeam.length === 0 &&

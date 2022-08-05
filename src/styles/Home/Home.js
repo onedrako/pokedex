@@ -13,8 +13,5 @@ export const Main = styled.main`
 
   @media (min-width: 1024px) {
     max-width: 70%;
-    /* display: grid;
-    grid-template-columns: 70% 30%;
-    grid-template-areas: "searcher-team pokemon-team"; */
   }
 `

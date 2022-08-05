@@ -54,8 +54,11 @@ const PokemonDetail = () => {
         </div>
 
       </div>
+      
+      <figure className='pokemon-details__image-container'>
+        <img className='pokemon-details__image' src={pokemonSelected.sprites.front_default} alt={`${pokemonSelected.name} image`} />
+      </figure>
 
-      <img className='pokemon-details__image' src={pokemonSelected.sprites.front_default} alt={`${pokemonSelected.name} image`} />
       <img className='pokemon-details__back' src="https://cdn-icons-png.flaticon.com/512/860/860790.png" alt={`Go back icon`} onClick={() => dispatch(setShowDetails(false))} />
       
       {!pokemonSelected.team ? 

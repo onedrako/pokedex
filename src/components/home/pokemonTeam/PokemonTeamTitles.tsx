@@ -9,4 +9,4 @@ const PokemonTeamTitles = () => {
   )
 }
 
-export default PokemonTeamTitles
+export {PokemonTeamTitles}

@@ -5,17 +5,18 @@ export const TeamContainer = styled.section`
   padding: 25px 10px 0 10px; 
   width: 100%;
   max-width: 850px;
-  display: grid;
+  display: ${props => props.showDetails ? 'none' : 'grid'};
   grid-template-columns: 30% 70%;
+  grid-template-rows: 80px 1fr;
   grid-template-areas: 
     "pokeball title" 
     "pokemon pokemon";
   grid-gap: 15px;
   justify-content: center;
-  align-items: center;
   color: #000;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   border-radius: 0 0 10px 10px;
+
 
 
   & > img{
@@ -35,13 +36,16 @@ export const TeamContainer = styled.section`
   }
 
   @media (min-width: 1024px) {
+    display: grid;
     position: fixed;
     max-width: 30vw;
     right: 0;
     background: #f4fafc;
     margin-top: 0;
     height: 100%;
-
+    padding: 10px;
+    grid-gap: 5px;
+    z-index: 5;
   }
   `
 
@@ -50,7 +54,7 @@ export const PokemonTeamTitlesStyled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  overflow: hidden;
   & > h1 {
     text-align: center;
     font-size: 2rem;
@@ -65,7 +69,6 @@ export const PokemonChosenStyled = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); 
   gap: 5px;
   justify-content: center;
-  align-items: center;
   margin: 0 auto;
   justify-self: center;
 
@@ -75,7 +78,10 @@ export const PokemonChosenStyled = styled.div`
 
   @media (min-width: 1024px) {
     grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
     grid-gap: 0px;
+    padding: 0 25px;
+
   }
 
 `
