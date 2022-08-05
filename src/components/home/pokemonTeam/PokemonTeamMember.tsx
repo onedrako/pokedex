@@ -17,6 +17,7 @@ import { PokemonMember } from '@styles/Home/PokemonTeam/PokemonMember'
 import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
 import { removePokemonFromTeam } from '@utils/reduxFuctions/addRemovePokemonTeam'
 import { getGradientByType } from '@utils/getGradientByType'
+import { updateTeamStateOnDetail } from '@utils/reduxFuctions/updateTeamStateOnDetail'
 
 
 const PokemonTeamMember = ({pokemon}: {pokemon: PokemonWithDetails}) => {
@@ -24,6 +25,8 @@ const PokemonTeamMember = ({pokemon}: {pokemon: PokemonWithDetails}) => {
 
   const pokemonList = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
   const pokemonTeam = useSelector((state: any) => state.pokemon.pokemonTeam, shallowEqual)
+  const showDetails = useSelector((state: any) => state.ui.showDetails)
+
   const dispatch = useDispatch<AppDispatch>()
 
   const openPokemonDetail = () => {
@@ -42,6 +45,7 @@ const PokemonTeamMember = ({pokemon}: {pokemon: PokemonWithDetails}) => {
             e.stopPropagation()
             removePokemonFromTeamOnList( pokemon, pokemonList, dispatch )
             removePokemonFromTeam( pokemon, pokemonTeam, dispatch )
+            updateTeamStateOnDetail(pokemon, showDetails, dispatch )
             }
           }
         />

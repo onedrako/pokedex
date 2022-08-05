@@ -18,6 +18,7 @@ import { PokemonWithDetails, POKEMON_TYPE_NAME } from '@customTypes/pokemonCusto
 import { addPokemonToTeamOnList, removePokemonFromTeamOnList } from '@utils/reduxFuctions/addRemovePokemonTeamOnList'
 import { addPokemonToTeam, removePokemonFromTeam } from '@utils/reduxFuctions/addRemovePokemonTeam'
 import { setShowDetails } from '@redux/slices/uiSlice'
+import { updateTeamStateOnDetail } from '@utils/reduxFuctions/updateTeamStateOnDetail'
 
 
 
@@ -25,6 +26,7 @@ const PokemonDetail = () => {
   const pokemonSelected: PokemonWithDetails = useSelector((state: any) => state.pokemonDetail.pokemon, shallowEqual)
   const pokemonTeam = useSelector((state: any) => state.pokemon.pokemonTeam, shallowEqual)
   const pokemonList = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
+  const showDetails = useSelector((state: any) => state.ui.showDetails)
   const dispatch = useDispatch()
 
 
@@ -71,7 +73,7 @@ const PokemonDetail = () => {
             e.stopPropagation()
             addPokemonToTeamOnList(pokemonSelected, pokemonList, dispatch)
             addPokemonToTeam(pokemonSelected, pokemonTeam, dispatch)
-            dispatch(setShowDetails(false))
+            updateTeamStateOnDetail(pokemonSelected, showDetails, dispatch )
             }
           }
           />
@@ -85,7 +87,7 @@ const PokemonDetail = () => {
           e.stopPropagation()
           removePokemonFromTeamOnList( pokemonSelected, pokemonList, dispatch )
           removePokemonFromTeam( pokemonSelected, pokemonTeam, dispatch )
-          dispatch(setShowDetails(false))
+          updateTeamStateOnDetail(pokemonSelected, showDetails, dispatch )
           }
         }
         />
