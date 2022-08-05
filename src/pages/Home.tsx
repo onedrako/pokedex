@@ -57,10 +57,16 @@ const Home = () => {
     <Main>
       <PokedexImageTop src="https://i.imgur.com/JkWQOWK.png" alt="top pokedex image" />      
         {showDetails && <PokemonDetail/>}
-        <PokemonTeam/>
-        <SearchBar/>
-        <PokemonList />
-        {pokemonList.length !== pokemonListLimit && <div ref={ref} ></div>}
+        {!showDetails &&
+        (
+          <>
+            <PokemonTeam/>
+            <SearchBar/>
+            <PokemonList />
+            {pokemonList.length !== pokemonListLimit && <div ref={ref} ></div>}
+          </>
+        )
+      }
       <PokedexImagebot src="https://i.imgur.com/cWjlyxp.png" alt="bottom pokedex image" />
     </Main>
   )

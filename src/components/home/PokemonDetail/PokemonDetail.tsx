@@ -14,10 +14,9 @@ import { PokemonDetailContainer, PokemonDetailHeader } from '@styles/Home/Pokemo
 //Types TS
 import { IPokemonStat, IPokemonType } from 'pokeapi-typescript'
 import { PokemonType } from '../PokemonList/PokemonType'
-import { PokemonWithDetails, POKEMON_TYPE_NAME, POKEMON_STATS } from '@customTypes/pokemonCustomTypes'
+import { PokemonWithDetails, POKEMON_TYPE_NAME } from '@customTypes/pokemonCustomTypes'
 import { addPokemonToTeamOnList, removePokemonFromTeamOnList } from '@utils/reduxFuctions/addRemovePokemonTeamOnList'
 import { addPokemonToTeam, removePokemonFromTeam } from '@utils/reduxFuctions/addRemovePokemonTeam'
-import { setPokemonDetail } from '@redux/slices/pokemonDetailSlice'
 import { setShowDetails } from '@redux/slices/uiSlice'
 
 
