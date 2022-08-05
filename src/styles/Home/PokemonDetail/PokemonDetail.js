@@ -97,6 +97,7 @@ export const PokemonDetailContainer = styled.section`
     width: 30px;
     top: 15px;
     left: 10px;
+    cursor: pointer;
   }
 
   & > .pokemon-item__add-remove{
@@ -104,6 +105,7 @@ export const PokemonDetailContainer = styled.section`
     width: 50px;
     right: 10px;
     top: 10px;
+    cursor: pointer;
   }
 
   @media (min-width: 600px) {

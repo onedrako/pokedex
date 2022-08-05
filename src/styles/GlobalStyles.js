@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
   }
   body{
     font-size: 62.5%;
-    background: #2b2e2e;
+    background: #f4fafc;
     color: #000; 
     overflow-x: hidden; 
   }

@@ -24,13 +24,6 @@ export const TeamContainer = styled.section`
     margin: 0 auto;
   }
 
-  & > .pokemon-team-empty{
-    grid-area: pokemon;
-    font-size: 1.2rem;
-    padding: 10px;
-    text-align: center;
-  }
-
   @media (min-width: 590px) {
     max-width: 570px;
   }
@@ -39,13 +32,24 @@ export const TeamContainer = styled.section`
     display: grid;
     position: fixed;
     max-width: 30vw;
-    right: 0;
+    right: 0px;
     background: #f4fafc;
     margin-top: 0;
     height: 100%;
     padding: 10px;
     grid-gap: 5px;
     z-index: 5;
+    grid-template-rows: 100px 1fr;
+    animation: movetoPlace 1s ease-in-out;
+
+    @keyframes movetoPlace {
+      from {
+        right: -500px;
+      } 
+      to {
+        right: 0;
+      }
+    }
   }
   `
 
@@ -71,17 +75,39 @@ export const PokemonChosenStyled = styled.div`
   justify-content: center;
   margin: 0 auto;
   justify-self: center;
-
+  
   @media (min-width: 768px) {
     padding: 25px;
   }
-
+  
   @media (min-width: 1024px) {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 1fr);
     grid-gap: 0px;
     padding: 0 25px;
-
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border-radius: 10px;
   }
 
 `
+
+export const EmptyTeam = styled.div`
+  grid-area: pokemon;
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  
+  & > h2{
+    font-size: 1.2rem;
+    text-align: center;
+    width: 80%;
+    background: #f4fafc;
+    border-radius: 10px;
+  }
+
+  & > img{
+    width: 100px;
+  }
+
+`
+

@@ -12,6 +12,7 @@ export const PokemonMember = styled.div`
   border: 1px solid #000;
   background: ${props => props.gradient};
   position: relative;
+    cursor: pointer;
 
   & > .pokemon-member__image{
     width: 100px;

@@ -61,7 +61,7 @@ const PokemonDetail = () => {
         <img className='pokemon-details__image' src={pokemonSelected.sprites.front_default} alt={`${pokemonSelected.name} image`} />
       </figure>
 
-      <img className='pokemon-details__back' src="https://cdn-icons-png.flaticon.com/512/860/860790.png" alt={`Go back icon`} onClick={() => dispatch(setShowDetails(false))} />
+      <img className='pokemon-details__back' src="https://i.imgur.com/06KKIXc.png" alt={`Go back icon`} onClick={() => dispatch(setShowDetails(false))} />
       
       {!pokemonSelected.team ? 
       (

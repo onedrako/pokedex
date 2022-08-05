@@ -4,7 +4,7 @@ import React from 'react'
 import { shallowEqual, useSelector } from 'react-redux'
 
 //Styles
-import { PokemonChosenStyled, TeamContainer } from '@styles/Home/PokemonTeam/PokemonTeam'
+import { EmptyTeam, PokemonChosenStyled, TeamContainer } from '@styles/Home/PokemonTeam/PokemonTeam'
 
 //Cpmponents
 import {PokemonTeamTitles} from './PokemonTeamTitles'
@@ -22,7 +22,11 @@ const PokemonTeam = () => {
       <PokemonTeamTitles/>
       <img src="https://i.imgur.com/XzODe9l.png" alt=""/>
       {userPokemonTeam.length === 0 &&
-        <h2 className='pokemon-team-empty'>Es peligro andar por la hierba alta sin pokemon, elige a tus Pokemon favoritos para tu equipo</h2>
+        <EmptyTeam>
+          <img src="https://i.imgur.com/fTfcC3j.png" alt="" />
+        
+          <h2>¡Alto ahí persona! Es peligroso andar por la hierba alta sin Pokémon, elige a tus Pokémon favoritos para tu equipo</h2>
+        </EmptyTeam>
       }
       {userPokemonTeam.length > 0 &&
         <PokemonChosenStyled>
