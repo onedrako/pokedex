@@ -16,16 +16,6 @@ const PokemonTeam = () => {
       {userPokemonTeam.length === 0 &&
         <h2 className='pokemon-team-empty'>Es peligro andar por la hierba alta sin pokemon, elige a tus Pokemon favoritos para tu equipo</h2>
       }
-      {/* {loading && userPokemonTeam.length === 0 && (
-        <PokemonChosenStyled>
-          <SkeletonPokemonTeam/>
-          <SkeletonPokemonTeam/>
-          <SkeletonPokemonTeam/>
-          <SkeletonPokemonTeam/>
-          <SkeletonPokemonTeam/>
-          <SkeletonPokemonTeam/>
-        </PokemonChosenStyled>
-      )} */}
       {userPokemonTeam.length > 0 &&
         <PokemonChosenStyled>
           {userPokemonTeam.map((pokemon: PokemonWithDetails) => (

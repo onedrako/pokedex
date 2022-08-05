@@ -19,8 +19,8 @@ import { Main } from '@styles/Home/Home.js'
 //Utils
 import { limitOfPokemonToAPIRequest, pokemonListLimit } from '@utils/constants/constants'
 import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
-import { Header } from '@components/home/Header'
-import { Footer } from '@components/home/Footer'
+import { TopPokedex } from '@components/home/Pokedex/TopPokedex'
+import { BotPokedex } from '@components/home/Pokedex/BotPokedex'
 
 
 const Home = () => {
@@ -58,8 +58,8 @@ const Home = () => {
   return (
     <>
       <Main>
-      <Header/>
-        <PokedexImageTop src="https://i.imgur.com/JkWQOWK.png" alt="top pokedex image" />      
+      <TopPokedex/>
+        {/* <PokedexImageTop src="https://i.imgur.com/JkWQOWK.png" alt="top pokedex image" />       */}
           {showDetails && <PokemonDetail/>}
           {!showDetails &&
           (
@@ -71,8 +71,8 @@ const Home = () => {
             </>
           )
         }
-        <PokedexImagebot src="https://i.imgur.com/cWjlyxp.png" alt="bottom pokedex image" />
-        <Footer/>
+        {/* <PokedexImagebot src="https://i.imgur.com/cWjlyxp.png" alt="bottom pokedex image" /> */}
+        <BotPokedex/>
       </Main>
     </>
   )

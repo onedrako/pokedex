@@ -4,9 +4,9 @@ export const TeamContainer = styled.section`
   margin-top: 100px;
   padding: 25px 10px 25px 10px; 
   width: 100%;
+  max-width: 850px;
   display: grid;
   grid-template-columns: 30% 70%;
-  grid-template-rows: 50px fill;
   grid-template-areas: 
     "pokeball title" 
     "pokemon pokemon";
@@ -16,6 +16,7 @@ export const TeamContainer = styled.section`
   color: #000;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   border-radius: 0 0 10px 10px;
+
 
   & > img{
     width: 75px;
@@ -47,10 +48,15 @@ export const PokemonChosenStyled = styled.div`
   width: 100%;
   display: grid;
   padding: 10px;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); 
   gap: 5px;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
   justify-self: center;
+
+  @media (min-width: 768px) {
+    padding: 25px;
+  }
+
 `
