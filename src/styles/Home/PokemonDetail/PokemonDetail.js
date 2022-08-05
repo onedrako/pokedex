@@ -88,6 +88,20 @@ export const PokemonDetailContainer = styled.section`
     /* top: 60px; */
     right: 30px;
   }
+
+  & > .pokemon-details__back{
+    position: absolute;
+    width: 30px;
+    top: 15px;
+    left: 10px;
+  }
+
+  & > .pokemon-item__add-remove{
+    position: absolute;
+    width: 50px;
+    right: 10px;
+    top: 10px;
+  }
   `
 export const PokemonDetailHeader = styled.div`
   height: 30%;
