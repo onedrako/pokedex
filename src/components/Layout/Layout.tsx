@@ -1,11 +1,17 @@
+//Libraries
+import React, { ReactNode } from 'react'
+//Redux
+import { useSelector } from 'react-redux'
+
+//Components
+import { Main } from '@styles/Home/Home'
+import { PokemonTeam } from '@components/home/pokemonTeam/PokemonTeam'
 import { Notification } from '@components/Events/Notification'
 import { BotPokedex } from '@components/home/Pokedex/BotPokedex'
 import { TopPokedex } from '@components/home/Pokedex/TopPokedex'
-import { PokemonTeam } from '@components/home/pokemonTeam/PokemonTeam'
-import { Main } from '@styles/Home/Home'
-import { NotificationContainer } from '@styles/Home/Pokedex/NotificationContainer'
-import React, { ReactNode } from 'react'
-import { useSelector } from 'react-redux'
+//Messages
+import { NotificationContainer } from '@styles/Home/Events/NotificationContainer'
+import { ConfirmMessage } from '@components/Events/ConfirmMessage'
 
 const Layout = ({children}: {children: ReactNode}) => {
   const MaxPokemonError: boolean = useSelector((state: any) => state.uiError.maxPokemonError)
@@ -18,6 +24,7 @@ const Layout = ({children}: {children: ReactNode}) => {
             <Notification/>   
           </NotificationContainer>
       }
+      <ConfirmMessage/>
       <PokemonTeam />
       {children}
     </Main>
