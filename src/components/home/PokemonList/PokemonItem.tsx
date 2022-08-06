@@ -18,6 +18,7 @@ import { PokemonType } from './PokemonType'
 import { addPokemonToTeam, removePokemonFromTeam } from '@utils/reduxFuctions/addRemovePokemonTeam'
 import { setPokemonDetail } from '@redux/slices/pokemonDetailSlice'
 import { setShowDetails, setTriggerPokedexAnimation } from '@redux/slices/uiSlice'
+import { useNavigate } from 'react-router-dom'
 
 
 const PokemonItem = ({ pokemon }: {pokemon: PokemonWithDetails}) => {
@@ -26,9 +27,18 @@ const PokemonItem = ({ pokemon }: {pokemon: PokemonWithDetails}) => {
   const pokemonTeam = useSelector((state: any) => state.pokemon.pokemonTeam, shallowEqual)
   const dispatch = useDispatch<AppDispatch>()
 
+  const navigate = useNavigate()
+
+
   const openPokemonDetail = () => {
+    setTimeout(() => {
+      dispatch(setShowDetails(true))
+      navigate(`/pokemon`)
+      setTimeout(() => {
+        dispatch(setTriggerPokedexAnimation(false))
+      }, 475)
+    }, 380)
     dispatch(setPokemonDetail(pokemon))
-    dispatch(setShowDetails(true))
     dispatch(setTriggerPokedexAnimation(true))
   }
 

@@ -2,6 +2,7 @@
 import React from 'react'
 //Redux
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
+import { updateTeamStateOnDetail } from '@utils/reduxFuctions/updateTeamStateOnDetail'
 
 //Utils
 import { capitalizeFirstLetter } from '@utils/capitalize'
@@ -17,8 +18,8 @@ import { PokemonType } from '../PokemonList/PokemonType'
 import { PokemonWithDetails, POKEMON_TYPE_NAME } from '@customTypes/pokemonCustomTypes'
 import { addPokemonToTeamOnList, removePokemonFromTeamOnList } from '@utils/reduxFuctions/addRemovePokemonTeamOnList'
 import { addPokemonToTeam, removePokemonFromTeam } from '@utils/reduxFuctions/addRemovePokemonTeam'
-import { setShowDetails } from '@redux/slices/uiSlice'
-import { updateTeamStateOnDetail } from '@utils/reduxFuctions/updateTeamStateOnDetail'
+import { setShowDetails, setTriggerPokedexAnimation } from '@redux/slices/uiSlice'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -28,6 +29,19 @@ const PokemonDetail = () => {
   const pokemonList: PokemonWithDetails[] = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
   const showDetails: boolean = useSelector((state: any) => state.ui.showDetails)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+
+  const closePokemonDetail = () => {
+    setTimeout(() => {
+      dispatch(setShowDetails(false))
+      navigate('/')
+      setTimeout(() => {
+        dispatch(setTriggerPokedexAnimation(false))
+      }, 475)
+    }, 380)
+    dispatch(setTriggerPokedexAnimation(true))
+  }
 
 
   const gradient = getGradientByType(pokemonSelected.types)
@@ -61,10 +75,10 @@ const PokemonDetail = () => {
         <img className='pokemon-details__image' src={pokemonSelected.sprites.front_default} alt={`${pokemonSelected.name} image`} />
       </figure>
 
-      <img className='pokemon-details__back' src="https://i.imgur.com/06KKIXc.png" alt={`Go back icon`} onClick={() => dispatch(setShowDetails(false))} />
-      
+        <img className='pokemon-details__back' src="https://i.imgur.com/06KKIXc.png" alt={`Go back icon`} onClick={() => closePokemonDetail()} />
+
       {!pokemonSelected.team ? 
-      (
+      ( 
         <img 
           className='pokemon-item__add-remove' 
           src="https://i.imgur.com/Qrm7Qrn.png" 
@@ -87,7 +101,7 @@ const PokemonDetail = () => {
           e.stopPropagation()
           removePokemonFromTeamOnList( pokemonSelected, pokemonList, dispatch )
           removePokemonFromTeam( pokemonSelected, pokemonTeam, dispatch )
-          updateTeamStateOnDetail(pokemonSelected, showDetails, dispatch, pokemonTeam.length)
+          updateTeamStateOnDetail(pokemonSelected, showDetails, dispatch, pokemonTeam.length)         
           }
         }
         />

@@ -11,18 +11,13 @@ import { PokemonTeam } from '@components/home/pokemonTeam/PokemonTeam'
 import { SearchBar } from '@components/home/SearchBar/SearchBar'
 import { PokemonList } from '@components/home/PokemonList/PokemonList'
 import { PokemonDetail } from '@components/home/PokemonDetail/PokemonDetail'
-import { TopPokedex } from '@components/home/Pokedex/TopPokedex'
-import { BotPokedex } from '@components/home/Pokedex/BotPokedex'
-
-// Styles
-import { Main } from '@styles/Home/Home.js'
 
 //Utils
 import { limitOfPokemonToAPIRequest, pokemonListLimit } from '@utils/constants/constants'
 
 //Types TS
 import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
-import { Notification } from '@components/home/Events/Notification'
+import { Notification } from '@components/Events/Notification'
 import { NotificationContainer } from '@styles/Home/Pokedex/NotificationContainer'
 
 
@@ -59,23 +54,18 @@ const Home = () => {
     }, [inView])
 
   return (
-    <Main>
+    <>
       { MaxPokemonError && 
         <NotificationContainer>
           <Notification/>   
         </NotificationContainer>
       }
-      {showDetails && <PokemonDetail/>}
       <PokemonTeam />
-      {!showDetails && (
-        <>
-          <SearchBar/>
-          <PokemonList />
-          {pokemonList.length !== pokemonListLimit && <div ref={ref} ></div>}
-        </>
-      )}
-    </Main>
 
+      <SearchBar/>
+      <PokemonList />
+      {pokemonList.length !== pokemonListLimit && <div ref={ref} ></div>}
+    </>
 
   )
 }
