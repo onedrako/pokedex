@@ -17,15 +17,11 @@ import { limitOfPokemonToAPIRequest, pokemonListLimit } from '@utils/constants/c
 
 //Types TS
 import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
-import { Notification } from '@components/Events/Notification'
-import { NotificationContainer } from '@styles/Home/Pokedex/NotificationContainer'
-
 
 const Home = () => {
   const paginationOffset: number = useSelector((state: any) => state.pokemon.paginationOffset)
   const pokemonList: PokemonWithDetails[] = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
   const showDetails: boolean = useSelector((state: any) => state.ui.showDetails)
-
 
   const dispatch = useDispatch<AppDispatch>()
 
@@ -55,9 +51,7 @@ const Home = () => {
 
   return (
     <>
-
-      <PokemonTeam />
-
+      {/* <PokemonTeam /> */}
       <SearchBar/>
       <PokemonList />
       {pokemonList.length !== pokemonListLimit && <div ref={ref} ></div>}
