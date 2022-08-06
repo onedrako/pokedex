@@ -6,19 +6,32 @@ export const BotPokedexStyled = styled.div`
   position: fixed;
   width: 100%;
   height: 100px;
+  height: 50%;
   display: flex;
   bottom: 0;
   z-index: 4;
   justify-content: center;
   border-top: 4px solid #fff;
+  animation: showFromBottom 0.5s ease-in-out;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+
+  @keyframes showFromBottom {
+    from {
+      height: 50%;
+    }
+    to {
+      height: 100px; 
+    }
+  }
 
   & > .container{
     width: 320px;
+    height: 96px;
     background: inherit;
     display: flex;
     justify-content: center;
-    position: relative;
-
+    position: sticky;
 
     & > .background-circle{
       background: #fff;
@@ -51,7 +64,7 @@ export const BotPokedexStyled = styled.div`
       align-items: center;
       position: absolute;
       z-index: 5;
-      bottom: 5px;
+      top: 35px;
       right: 5%;
       padding: 10px;
   
@@ -86,11 +99,11 @@ export const BotPokedexStyled = styled.div`
         }
       }
   }
+
   @media (min-width: 1024px) {
     max-width: 70%;
     left: 0;
   }
 
   }
-  
 `
