@@ -10,7 +10,7 @@ import { AppDispatch } from 'index'
 import { PokemonTeam } from '@components/home/pokemonTeam/PokemonTeam'
 import { SearchBar } from '@components/home/SearchBar/SearchBar'
 import { PokemonList } from '@components/home/PokemonList/PokemonList'
-import { PokemonDetail } from '@components/home/PokemonDetail/PokemonDetail'
+import { PokemonDetail } from '@components/PokemonDetail/PokemonDetail'
 
 //Utils
 import { limitOfPokemonToAPIRequest, pokemonListLimit } from '@utils/constants/constants'

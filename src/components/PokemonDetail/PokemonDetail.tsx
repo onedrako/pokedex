@@ -10,11 +10,11 @@ import { getGradientByType } from '@utils/getGradientByType'
 import { getStatName } from '@utils/getStatName'
 
 //Styles
-import { PokemonDetailContainer, PokemonDetailHeader } from '@styles/Home/PokemonDetail/PokemonDetail'
+import { PokemonDetailContainer, PokemonDetailHeader } from '@styles/PokemonDetail/PokemonDetail'
 
 //Types TS
 import { IPokemonStat, IPokemonType } from 'pokeapi-typescript'
-import { PokemonType } from '../PokemonList/PokemonType'
+import { PokemonType } from '../home/PokemonList/PokemonType'
 import { PokemonWithDetails, POKEMON_TYPE_NAME } from '@customTypes/pokemonCustomTypes'
 import { addPokemonToTeamOnList, removePokemonFromTeamOnList } from '@utils/reduxFuctions/addRemovePokemonTeamOnList'
 import { addPokemonToTeam, removePokemonFromTeam } from '@utils/reduxFuctions/addRemovePokemonTeam'

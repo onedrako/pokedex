@@ -1,5 +1,5 @@
 import React from 'react'
-import { PokemonDetail } from '@components/home/PokemonDetail/PokemonDetail'
+import { PokemonDetail } from '@components/PokemonDetail/PokemonDetail'
 
 const PokemonDetailPage = () => {
   return (
