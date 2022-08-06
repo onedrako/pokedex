@@ -35,6 +35,8 @@ const PokemonList = () => {
           <SkeletonPokemonItem/>
           <SkeletonPokemonItem/>
           <SkeletonPokemonItem/>
+          <SkeletonPokemonItem/>
+          <SkeletonPokemonItem/>
         </>
         }
       </PokemonListContainer>

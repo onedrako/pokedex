@@ -5,7 +5,6 @@ type initialStateType = {
   pokemonAlreadyInTeamError: boolean
 }
 
-
 const initialState: initialStateType = {
   maxPokemonError: false,
   pokemonAlreadyInTeamError: false

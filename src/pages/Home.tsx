@@ -22,18 +22,20 @@ import { limitOfPokemonToAPIRequest, pokemonListLimit } from '@utils/constants/c
 
 //Types TS
 import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
+import { Notification } from '@components/home/Events/Notification'
 
 
 const Home = () => {
   const paginationOffset: number = useSelector((state: any) => state.pokemon.paginationOffset)
   const pokemonList: PokemonWithDetails[] = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
   const showDetails: boolean = useSelector((state: any) => state.ui.showDetails)
+  const MaxPokemonError: boolean = useSelector((state: any) => state.uiError.maxPokemonError)
 
   const dispatch = useDispatch<AppDispatch>()
 
   //Intersection Observer
   const { ref, inView } = useInView({
-    threshold: 0.50
+    threshold: 1
   })
 
 
@@ -45,7 +47,7 @@ const Home = () => {
     //This is in case the user scroll but there are elements to charge when pokemon number is more than the limit per page
     if((pokemonListLimit - pokemonList.length) > limitOfPokemonToAPIRequest){
       dispatch(fetchPokemonsWithDetails(`/pokemon?limit=${limitOfPokemonToAPIRequest}&offset=${paginationOffset}`) as any) //TODO: fix type
-      dispatch(setPaginationOffset(paginationOffset + 10))
+      dispatch(setPaginationOffset(paginationOffset + limitOfPokemonToAPIRequest))
       return
     }
 
@@ -58,16 +60,17 @@ const Home = () => {
   return (
     <>
       <Main>
-      <TopPokedex/>
-          {showDetails && <PokemonDetail/>}
-          <PokemonTeam />
-          {!showDetails && (
-            <>
-              <SearchBar/>
-              <PokemonList />
-              {pokemonList.length !== pokemonListLimit && <div ref={ref} ></div>}
-            </>
-          )}
+        <TopPokedex/>
+        {MaxPokemonError && <Notification/>}    
+        {showDetails && <PokemonDetail/>}
+        <PokemonTeam />
+        {!showDetails && (
+          <>
+            <SearchBar/>
+            <PokemonList />
+            {pokemonList.length !== pokemonListLimit && <div ref={ref} ></div>}
+          </>
+        )}
         <BotPokedex/>
       </Main>
     </>

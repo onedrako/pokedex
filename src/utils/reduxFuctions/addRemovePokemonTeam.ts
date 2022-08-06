@@ -5,14 +5,13 @@ import { setMaxPokemonError, setPokemonAlreadyInTeamError } from "@redux/slices/
 import { setPokemonTeam } from "@redux/slices/pokemonSlice"
 import { Dispatch } from "redux"
 
-export const addPokemonToTeam = (newPokemon: PokemonWithDetails, pokemonTeam: PokemonWithDetails[] , dispatch: Dispatch) => {
+export const addPokemonToTeam = (newPokemon: PokemonWithDetails, pokemonTeam: PokemonWithDetails[] , dispatch: Dispatch) => {  
 
   if (pokemonTeam.length >= 6) {
-    console.log("max pokemon error")
     dispatch(setMaxPokemonError(true))
     setTimeout(() => {
       dispatch(setMaxPokemonError(false))
-    }, 5000)
+    }, 9000)
     return
   }
   const pokemonToBeAdded: PokemonWithDetails = {...newPokemon}
