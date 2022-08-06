@@ -12,9 +12,23 @@ export const BotPokedexStyled = styled.footer`
   z-index: 4;
   justify-content: center;
   border-top: 4px solid #fff;
-  animation: showFromBottom 0.5s ease-in-out;
-  animation-delay: 0.5s;
-  animation-fill-mode: forwards;
+  height: ${(props) => props.initial ? "50%" : "100px"};
+  animation: ${(props) => props.initial ? "showFromBottom" : props.trigger ? "newPage" : "none"} ease-in-out;
+  animation-duration: ${(props) => props.initial === true ? "0.5s" : "1s"};
+  animation-fill-mode: forwards;  
+  animation-delay: ${(props) => props.initial === true ? "0.5s" : "0s" }; 
+
+  @keyframes newPage {
+    0% {
+      height: 100px;
+    }
+    50% {
+      height: 50%;
+    }
+    100% {
+      height: 100px;
+    }
+  }
 
   @keyframes showFromBottom {
     from {

@@ -8,12 +8,7 @@ import { setInitialPokedexAnimation, setTriggerPokedexAnimation } from '@redux/s
 const TopPokedex = () => {
   const initialPodedexAnimation = useSelector((state: any) => state.ui.initialPokedexAnimation)
   const triggerPokedexAnimation = useSelector((state: any) => state.ui.triggerPokedexAnimation)
-
-  console.log('initialPodedexAnimation', initialPodedexAnimation)
-  console.log('triggerPokedexAnimation', triggerPokedexAnimation)
-
-  
-  
+    
   const dispatch = useDispatch()
 
   useEffect(() => {

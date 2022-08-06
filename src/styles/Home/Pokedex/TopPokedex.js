@@ -5,18 +5,16 @@ export const TopPokedexStyled = styled.header`
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   position: fixed;
   width: 100%;
-  height: ${(props) => props.initial ? "50%" : "100px"};
-  /* height: 100px; */
   display: flex;
   justify-content: center;
   z-index: 4;
   border-bottom: 4px solid #fff;
   align-items: flex-end;
+  height: ${(props) => props.initial ? "50%" : "100px"};
   animation: ${(props) => props.initial ? "showFromTop" : props.trigger ? "newPage" : "none"} ease-in-out;
   animation-duration: ${(props) => props.initial === true ? "0.5s" : "1s"};
-  /* animation: showFromTop 0.5s ease-in-out; */
-  /* animation-delay: ${(props) => props.initial === true ? "0.5s" : "0s" } */
   animation-fill-mode: forwards;  
+  animation-delay: ${(props) => props.initial === true ? "0.5s" : "0s" };
 
   @keyframes newPage {
     0% {
