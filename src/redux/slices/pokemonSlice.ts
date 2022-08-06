@@ -42,6 +42,7 @@ type PokemonState = {
   pokemon: PokemonWithDetails[], 
   pokemonTeam: PokemonWithDetails[],  
   paginationOffset: number
+  pokemonToEliminateFromTeam: PokemonWithDetails
 }
 
 // state
@@ -49,6 +50,7 @@ const initialState: PokemonState = {
   pokemon: [],
   pokemonTeam: getTeamFromLocalStorage(),
   paginationOffset: 0,
+  pokemonToEliminateFromTeam: {} as PokemonWithDetails,
 }
 
 // slice for pokemon
@@ -68,6 +70,9 @@ export const pokemonSlice = createSlice({
 
     setPokemonTeam: (state: any, action: PayloadAction<PokemonWithDetails[]>) => {
       state.pokemonTeam =  [...action.payload]
+    },
+    setPokemonToEliminateFromTeam: (state: any, action: PayloadAction<PokemonWithDetails>) => {
+      state.pokemonToEliminateFromTeam = action.payload
     }
   }
 })
@@ -80,6 +85,7 @@ export const {
   setPaginationOffset,
 
   setPokemonTeam,
+  setPokemonToEliminateFromTeam,
 
 } = pokemonSlice.actions
 export default pokemonSlice.reducer

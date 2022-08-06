@@ -89,9 +89,9 @@ const PokemonDetail = () => {
           alt="icon to add pokemon to team"
           onClick={(e) => {
             e.stopPropagation()
-            addPokemonToTeamOnList(pokemonSelected, pokemonList, dispatch)
-            addPokemonToTeam(pokemonSelected, pokemonTeam, dispatch)
-            updateTeamStateOnDetail(pokemonSelected, showDetails, dispatch, pokemonTeam.length)
+            // addPokemonToTeamOnList(pokemonSelected, pokemonList, dispatch)
+            // addPokemonToTeam(pokemonSelected, pokemonTeam, dispatch)
+            // updateTeamStateOnDetail(pokemonSelected, showDetails, dispatch, pokemonTeam.length)
             }
           }
           />
@@ -103,9 +103,9 @@ const PokemonDetail = () => {
         alt="icon to remove pokemon to team"
         onClick={(e) => {
           e.stopPropagation()
-          removePokemonFromTeamOnList( pokemonSelected, pokemonList, dispatch )
-          removePokemonFromTeam( pokemonSelected, pokemonTeam, dispatch )
-          updateTeamStateOnDetail(pokemonSelected, showDetails, dispatch, pokemonTeam.length)         
+          // removePokemonFromTeamOnList( pokemonSelected, pokemonList, dispatch )
+          // removePokemonFromTeam( pokemonSelected, pokemonTeam, dispatch )
+          // updateTeamStateOnDetail(pokemonSelected, showDetails, dispatch, pokemonTeam.length)         
           }
         }
         />

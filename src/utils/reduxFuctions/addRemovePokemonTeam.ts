@@ -25,6 +25,9 @@ export const addPokemonToTeam = (newPokemon: PokemonWithDetails, pokemonTeam: Po
 }
 
 export const removePokemonFromTeam = (pokemonToRemove: PokemonWithDetails, pokemonTeam: PokemonWithDetails[], dispatch: Dispatch) => {
+  console.log("pokemonToRemove", pokemonToRemove)
+  console.log("pokemonTeam", pokemonTeam)
+
   const pokemonTeamWithouthPokemonToRemove = pokemonTeam.filter(pokemon => pokemon.id !== pokemonToRemove.id)
 
 

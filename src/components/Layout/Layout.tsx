@@ -12,9 +12,12 @@ import { TopPokedex } from '@components/home/Pokedex/TopPokedex'
 //Messages
 import { NotificationContainer } from '@styles/Home/Events/NotificationContainer'
 import { ConfirmMessage } from '@components/Events/ConfirmMessage'
+// import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
 
 const Layout = ({children}: {children: ReactNode}) => {
   const MaxPokemonError: boolean = useSelector((state: any) => state.uiError.maxPokemonError)
+  // const pokemonToEliminateFromTeam: PokemonWithDetails = useSelector((state: any) => state.pokemon.pokemonToEliminateFromTeam)
+  const showMessage = useSelector((state: any) => state.ui.showMessage)
   return (
     <>
     <TopPokedex/>
@@ -24,7 +27,7 @@ const Layout = ({children}: {children: ReactNode}) => {
             <Notification/>   
           </NotificationContainer>
       }
-      <ConfirmMessage/>
+      {showMessage && <ConfirmMessage/>}
       <PokemonTeam />
       {children}
     </Main>

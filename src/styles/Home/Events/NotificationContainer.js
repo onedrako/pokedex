@@ -37,21 +37,28 @@ export const NotificationFromBottom = styled.div`
   bottom: -50px;
   left: 0;
   z-index: 3;
-  animation-name: showfromBottom;
-  animation-duration: 1s;
-  /* animation-delay: 1s; */
+  animation-name: ${props => props.animation ? 'hideToBottom' : 'showFromBottom'};
+  animation-duration: 0.5s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
   animation-iteration-count: 1;
   animation-direction: normal;
-  /* animation-play-state: running; */
 
-  @keyframes showfromBottom {
+  @keyframes showFromBottom {
     0% {
       transform: translateY(50px);
     }
     100% {
       transform: translateY(-160px);
+    }
+  }
+
+  @keyframes hideToBottom {
+    0% {
+      transform: translateY(-160px);
+    }
+    100% {
+      transform: translateY(50px);
     }
   }
 

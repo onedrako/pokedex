@@ -6,7 +6,7 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { AppDispatch } from 'index'
 import { removePokemonFromTeamOnList } from '@utils/reduxFuctions/addRemovePokemonTeamOnList'
 import { setPokemonDetail } from '@redux/slices/pokemonDetailSlice'
-import { setShowDetails, setTriggerPokedexAnimation } from '@redux/slices/uiSlice'
+import { setShowDetails, setShowMessage, setTriggerPokedexAnimation } from '@redux/slices/uiSlice'
 
 //Utils
 import { capitalizeFirstLetter } from '@utils/capitalize'
@@ -19,6 +19,7 @@ import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
 import { removePokemonFromTeam } from '@utils/reduxFuctions/addRemovePokemonTeam'
 import { getGradientByType } from '@utils/getGradientByType'
 import { updateTeamStateOnDetail } from '@utils/reduxFuctions/updateTeamStateOnDetail'
+import { setPokemonToEliminateFromTeam } from '@redux/slices/pokemonSlice'
 
 
 const PokemonTeamMember = ({pokemon}: {pokemon: PokemonWithDetails}) => {
@@ -52,9 +53,11 @@ const PokemonTeamMember = ({pokemon}: {pokemon: PokemonWithDetails}) => {
             alt="icon-to-add/remove"
             onClick={(e) => {
               e.stopPropagation()
-              removePokemonFromTeamOnList( pokemon, pokemonList, dispatch )
-              removePokemonFromTeam( pokemon, pokemonTeam, dispatch )
-              updateTeamStateOnDetail(pokemon, showDetails, dispatch )
+              dispatch(setPokemonToEliminateFromTeam(pokemon))
+              dispatch(setShowMessage(true))
+              // removePokemonFromTeamOnList(pokemon, pokemonList, dispatch)
+              // removePokemonFromTeam( pokemon, pokemonTeam, dispatch)
+              // updateTeamStateOnDetail(pokemon, showDetails, dispatch)
               }
             }
           />
