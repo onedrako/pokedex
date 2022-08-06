@@ -38,7 +38,7 @@ const PokemonTeamMember = ({pokemon}: {pokemon: PokemonWithDetails}) => {
       navigate(`/pokemon`)
       setTimeout(() => {
         dispatch(setTriggerPokedexAnimation(false))
-      }, 475)
+      }, 400)
     }, 380)
     dispatch(setPokemonDetail(pokemon))
     dispatch(setTriggerPokedexAnimation(true))

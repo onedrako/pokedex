@@ -28,6 +28,8 @@ const PokemonDetail = () => {
   const pokemonTeam: PokemonWithDetails[] = useSelector((state: any) => state.pokemon.pokemonTeam, shallowEqual)
   const pokemonList: PokemonWithDetails[] = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
   const showDetails: boolean = useSelector((state: any) => state.ui.showDetails)
+  const triggerPokedexAnimation: boolean = useSelector((state: any) => state.ui.triggerPokedexAnimation)
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -38,7 +40,7 @@ const PokemonDetail = () => {
       navigate('/')
       setTimeout(() => {
         dispatch(setTriggerPokedexAnimation(false))
-      }, 475)
+      }, 400)
     }, 380)
     dispatch(setTriggerPokedexAnimation(true))
   }
@@ -75,7 +77,9 @@ const PokemonDetail = () => {
         <img className='pokemon-details__image' src={pokemonSelected.sprites.front_default} alt={`${pokemonSelected.name} image`} />
       </figure>
 
+      {!triggerPokedexAnimation &&  
         <img className='pokemon-details__back' src="https://i.imgur.com/06KKIXc.png" alt={`Go back icon`} onClick={() => closePokemonDetail()} />
+      }
 
       {!pokemonSelected.team ? 
       ( 

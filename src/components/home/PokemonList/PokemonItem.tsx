@@ -32,11 +32,11 @@ const PokemonItem = ({ pokemon }: {pokemon: PokemonWithDetails}) => {
 
   const openPokemonDetail = () => {
     setTimeout(() => {
-      dispatch(setShowDetails(true))
-      navigate(`/pokemon`)
       setTimeout(() => {
         dispatch(setTriggerPokedexAnimation(false))
-      }, 475)
+      }, 400)
+      dispatch(setShowDetails(true))
+      navigate(`/pokemon`)
     }, 380)
     dispatch(setPokemonDetail(pokemon))
     dispatch(setTriggerPokedexAnimation(true))

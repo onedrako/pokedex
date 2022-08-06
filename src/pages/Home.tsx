@@ -25,7 +25,7 @@ const Home = () => {
   const paginationOffset: number = useSelector((state: any) => state.pokemon.paginationOffset)
   const pokemonList: PokemonWithDetails[] = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
   const showDetails: boolean = useSelector((state: any) => state.ui.showDetails)
-  const MaxPokemonError: boolean = useSelector((state: any) => state.uiError.maxPokemonError)
+
 
   const dispatch = useDispatch<AppDispatch>()
 
@@ -55,11 +55,7 @@ const Home = () => {
 
   return (
     <>
-      { MaxPokemonError && 
-        <NotificationContainer>
-          <Notification/>   
-        </NotificationContainer>
-      }
+
       <PokemonTeam />
 
       <SearchBar/>
