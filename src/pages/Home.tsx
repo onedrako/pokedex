@@ -23,6 +23,7 @@ import { limitOfPokemonToAPIRequest, pokemonListLimit } from '@utils/constants/c
 //Types TS
 import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
 import { Notification } from '@components/home/Events/Notification'
+import { NotificationContainer } from '@styles/Home/Pokedex/NotificationContainer'
 
 
 const Home = () => {
@@ -58,22 +59,24 @@ const Home = () => {
     }, [inView])
 
   return (
-    <>
-      <Main>
-        <TopPokedex/>
-        {MaxPokemonError && <Notification/>}    
-        {showDetails && <PokemonDetail/>}
-        <PokemonTeam />
-        {!showDetails && (
-          <>
-            <SearchBar/>
-            <PokemonList />
-            {pokemonList.length !== pokemonListLimit && <div ref={ref} ></div>}
-          </>
-        )}
-        <BotPokedex/>
-      </Main>
-    </>
+    <Main>
+      { MaxPokemonError && 
+        <NotificationContainer>
+          <Notification/>   
+        </NotificationContainer>
+      }
+      {showDetails && <PokemonDetail/>}
+      <PokemonTeam />
+      {!showDetails && (
+        <>
+          <SearchBar/>
+          <PokemonList />
+          {pokemonList.length !== pokemonListLimit && <div ref={ref} ></div>}
+        </>
+      )}
+    </Main>
+
+
   )
 }
 

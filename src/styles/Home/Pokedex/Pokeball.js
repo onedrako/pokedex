@@ -9,7 +9,7 @@ export const Pokeball = styled.img`
 
   @keyframes rotation {
       from{
-          transform: rotate(0deg);
+        transform: rotate(0deg);
       }
       from {
         transform: rotate(360deg);

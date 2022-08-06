@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const BotPokedexStyled = styled.div`
+export const BotPokedexStyled = styled.footer`
   background: #c11427;
   box-shadow: -1px -3px 5px 0px rgba(0,0,0,0.75);
   position: fixed;

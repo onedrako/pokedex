@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const TopPokedexStyled = styled.div`
+export const TopPokedexStyled = styled.header`
   background: #c11427;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   position: fixed;
