@@ -5,7 +5,7 @@ export const PokemonListContainer = styled.section`
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   grid-gap: 10px;
   width: 100%;
-  margin: 25px 0;
+  margin: 25px 0 50px 0;
   padding-bottom: 100px;
   align-items: center;
   justify-content: center;

@@ -7,10 +7,8 @@ import { fetchPokemonsWithDetails, setPaginationOffset } from '@redux/slices/pok
 import { AppDispatch } from 'index'
 
 // Components
-import { PokemonTeam } from '@components/home/pokemonTeam/PokemonTeam'
 import { SearchBar } from '@components/home/SearchBar/SearchBar'
 import { PokemonList } from '@components/home/PokemonList/PokemonList'
-import { PokemonDetail } from '@components/PokemonDetail/PokemonDetail'
 
 //Utils
 import { limitOfPokemonToAPIRequest, pokemonListLimit } from '@utils/constants/constants'
@@ -21,7 +19,6 @@ import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
 const Home = () => {
   const paginationOffset: number = useSelector((state: any) => state.pokemon.paginationOffset)
   const pokemonList: PokemonWithDetails[] = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
-  const showDetails: boolean = useSelector((state: any) => state.ui.showDetails)
 
   const dispatch = useDispatch<AppDispatch>()
 
@@ -51,7 +48,6 @@ const Home = () => {
 
   return (
     <>
-      {/* <PokemonTeam /> */}
       <SearchBar/>
       <PokemonList />
       {pokemonList.length !== pokemonListLimit && <div ref={ref} ></div>}

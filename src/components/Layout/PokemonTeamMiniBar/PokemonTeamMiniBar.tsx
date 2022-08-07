@@ -1,12 +1,20 @@
+//Libraries
 import React from 'react'
+//Redux
 import { useSelector } from 'react-redux'
-import { PokemonTeamMiniBarContainer, PokemonTeamSprite } from '@styles/Layout/PokemonTeamMiniBar/PokemonTeamMiniBar'
-import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
+
+//Components
 import {PokemonImage} from './PokemonImage'
 
+//Styles
+import { PokemonTeamMiniBarContainer } from '@styles/Layout/PokemonTeamMiniBar/PokemonTeamMiniBar'
+
+//Types TS
+import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
+
+
 const PokemonTeamMiniBar = () => {
-  const pokemonTeam: PokemonWithDetails[]  = useSelector((state: any) => state.pokemon.pokemonTeam)
-  
+  const pokemonTeam: PokemonWithDetails[]  = useSelector((state: any) => state.pokemon.pokemonTeam)  
   const pokemonBarElements = [...pokemonTeam]
 
   for (let i = 0; i < 6 - pokemonTeam.length; i++) {
@@ -14,7 +22,11 @@ const PokemonTeamMiniBar = () => {
   }
 
   return (
-    <PokemonTeamMiniBarContainer>
+    <PokemonTeamMiniBarContainer onClick={() => window.window.scroll({
+        top: 100,
+        left: 100,
+        behavior: 'smooth'
+      }) }>
       {pokemonBarElements.map((pokemon: PokemonWithDetails, index) => {
         return (
           <PokemonImage key={`pokemonMiniTeam-${pokemon.name}-${index}`} pokemon={pokemon} />

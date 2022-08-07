@@ -108,6 +108,10 @@ export const PokemonDetailContainer = styled.section`
     cursor: pointer;
   }
 
+  @media(min-width: 458px){
+    max-height: 535px;
+  }
+
   @media (min-width: 600px) {
     max-width: 550px;
   }

@@ -12,12 +12,13 @@ export const PokemonTeamMiniBarContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   position: fixed;
-  bottom: 125px; 
+  bottom: 95px; 
   z-index: 2;
   border: 1px solid #fff;
   gap: 5px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 
   @media (min-width: 850px) {
     width: 50px;
