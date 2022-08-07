@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { AppDispatch } from 'index'
 import { setPokemonToEliminateFromTeam } from '@redux/slices/pokemonSlice'
-import { setKindOfMessage, setShowMessage} from '@redux/slices/uiSlice'
+import { setKindOfMessage, setReloadPokedexAnimation, setShowMessage} from '@redux/slices/uiSlice'
 import { addPokemonToTeamOnList } from '@utils/reduxFuctions/addRemovePokemonTeamOnList'
 import { addPokemonToTeam } from '@utils/reduxFuctions/addRemovePokemonTeam'
 
@@ -26,11 +26,17 @@ const PokemonItem = ({ pokemon }: {pokemon: PokemonWithDetails}) => {
   const pokemonList = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
   const pokemonTeam = useSelector((state: any) => state.pokemon.pokemonTeam, shallowEqual)
   const dispatch = useDispatch<AppDispatch>()
+  const reloadPokedexAnimation = useSelector((state: any) => state.ui.reloadPokedexAnimation)
+
 
   const navigate = useNavigate()
 
   return (
-    <PokemonItemContainer onClick={() => openPokemonDetail({dispatch, navigate, pokemon, route: "/pokemon"})}>
+    <PokemonItemContainer onClick={() => {
+      dispatch(setReloadPokedexAnimation(true))  
+      openPokemonDetail({dispatch, navigate, pokemon, route: "/pokemon", reload: reloadPokedexAnimation})
+    }
+    }>
       {!pokemon.team ? 
       (
         <img 

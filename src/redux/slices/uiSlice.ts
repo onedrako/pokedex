@@ -1,11 +1,14 @@
 import { kindOfMessage } from '@customTypes/pokemonCustomTypes'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { boolean } from 'joi'
 
 type initialStateType = {
   loading: boolean, 
   showDetails: boolean,
+
   initialPokedexAnimation: boolean,
   triggerPokedexAnimation: boolean,
+  reloadPokedexAnimation: boolean
 
   showMessage: boolean,
   kindOfMessage: kindOfMessage,
@@ -15,8 +18,10 @@ type initialStateType = {
 const initialState: initialStateType = {
   loading: false,
   showDetails: false,
+  
   initialPokedexAnimation: true,
   triggerPokedexAnimation: false,
+  reloadPokedexAnimation: false,
 
   showMessage: false,
   kindOfMessage: '' as kindOfMessage,
@@ -45,6 +50,10 @@ export const uiSlice = createSlice({
     setTriggerPokedexAnimation: (state: any, action: PayloadAction<boolean>) => {
       state.triggerPokedexAnimation = action.payload
     },
+    setReloadPokedexAnimation : (state: any, action: PayloadAction<boolean>) => {
+      state.reloadPokedexAnimation = action.payload
+    },
+
 
     //To Show Message to confirm or cancel action
     setShowMessage: (state: any, action: PayloadAction<boolean>) => {
@@ -59,5 +68,15 @@ export const uiSlice = createSlice({
   }
 })
 
-export const { setLoading, setShowDetails, setInitialPokedexAnimation,setTriggerPokedexAnimation, setShowMessage, setKindOfMessage, setTriggerMessageAnimation } = uiSlice.actions
+export const { 
+  setLoading, 
+  setShowDetails, 
+  
+  setInitialPokedexAnimation,
+  setTriggerPokedexAnimation,
+  setReloadPokedexAnimation,
+  
+  setShowMessage, 
+  setKindOfMessage, 
+  setTriggerMessageAnimation } = uiSlice.actions
 export default uiSlice.reducer

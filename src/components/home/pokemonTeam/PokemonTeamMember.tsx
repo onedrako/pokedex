@@ -2,9 +2,9 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 //Redux
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch } from 'index'
-import { setKindOfMessage, setShowMessage } from '@redux/slices/uiSlice'
+import { setKindOfMessage, setReloadPokedexAnimation, setShowMessage } from '@redux/slices/uiSlice'
 import { setPokemonToEliminateFromTeam } from '@redux/slices/pokemonSlice'
 
 //Utils
@@ -23,9 +23,14 @@ const PokemonTeamMember = ({pokemon}: {pokemon: PokemonWithDetails}) => {
   const gradient = getGradientByType(pokemon.types)
   const navigate = useNavigate()
   const dispatch = useDispatch<AppDispatch>()
+  const reloadPokedexAnimation = useSelector((state: any) => state.ui.reloadPokedexAnimation)
+
 
   return (
-    <PokemonMember gradient={gradient} onClick={() => openPokemonDetail({dispatch, navigate, pokemon, route: "/pokemon"})}>
+    <PokemonMember gradient={gradient} onClick={() => {
+      dispatch(setReloadPokedexAnimation(true))  
+      openPokemonDetail({dispatch, navigate, pokemon, route: "/pokemon", reload: reloadPokedexAnimation})}
+    }>
       <img 
         className='pokemon-item__add-remove' 
         src="https://i.imgur.com/LsQQ1EM.png" 

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 //Redux
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { setPokemonToEliminateFromTeam } from '@redux/slices/pokemonSlice'
-import { setKindOfMessage, setShowDetails, setShowMessage, setTriggerPokedexAnimation } from '@redux/slices/uiSlice'
+import { setKindOfMessage, setReloadPokedexAnimation, setShowDetails, setShowMessage, setTriggerPokedexAnimation } from '@redux/slices/uiSlice'
 import { updateTeamStateOnDetail } from '@utils/reduxFuctions/updateTeamStateOnDetail'
 //Redux Utils
 import { addPokemonToTeamOnList } from '@utils/reduxFuctions/addRemovePokemonTeamOnList'
@@ -14,6 +14,7 @@ import { addPokemonToTeam } from '@utils/reduxFuctions/addRemovePokemonTeam'
 import { capitalizeFirstLetter } from '@utils/capitalize'
 import { getGradientByType } from '@utils/getGradientByType'
 import { getStatName } from '@utils/getStatName'
+import { closePokemonDetail } from '@utils/componentsUtils/openClosePokemonDetails'
 
 //Styles
 import { PokemonDetailContainer, PokemonDetailHeader } from '@styles/PokemonDetail/PokemonDetail'
@@ -22,7 +23,6 @@ import { PokemonDetailContainer, PokemonDetailHeader } from '@styles/PokemonDeta
 import { IPokemonStat, IPokemonType } from 'pokeapi-typescript'
 import { PokemonType } from '../home/PokemonList/PokemonType'
 import { PokemonWithDetails, POKEMON_TYPE_NAME } from '@customTypes/pokemonCustomTypes'
-import { closePokemonDetail } from '@utils/componentsUtils/openClosePokemonDetails'
 
 
 
@@ -32,6 +32,7 @@ const PokemonDetail = () => {
   const pokemonList: PokemonWithDetails[] = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
   const showDetails: boolean = useSelector((state: any) => state.ui.showDetails)
   const triggerPokedexAnimation: boolean = useSelector((state: any) => state.ui.triggerPokedexAnimation)
+  const reloadPokedexAnimation = useSelector((state: any) => state.ui.reloadPokedexAnimation)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -68,9 +69,12 @@ const PokemonDetail = () => {
         <img className='pokemon-details__image' src={pokemonSelected.sprites.front_default} alt={`${pokemonSelected.name} image`} />
       </figure>
 
-      {!triggerPokedexAnimation &&  
-        <img className='pokemon-details__back' src="https://i.imgur.com/06KKIXc.png" alt="Go back icon" onClick={() => closePokemonDetail({dispatch, navigate, route: "/"})} />
-      }
+      <img className='pokemon-details__back' src="https://i.imgur.com/06KKIXc.png" alt="Go back icon" 
+        onClick={() => {
+          dispatch(setReloadPokedexAnimation(true))  
+          closePokemonDetail({dispatch, navigate, route: "/", reload: reloadPokedexAnimation})
+        }}
+      />
 
       {!pokemonSelected.team ? 
       ( 
