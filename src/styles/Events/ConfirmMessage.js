@@ -24,13 +24,14 @@ export const ConfirmMessageStyled = styled.div`
     font-size: 1rem;
 
     & > .message__icon-image{
-    /* width: 20%; */
     height: 50px;
     }
 
     & > .message__text{
-      width: 70%;
+      width: 72%;
       height: 75px;
+      display: flex;
+      align-items: center;
     }
   
     & > .message__pokemon-sprite{
@@ -62,7 +63,32 @@ export const ConfirmMessageStyled = styled.div`
     }
   }
 
+  @media (min-width: 400px) {
+    max-width: 430px;
 
+    & > .message{
+      & > .message__text{
+        width: 70%;
+      }
+    }
+    & > .buttons{
+      width: 75%;
+      margin: 0 auto;
+    }
+  }
 
-
+  @media (min-width: 500px) {
+    & > .message{
+      & > .message__text{
+        font-size: 1.2rem;
+      }
+      & > .message__pokemon-sprite{
+        width: 70px;
+        height: 70px;
+      }
+      & > .message__icon-image{
+        height: 60px;
+      }
+    }
+  }
 `

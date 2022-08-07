@@ -5,6 +5,7 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 
 //Utils
 import { cancelEliminatePokemonFromTeam, confirmEliminatePokemonFromTeam } from '@utils/componentsUtils/EliminatePokemonFromTeam'
+import { capitalizeFirstLetter } from '@utils/capitalize'
 
 //Styles
 import { ConfirmMessageStyled } from '@styles/Events/ConfirmMessage'
@@ -30,7 +31,7 @@ const ConfirmMessage = () => {
         <div className='message'>
           <img className='message__icon-image' src="https://i.imgur.com/fTfcC3j.png" alt="profesor oak sprite" />
           <img className='message__pokemon-sprite' src={pokemon.sprites.front_default } alt={`${pokemon.name} image`} />
-          <p className='message__text'>¿Estas seguro que quieres eliminar a {pokemon.name} del equipo?</p>
+          <p className='message__text'>¿Quieres enviar con el profesor Oak a {capitalizeFirstLetter(pokemon.name)}</p>
         </div>
         <div className="buttons">
           <button type='button' className='button confirm' onClick={() => confirmEliminatePokemonFromTeam({pokemon, pokemonList, pokemonTeam, showDetails, dispatch, kindOfMessage}) } >Si</button>

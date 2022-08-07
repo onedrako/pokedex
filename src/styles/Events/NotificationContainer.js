@@ -66,4 +66,8 @@ export const NotificationFromBottom = styled.div`
     }
   }
 
+  @media (min-width: 1024px) {
+    width: 70%;
+  }
+
 `
