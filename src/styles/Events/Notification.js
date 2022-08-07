@@ -3,12 +3,12 @@ import styled from 'styled-components';
 export const NotificationStyled = styled.div`
     width: 800px;
     height: 200px;
-    /* position: fixed; */
     overflow-x: hidden;
     overflow-y: hidden;
-    /* top: 100px; */
-    /* z-index: 4; */
-    /* left: 0; */
+
+    @media (max-width: 735px) {
+      height: 150px;
+    }
 `
 
 
@@ -24,10 +24,20 @@ export const PlatformContainer = styled.div`
   background: #fff;
   border-radius: 0 50% 50% 0;
 
+  @media (max-width: 735px) {
+    width: 150px;
+    height: 150px;
+  }
+
+  @media (max-width: 615px) {
+    width: 125px;
+    height: 125px;
+  }
+
   & > .platform__container--logo {
         display: flex;
         height: 200px;
-        min-width: 200px;
+        width: 200px;
         justify-content: center;
         align-items: center;
         background: #2b2e2e;
@@ -35,14 +45,22 @@ export const PlatformContainer = styled.div`
         border-radius: 50%;
         position: relative;
         z-index: 3;
-        animation-name: rotateAndGetBack;
+        /* animation-name: rotateAndGetBack;
         animation-duration: 7s;
         animation-fill-mode: forwards;
         animation-timing-function: ease-in-out;
         animation-iteration-count: 1;
-        /* animation-direction: normal; */
-        /* animation-play-state: running; */
-        animation-delay: 0.3s;
+        animation-delay: 0.3s; */
+
+        @media (max-width: 735px) {
+          width: 150px;
+          height: 150px;
+        }
+
+        @media (max-width: 615px) {
+          width: 125px;
+          height: 125px;
+        }
 
         @keyframes rotateAndGetBack {
           0% {
@@ -67,13 +85,19 @@ export const PlatformContainer = styled.div`
             }
           & > .logo--option2 {
               height: 135px;
+
+              @media (max-width: 735px) {
+                width: 75px;
+                height: 75px;
+              }
+              
           }
       }
 ` 
 
 export const Banner = styled.div`
   display: flex;
-  opacity: 0;
+  opacity: 1;
   flex-direction: row;
   width: 600px;
   height: 125px;
@@ -84,11 +108,26 @@ export const Banner = styled.div`
   border-top: solid #c11427 5px;
   justify-content: end;
   /* padding: 10px; */
-  left: -510px;
-  /* left: 75px; */
-  animation-name: extend;
+  /* left: -510px; */
+  left: 75px;
+  /* animation-name: extend;
   animation-duration: 7s;
-  animation-delay: 0.3s;
+  animation-delay: 0.3s; */
+
+  @media (max-width: 735px) {
+    width: 525px;
+    height: 100px;
+    top: 12%;
+  }
+
+  @media (max-width: 615px) {
+    width: 80%;
+    height: 97px;    
+  }
+
+  @media (max-width: 470px) {
+    width: 75%;
+  }
 
   @keyframes extend {
     15% {
@@ -120,6 +159,28 @@ export const Banner = styled.div`
           text-align: center;
           font-size: 1.1rem;
           padding-right: 15px;
+
+          @media (max-width: 615px) {
+            font-size: .8rem;
+          }
+
+          @media (max-width: 470px) {
+            font-size: .7rem;
+          }
+
+          @media (max-width: 440px) {
+            h2{
+              /* font-size: rem; */
+              height: 50px;
+              width: 233px;
+            }
+          }
+
+          @media (max-width: 400px) {
+            h2{
+              width: 170px;
+            }
+          }
         }
         & > .banner__info--name-description {
           grid-column-start: 1;
@@ -130,6 +191,27 @@ export const Banner = styled.div`
           text-align: center;
           font-size: .9rem;
           padding-left: 60px;
+
+          @media (max-width: 615px) {
+            font-size: .8rem;
+            padding-right: 5px;
+          }
+
+          @media (max-width: 470px) {
+            h3{
+              width: 233px;
+              height: 40px;
+              font-size: .8rem;
+            }
+          }
+
+          @media (max-width: 400px) {
+            h3{
+              width: 100%;
+              height: 45px;
+              font-size: .65rem;
+            }
+          }
         }
     }
 `

@@ -3,17 +3,21 @@ import styled from 'styled-components';
 export const NotificationContainer = styled.div`
   width: 100%;
   position: fixed;
-  top: -50px;
+  /* top: -50px; */
+  top: 150px;
   left: 0;
   z-index: 3;
-  animation-name: showfromTop;
+  /* animation-name: showfromTop;
   animation-duration: 8.5s;
-  /* animation-delay: 1s; */
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
   animation-iteration-count: 1;
-  animation-direction: normal;
-  /* animation-play-state: running; */
+  animation-direction: normal; */
+
+  @media (max-width: 735px) {
+    top: 100px;
+    height: 150px;
+  }
 
   @keyframes showfromTop {
     0% {
