@@ -13,6 +13,7 @@ import {PokemonTeamMember} from './PokemonTeamMember'
 //Types TS
 import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
 import { SendPokemonToOak } from '@styles/Home/PokemonTeam/PokemonTeamAnimation'
+import { capitalizeFirstLetter } from '@utils/capitalize'
 
 const PokemonTeam = ({isOnView}: {isOnView: (node?: Element | null | undefined) => void}) => {
   const userPokemonTeam: PokemonWithDetails[] = useSelector((state: any) => state.pokemon.pokemonTeam, shallowEqual)
@@ -41,6 +42,7 @@ const PokemonTeam = ({isOnView}: {isOnView: (node?: Element | null | undefined) 
             <img className='pokemon' src={userPokemonTeam[0].sprites.front_default} alt="pokemon" />
             <img className="pokeball" src="https://i.imgur.com/XzODe9l.png" alt="pokeball"/>
             <div className='laser'></div>
+            <p className='message'>El profesor Oak cuidara bien de {capitalizeFirstLetter(userPokemonTeam[0].name)}</p>
           </SendPokemonToOak>
     </TeamContainer>
   )

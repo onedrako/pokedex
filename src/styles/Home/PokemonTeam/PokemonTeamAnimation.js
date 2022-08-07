@@ -23,18 +23,27 @@ export const SendPokemonToOak = styled.div`
     position: absolute;
     margin: 0 0 0 auto;
     /* right: 0; */
-    right: -100px;
-    animation: pipe 1s ease-in-out;
+    right: -150px;
+    animation: pipe 7s ease-in-out;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     animation-delay: 2s;
 
     @keyframes pipe{
       from{
-        right: -100px;
+        right: -150px;
+      }
+      15%{
+        right: -5px;
+      }
+      65%{
+        right: -5px;
+      }
+      85%{
+        right: -150px;
       }
       to{
-        right: -5px;
+        right: -150px;
       }
     };
 
@@ -110,6 +119,7 @@ export const SendPokemonToOak = styled.div`
       0%{
         left: 100%;
         bottom: 10px;
+        transform: rotate(0deg);
       }
       3%{
         bottom: 30px;
@@ -119,6 +129,7 @@ export const SendPokemonToOak = styled.div`
       }
       9%{
         bottom: 30px;
+        transform: rotate(360deg);
       }
       12%{
         bottom: 10px;
@@ -149,6 +160,7 @@ export const SendPokemonToOak = styled.div`
         left: 100%;
         scale: 0.6;
         bottom: 85px;
+        transform: rotate(360deg);
       }
     } 
   }
@@ -165,7 +177,7 @@ export const SendPokemonToOak = styled.div`
     opacity: 0;
     transform: rotate(360deg);
     
-    animation: laser 2.5s ease-in-out;
+    animation: laser 2s ease-in-out;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     animation-delay: 3s;
@@ -195,4 +207,37 @@ export const SendPokemonToOak = styled.div`
       }
     }
   }
+
+  & > .message{
+    width: 100%;
+    /* text-align: center; */
+    height: 100%;
+    display: flex;
+    font-size: 1.3rem;
+    grid-column: auto;
+    /* padding: 15px; */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 20px;
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    color : #000;
+
+    animation: message 0.5s ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 8s;
+
+    @keyframes message{
+      0%{
+        opacity: 0;
+      }
+      100%{
+        opacity: 1;
+      } 
+    }
+
+  } 
 `
