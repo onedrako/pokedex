@@ -27,7 +27,7 @@ export const SendPokemonToOak = styled.div`
     animation: pipe 7s ease-in-out;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    animation-delay: 2s;
+    animation-delay: 0s;
 
     @keyframes pipe{
       from{
@@ -54,11 +54,12 @@ export const SendPokemonToOak = styled.div`
 
   & > .pokemon{
     margin-left: 30px;
+    margin-top: 10px;
     /* filter: opacity(0.4) drop-shadow(0 0 0 red); */
     animation: pokemon 5s ease-in-out;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    animation-delay: 2s;
+    animation-delay: 0s;
 
     @keyframes pokemon{
       0%{
@@ -89,15 +90,18 @@ export const SendPokemonToOak = styled.div`
       55%{
         scale: 0;
         padding-top: 80px;
+        filter: opacity(0.4) drop-shadow(0 0 0 #c11427);
         padding-left: 50px;
         opacity: 0;
       }
       70%{
         scale: 0;
         opacity: 0;
+        filter: opacity(0.4) drop-shadow(0 0 0 #c11427);
       }
       100%{
         scale: 0;
+        filter: opacity(0.4) drop-shadow(0 0 0 #c11427);
         opacity: 0;
         padding-top: 80px;
         padding-left: 50px;
@@ -116,7 +120,7 @@ export const SendPokemonToOak = styled.div`
     animation: pokeball 7s ease-in-out;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    animation-delay: 2s;
+    animation-delay: 0s;
 
     @keyframes pokeball{
       0%{
@@ -183,7 +187,7 @@ export const SendPokemonToOak = styled.div`
     animation: laser 2s ease-in-out;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    animation-delay: 3s;
+    animation-delay: 1s;
     transition: all 0.5s;
 
     @keyframes laser{
@@ -232,7 +236,7 @@ export const SendPokemonToOak = styled.div`
     animation: message 0.5s ease-in-out;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    animation-delay: 8s;
+    animation-delay: 6s;
 
     @keyframes message{
       0%{
