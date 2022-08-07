@@ -38,12 +38,15 @@ export const SendPokemonToOak = styled.div`
       }
       65%{
         right: -5px;
+        width: 49%;
       }
       85%{
         right: -150px;
+        width: 25%;
       }
       to{
         right: -150px;
+        width: 25%;
       }
     };
 
@@ -207,6 +210,7 @@ export const SendPokemonToOak = styled.div`
       }
     }
   }
+
 
   & > .message{
     width: 100%;

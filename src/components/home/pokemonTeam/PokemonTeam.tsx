@@ -37,13 +37,14 @@ const PokemonTeam = ({isOnView}: {isOnView: (node?: Element | null | undefined) 
           ))}          
         </PokemonChosenStyled>        
       }
-            <SendPokemonToOak className='poke-gone'>
-            <div className='pipe'></div>
-            <img className='pokemon' src={userPokemonTeam[0].sprites.front_default} alt="pokemon" />
-            <img className="pokeball" src="https://i.imgur.com/XzODe9l.png" alt="pokeball"/>
-            <div className='laser'></div>
-            <p className='message'>El profesor Oak cuidara bien de {capitalizeFirstLetter(userPokemonTeam[0].name)}</p>
-          </SendPokemonToOak>
+
+    {/* <SendPokemonToOak className='poke-gone'>
+        <div className='pipe'></div>
+        <img className='pokemon' src={userPokemonTeam[0].sprites.front_default} alt="pokemon" />
+        <img className="pokeball" src="https://i.imgur.com/XzODe9l.png" alt="pokeball"/>
+        <div className='laser'></div>
+        <p className='message'>El profesor Oak cuidara bien de {capitalizeFirstLetter(userPokemonTeam[0].name)}</p>
+    </SendPokemonToOak> */}
     </TeamContainer>
   )
 }

@@ -25,8 +25,6 @@ const PokemonTeamMember = ({pokemon}: {pokemon: PokemonWithDetails}) => {
   const dispatch = useDispatch<AppDispatch>()
   const reloadPokedexAnimation = useSelector((state: any) => state.ui.reloadPokedexAnimation)
 
-  console.log('PokemonTeamMember', pokemon)
-
   return (
     <PokemonMember gradient={gradient} onClick={() => {
       dispatch(setReloadPokedexAnimation(true))  
