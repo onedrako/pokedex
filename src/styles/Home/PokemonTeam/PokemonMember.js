@@ -14,6 +14,7 @@ export const PokemonMember = styled.div`
   background: ${props => props.gradient};
   position: relative;
     cursor: pointer;
+  
 
   & > .pokemon-member__image{
     width: 100px;
@@ -43,13 +44,59 @@ export const PokemonMember = styled.div`
     cursor: pointer;
   }  
 
+  & > .pokemon-member__hp{
+    display: none;
+
+    & > .pokemon-member__hp--name{
+
+    }
+
+    & > .pokemon-member__hp--stat{
+      
+    }
+
+  }
+
   @media (min-width: 1024px) {
     height: 100px;
+    min-width: 250px;
     margin-top: 10px;
     margin: 10px auto 0 auto; 
+
     & > .pokemon-member__image{
       width: 75px;
       height: 75px;
+      margin-right: 130px;
+    }
+
+    & > .pokemon-member__hp{
+    position: absolute;
+    top: 10px;
+    right: 70px;
+    width: 65px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 5px;
+    display: flex;
+    padding: 2px;
+
+    & > .pokemon-member__hp--name{
+      width: 50%;
+      height: 100%;
+      text-align: center;
+      font-size: 1.1rem;
+      color: #000;
+      vertical-align: middle;
+    }
+
+    & > .pokemon-member__hp--stat{
+      width: 50%;
+      height: 100%;
+      text-align: center;
+      font-size: 1.1rem;
+      color: #000;
+      font-weight: bold;
+      vertical-align: middle;
     }
   }
 `

@@ -12,6 +12,7 @@ export const TeamContainer = styled.section`
     "pokemon pokemon";
   grid-gap: 15px;
   justify-content: center;
+  align-items: center;
   color: #000;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   border-radius: 0 0 10px 10px;
@@ -60,7 +61,7 @@ export const PokemonTeamTitlesStyled = styled.div`
   overflow: hidden;
   & > h1 {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.4rem;
   }
 `
 
@@ -82,9 +83,10 @@ export const PokemonChosenStyled = styled.div`
   @media (min-width: 1024px) {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 1fr);
+    height: 100%;
     grid-gap: 0px;
     padding: 0 25px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
     border-radius: 10px;
   }
 

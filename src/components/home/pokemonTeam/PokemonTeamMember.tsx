@@ -25,6 +25,7 @@ const PokemonTeamMember = ({pokemon}: {pokemon: PokemonWithDetails}) => {
   const dispatch = useDispatch<AppDispatch>()
   const reloadPokedexAnimation = useSelector((state: any) => state.ui.reloadPokedexAnimation)
 
+  console.log('PokemonTeamMember', pokemon)
 
   return (
     <PokemonMember gradient={gradient} onClick={() => {
@@ -44,6 +45,10 @@ const PokemonTeamMember = ({pokemon}: {pokemon: PokemonWithDetails}) => {
         }
       />
       <img className='pokemon-member__image' src={pokemon.sprites.front_default} alt={`${pokemon.name} image`} />
+      <div className='pokemon-member__hp'>
+        <p className='pokemon-member__hp--name'>HP</p>
+        <p className='pokemon-member__hp--stat'>{pokemon.stats[0].base_stat}</p>
+      </div>
       <p className='pokemon-member__name'>{capitalizeFirstLetter(pokemon.name)}</p>
     </PokemonMember>
   )

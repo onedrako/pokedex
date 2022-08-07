@@ -27,7 +27,7 @@ export const openPokemonDetail = ({dispatch, navigate, pokemon, route, reload}: 
         return
       }
       dispatch(setTriggerPokedexAnimation(false))
-    }, 300)
+    }, 200)
   }, 360)
 
   dispatch(setPokemonDetail(pokemon))
@@ -45,7 +45,7 @@ export const closePokemonDetail = ({dispatch, navigate, route, reload}: closePok
         return
       }
       dispatch(setTriggerPokedexAnimation(false))
-    }, 300)
+    }, 200)
   }, 360)
 
   dispatch(setTriggerPokedexAnimation(true))

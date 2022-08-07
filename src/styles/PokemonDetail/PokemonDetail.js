@@ -114,6 +114,7 @@ export const PokemonDetailContainer = styled.section`
 
   @media (min-width: 600px) {
     max-width: 550px;
+    margin: 130px 0 25px 0;
   }
 
   `

@@ -31,7 +31,7 @@ const ConfirmMessage = () => {
         <div className='message'>
           <img className='message__icon-image' src="https://i.imgur.com/fTfcC3j.png" alt="profesor oak sprite" />
           <img className='message__pokemon-sprite' src={pokemon.sprites.front_default } alt={`${pokemon.name} image`} />
-          <p className='message__text'>¿Quieres enviar con el profesor Oak a {capitalizeFirstLetter(pokemon.name)}</p>
+          <p className='message__text'>¿Quieres enviar a {capitalizeFirstLetter(pokemon.name)} con el profesor Oak?</p>
         </div>
         <div className="buttons">
           <button type='button' className='button confirm' onClick={() => confirmEliminatePokemonFromTeam({pokemon, pokemonList, pokemonTeam, showDetails, dispatch, kindOfMessage}) } >Si</button>
