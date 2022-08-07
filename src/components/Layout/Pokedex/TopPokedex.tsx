@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 
-import { TopPokedexStyled } from '@styles/Home/Pokedex/TopPokedex'
-import { Pokeball } from '@styles/Home/Pokedex/Pokeball'
+import { TopPokedexStyled } from '@styles/Layout/Pokedex/TopPokedex'
+import { Pokeball } from '@styles/Layout/Pokedex/Pokeball'
 import { useDispatch, useSelector } from 'react-redux'
 import { setInitialPokedexAnimation, setTriggerPokedexAnimation } from '@redux/slices/uiSlice'
 

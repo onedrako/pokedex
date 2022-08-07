@@ -13,12 +13,12 @@ import {PokemonTeamMember} from './PokemonTeamMember'
 //Types TS
 import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
 
-const PokemonTeam = () => {
+const PokemonTeam = ({isOnView}: {isOnView: (node?: Element | null | undefined) => void}) => {
   const userPokemonTeam: PokemonWithDetails[] = useSelector((state: any) => state.pokemon.pokemonTeam, shallowEqual)
   const showDetails = useSelector((state: any) => state.ui.showDetails, shallowEqual)
 
   return (
-    <TeamContainer showDetails={showDetails}>
+    <TeamContainer showDetails={showDetails} ref={isOnView}>
       <PokemonTeamTitles/>
       <img src="https://i.imgur.com/XzODe9l.png" alt=""/>
       {userPokemonTeam.length === 0 &&

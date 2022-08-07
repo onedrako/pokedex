@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { BotPokedexStyled } from '@styles/Home/Pokedex/BotPokedex'
-import { Pokeball } from '@styles/Home/Pokedex/Pokeball'
+import { BotPokedexStyled } from '@styles/Layout/Pokedex/BotPokedex'
+import { Pokeball } from '@styles/Layout/Pokedex/Pokeball'
 import { useSelector } from 'react-redux'
 
 const BotPokedex = () => {

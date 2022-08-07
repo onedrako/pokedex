@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const TeamContainer = styled.section`
-  margin-top: 100px;
   padding: 25px 10px 0 10px; 
   width: 100%;
   max-width: 850px;

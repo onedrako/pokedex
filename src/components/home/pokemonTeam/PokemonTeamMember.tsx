@@ -4,20 +4,19 @@ import { useNavigate } from 'react-router-dom'
 //Redux
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from 'index'
-import { setPokemonDetail } from '@redux/slices/pokemonDetailSlice'
-import { setKindOfMessage, setShowDetails, setShowMessage, setTriggerPokedexAnimation } from '@redux/slices/uiSlice'
+import { setKindOfMessage, setShowMessage } from '@redux/slices/uiSlice'
+import { setPokemonToEliminateFromTeam } from '@redux/slices/pokemonSlice'
 
 //Utils
 import { capitalizeFirstLetter } from '@utils/capitalize'
+import { getGradientByType } from '@utils/getGradientByType'
+import { openPokemonDetail } from '@utils/componentsUtils/openClosePokemonDetails'
 
 //Styles
 import { PokemonMember } from '@styles/Home/PokemonTeam/PokemonMember'
 
-// Types
+//Types TS
 import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
-import { getGradientByType } from '@utils/getGradientByType'
-import { setPokemonToEliminateFromTeam } from '@redux/slices/pokemonSlice'
-import { openPokemonDetail } from '@utils/componentsUtils/openClosePokemonDetails'
 
 
 const PokemonTeamMember = ({pokemon}: {pokemon: PokemonWithDetails}) => {

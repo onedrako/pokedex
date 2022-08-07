@@ -21,7 +21,7 @@ export const openPokemonDetail = ({dispatch, navigate, pokemon, route}: openPoke
     setTimeout(() => {
       dispatch(setTriggerPokedexAnimation(false))
     }, 200)
-  }, 380)
+  }, 360)
   dispatch(setPokemonDetail(pokemon))
   dispatch(setTriggerPokedexAnimation(true))
 }
@@ -33,7 +33,7 @@ export const closePokemonDetail = ({dispatch, navigate, route}: closePokemonDeta
     setTimeout(() => {
       dispatch(setTriggerPokedexAnimation(false))
     }, 200)
-  }, 380)
+  }, 360)
   dispatch(setTriggerPokedexAnimation(true))
 }
 

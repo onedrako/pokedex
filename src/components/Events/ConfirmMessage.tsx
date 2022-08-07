@@ -7,8 +7,8 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { cancelEliminatePokemonFromTeam, confirmEliminatePokemonFromTeam } from '@utils/componentsUtils/EliminatePokemonFromTeam'
 
 //Styles
-import { ConfirmMessageStyled } from '@styles/Home/Events/ConfirmMessage'
-import { NotificationFromBottom } from '@styles/Home/Events/NotificationContainer'
+import { ConfirmMessageStyled } from '@styles/Events/ConfirmMessage'
+import { NotificationFromBottom } from '@styles/Events/NotificationContainer'
 
 //Types
 import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'

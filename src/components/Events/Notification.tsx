@@ -1,4 +1,4 @@
-import { Banner, NotificationStyled, PlatformContainer } from '@styles/Home/Events/Notification'
+import { Banner, NotificationStyled, PlatformContainer } from '@styles/Events/Notification'
 import React from 'react'
 
 const Notification = () => {
