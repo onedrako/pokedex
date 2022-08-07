@@ -4,6 +4,7 @@ export const PokemonMember = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  justify-self: center;
   align-items: center;
   width: 100%;
   max-width: 200px;

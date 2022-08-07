@@ -58,3 +58,7 @@ export enum POKEMON_STATS{
   sD = 'Defensa Especial',
   speed = 'Velocidad',
 }
+
+
+//For message animation
+export type kindOfMessage = 'team' | 'detail' | 'list'

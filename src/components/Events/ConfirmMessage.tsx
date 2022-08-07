@@ -4,7 +4,7 @@ import React from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 
 //Utils
-import { eliminatePokemonFromTeam } from '@utils/componentsUtils/EliminatePokemonFromTeam'
+import { cancelEliminatePokemonFromTeam, confirmEliminatePokemonFromTeam } from '@utils/componentsUtils/EliminatePokemonFromTeam'
 
 //Styles
 import { ConfirmMessageStyled } from '@styles/Home/Events/ConfirmMessage'
@@ -18,6 +18,7 @@ const ConfirmMessage = () => {
   const pokemonTeam = useSelector((state: any) => state.pokemon.pokemonTeam, shallowEqual)
   const pokemonList = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
   const showDetails = useSelector((state: any) => state.ui.showDetails)
+  const kindOfMessage = useSelector((state: any) => state.ui.kindOfMessage)
 
   const triggerMessageAnimation = useSelector((state: any) => state.ui.triggerMessageAnimation)
 
@@ -32,8 +33,8 @@ const ConfirmMessage = () => {
           <p className='message__text'>¿Estas seguro que quieres eliminar a {pokemon.name} del equipo?</p>
         </div>
         <div className="buttons">
-          <button type='button' className='button confirm' onClick={() => eliminatePokemonFromTeam({pokemon, pokemonList, pokemonTeam, showDetails, dispatch}) } >Si</button>
-          <button type='button' className='button cancel'>No</button>
+          <button type='button' className='button confirm' onClick={() => confirmEliminatePokemonFromTeam({pokemon, pokemonList, pokemonTeam, showDetails, dispatch, kindOfMessage}) } >Si</button>
+          <button type='button' className='button cancel' onClick={() => cancelEliminatePokemonFromTeam(dispatch)} >No</button>
         </div>
       </ConfirmMessageStyled>
     </NotificationFromBottom>

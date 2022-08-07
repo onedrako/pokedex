@@ -1,8 +1,14 @@
 // Libraries
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 //Redux
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
+import { setPokemonToEliminateFromTeam } from '@redux/slices/pokemonSlice'
+import { setKindOfMessage, setShowDetails, setShowMessage, setTriggerPokedexAnimation } from '@redux/slices/uiSlice'
 import { updateTeamStateOnDetail } from '@utils/reduxFuctions/updateTeamStateOnDetail'
+//Redux Utils
+import { addPokemonToTeamOnList } from '@utils/reduxFuctions/addRemovePokemonTeamOnList'
+import { addPokemonToTeam } from '@utils/reduxFuctions/addRemovePokemonTeam'
 
 //Utils
 import { capitalizeFirstLetter } from '@utils/capitalize'
@@ -16,10 +22,7 @@ import { PokemonDetailContainer, PokemonDetailHeader } from '@styles/PokemonDeta
 import { IPokemonStat, IPokemonType } from 'pokeapi-typescript'
 import { PokemonType } from '../home/PokemonList/PokemonType'
 import { PokemonWithDetails, POKEMON_TYPE_NAME } from '@customTypes/pokemonCustomTypes'
-import { addPokemonToTeamOnList, removePokemonFromTeamOnList } from '@utils/reduxFuctions/addRemovePokemonTeamOnList'
-import { addPokemonToTeam, removePokemonFromTeam } from '@utils/reduxFuctions/addRemovePokemonTeam'
-import { setShowDetails, setTriggerPokedexAnimation } from '@redux/slices/uiSlice'
-import { useNavigate } from 'react-router-dom'
+import { closePokemonDetail } from '@utils/componentsUtils/openClosePokemonDetails'
 
 
 
@@ -33,20 +36,8 @@ const PokemonDetail = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-
-  const closePokemonDetail = () => {
-    setTimeout(() => {
-      dispatch(setShowDetails(false))
-      navigate('/')
-      setTimeout(() => {
-        dispatch(setTriggerPokedexAnimation(false))
-      }, 400)
-    }, 380)
-    dispatch(setTriggerPokedexAnimation(true))
-  }
-
-
   const gradient = getGradientByType(pokemonSelected.types)
+
   return (
     <PokemonDetailContainer>
       <PokemonDetailHeader className='pokemon-details__types-view' gradient={gradient} ></PokemonDetailHeader>
@@ -78,7 +69,7 @@ const PokemonDetail = () => {
       </figure>
 
       {!triggerPokedexAnimation &&  
-        <img className='pokemon-details__back' src="https://i.imgur.com/06KKIXc.png" alt={`Go back icon`} onClick={() => closePokemonDetail()} />
+        <img className='pokemon-details__back' src="https://i.imgur.com/06KKIXc.png" alt="Go back icon" onClick={() => closePokemonDetail({dispatch, navigate, route: "/"})} />
       }
 
       {!pokemonSelected.team ? 
@@ -89,9 +80,9 @@ const PokemonDetail = () => {
           alt="icon to add pokemon to team"
           onClick={(e) => {
             e.stopPropagation()
-            // addPokemonToTeamOnList(pokemonSelected, pokemonList, dispatch)
-            // addPokemonToTeam(pokemonSelected, pokemonTeam, dispatch)
-            // updateTeamStateOnDetail(pokemonSelected, showDetails, dispatch, pokemonTeam.length)
+            addPokemonToTeamOnList(pokemonSelected, pokemonList, dispatch)
+            addPokemonToTeam(pokemonSelected, pokemonTeam, dispatch)
+            updateTeamStateOnDetail(pokemonSelected, showDetails, dispatch, pokemonTeam.length)
             }
           }
           />
@@ -103,9 +94,9 @@ const PokemonDetail = () => {
         alt="icon to remove pokemon to team"
         onClick={(e) => {
           e.stopPropagation()
-          // removePokemonFromTeamOnList( pokemonSelected, pokemonList, dispatch )
-          // removePokemonFromTeam( pokemonSelected, pokemonTeam, dispatch )
-          // updateTeamStateOnDetail(pokemonSelected, showDetails, dispatch, pokemonTeam.length)         
+          dispatch(setKindOfMessage("detail"))
+          dispatch(setPokemonToEliminateFromTeam(pokemonSelected))
+          dispatch(setShowMessage(true))       
           }
         }
         />

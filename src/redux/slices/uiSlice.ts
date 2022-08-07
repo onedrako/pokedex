@@ -1,3 +1,4 @@
+import { kindOfMessage } from '@customTypes/pokemonCustomTypes'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 type initialStateType = {
@@ -7,6 +8,7 @@ type initialStateType = {
   triggerPokedexAnimation: boolean,
 
   showMessage: boolean,
+  kindOfMessage: kindOfMessage,
   triggerMessageAnimation: boolean
 }
 
@@ -17,7 +19,9 @@ const initialState: initialStateType = {
   triggerPokedexAnimation: false,
 
   showMessage: false,
+  kindOfMessage: '' as kindOfMessage,
   triggerMessageAnimation: false,
+
 }
 
 export const uiSlice = createSlice({
@@ -46,11 +50,14 @@ export const uiSlice = createSlice({
     setShowMessage: (state: any, action: PayloadAction<boolean>) => {
       state.showMessage = action.payload
     },
+    setKindOfMessage: (state: any, action: PayloadAction<kindOfMessage>) => {
+      state.kindOfMessage = action.payload
+    },
     setTriggerMessageAnimation: (state: any, action: PayloadAction<boolean>) => {
       state.triggerMessageAnimation = action.payload
     }
   }
 })
 
-export const { setLoading, setShowDetails, setInitialPokedexAnimation,setTriggerPokedexAnimation, setShowMessage, setTriggerMessageAnimation } = uiSlice.actions
+export const { setLoading, setShowDetails, setInitialPokedexAnimation,setTriggerPokedexAnimation, setShowMessage, setKindOfMessage, setTriggerMessageAnimation } = uiSlice.actions
 export default uiSlice.reducer

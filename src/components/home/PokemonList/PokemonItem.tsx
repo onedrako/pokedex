@@ -1,12 +1,17 @@
 //Libraries
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 //Redux
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { AppDispatch } from 'index'
-import { addPokemonToTeamOnList, removePokemonFromTeamOnList } from '@utils/reduxFuctions/addRemovePokemonTeamOnList'
+import { setPokemonToEliminateFromTeam } from '@redux/slices/pokemonSlice'
+import { setKindOfMessage, setShowMessage} from '@redux/slices/uiSlice'
+import { addPokemonToTeamOnList } from '@utils/reduxFuctions/addRemovePokemonTeamOnList'
+import { addPokemonToTeam } from '@utils/reduxFuctions/addRemovePokemonTeam'
 
 //Utils
 import { capitalizeFirstLetter } from '@utils/capitalize'
+import { openPokemonDetail } from '@utils/componentsUtils/openClosePokemonDetails'
 
 //Styles
 import { PokemonItemContainer } from '@styles/Home/PokemonList/PokemonItem'
@@ -15,35 +20,17 @@ import { PokemonItemContainer } from '@styles/Home/PokemonList/PokemonItem'
 import { PokemonWithDetails, POKEMON_TYPE_NAME } from '@customTypes/pokemonCustomTypes'
 import { IPokemonType } from 'pokeapi-typescript'
 import { PokemonType } from './PokemonType'
-import { addPokemonToTeam, removePokemonFromTeam } from '@utils/reduxFuctions/addRemovePokemonTeam'
-import { setPokemonDetail } from '@redux/slices/pokemonDetailSlice'
-import { setShowDetails, setTriggerPokedexAnimation } from '@redux/slices/uiSlice'
-import { useNavigate } from 'react-router-dom'
 
 
 const PokemonItem = ({ pokemon }: {pokemon: PokemonWithDetails}) => {
-
   const pokemonList = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
   const pokemonTeam = useSelector((state: any) => state.pokemon.pokemonTeam, shallowEqual)
   const dispatch = useDispatch<AppDispatch>()
 
   const navigate = useNavigate()
 
-
-  const openPokemonDetail = () => {
-    setTimeout(() => {
-      setTimeout(() => {
-        dispatch(setTriggerPokedexAnimation(false))
-      }, 400)
-      dispatch(setShowDetails(true))
-      navigate(`/pokemon`)
-    }, 380)
-    dispatch(setPokemonDetail(pokemon))
-    dispatch(setTriggerPokedexAnimation(true))
-  }
-
   return (
-    <PokemonItemContainer onClick={() => openPokemonDetail()}>
+    <PokemonItemContainer onClick={() => openPokemonDetail({dispatch, navigate, pokemon, route: "/pokemon"})}>
       {!pokemon.team ? 
       (
         <img 
@@ -65,8 +52,9 @@ const PokemonItem = ({ pokemon }: {pokemon: PokemonWithDetails}) => {
         alt="icon to remove pokemon to team"
         onClick={(e) => {
           e.stopPropagation()
-          removePokemonFromTeamOnList( pokemon, pokemonList, dispatch )
-          removePokemonFromTeam( pokemon, pokemonTeam, dispatch )
+          dispatch(setKindOfMessage("list"))
+          dispatch(setPokemonToEliminateFromTeam(pokemon))
+          dispatch(setShowMessage(true)) 
           }
         }
         />
