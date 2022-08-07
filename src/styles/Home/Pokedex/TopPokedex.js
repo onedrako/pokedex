@@ -12,7 +12,7 @@ export const TopPokedexStyled = styled.header`
   align-items: flex-end;
   height: ${(props) => props.initial ? "50%" : "100px"};
   animation: ${(props) => props.initial ? "showFromTop" : props.trigger ? "newPage" : "none"} ease-in-out;
-  animation-duration: ${(props) => props.initial === true ? "0.5s" : "1s"};
+  animation-duration: ${(props) => props.initial === true ? "0.5s" : "0.6s"};
   animation-fill-mode: forwards;  
   animation-delay: ${(props) => props.initial === true ? "0.5s" : "0s" };
 

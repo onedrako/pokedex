@@ -7,10 +7,10 @@ import { GlobalStyles } from './styles/GlobalStyles'
 
 // Pages
 import Home from '@pages/Home'
+import {PokemonDetailPage} from '@pages/PokemonDetailPage'
 
 //Components
 import {Layout} from '@components/Layout/Layout'
-import {PokemonDetailPage} from '@pages/PokemonDetailPage'
 
 const App = () => {
   return (

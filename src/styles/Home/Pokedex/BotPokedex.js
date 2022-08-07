@@ -14,7 +14,7 @@ export const BotPokedexStyled = styled.footer`
   border-top: 4px solid #fff;
   height: ${(props) => props.initial ? "50%" : "100px"};
   animation: ${(props) => props.initial ? "showFromBottom" : props.trigger ? "newPage" : "none"} ease-in-out;
-  animation-duration: ${(props) => props.initial === true ? "0.5s" : "1s"};
+  animation-duration: ${(props) => props.initial === true ? "0.5s" : "0.65s"};
   animation-fill-mode: forwards;  
   animation-delay: ${(props) => props.initial === true ? "0.5s" : "0s" }; 
 

@@ -27,18 +27,18 @@ const PokemonTeamMember = ({pokemon}: {pokemon: PokemonWithDetails}) => {
 
   return (
     <PokemonMember gradient={gradient} onClick={() => openPokemonDetail({dispatch, navigate, pokemon, route: "/pokemon"})}>
-          <img 
-            className='pokemon-item__add-remove' 
-            src="https://i.imgur.com/LsQQ1EM.png" 
-            alt="icon-to-add/remove"
-            onClick={(e) => {
-              e.stopPropagation()
-              dispatch(setKindOfMessage("team"))
-              dispatch(setPokemonToEliminateFromTeam(pokemon))
-              dispatch(setShowMessage(true))
-              }
-            }
-          />
+      <img 
+        className='pokemon-item__add-remove' 
+        src="https://i.imgur.com/LsQQ1EM.png" 
+        alt="icon-to-add/remove"
+        onClick={(e) => {
+          e.stopPropagation()
+          dispatch(setKindOfMessage("team"))
+          dispatch(setPokemonToEliminateFromTeam(pokemon))
+          dispatch(setShowMessage(true))
+          }
+        }
+      />
       <img className='pokemon-member__image' src={pokemon.sprites.front_default} alt={`${pokemon.name} image`} />
       <p className='pokemon-member__name'>{capitalizeFirstLetter(pokemon.name)}</p>
     </PokemonMember>
