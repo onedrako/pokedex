@@ -12,7 +12,7 @@ import {PokemonTeamMember} from './PokemonTeamMember'
 
 //Types TS
 import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
-// import { SendPokemonToOak } from '@styles/Home/PokemonTeam/PokemonTeamAnimation'
+import { SendPokemonToOak } from '@styles/Home/PokemonTeam/PokemonTeamAnimation'
 
 const PokemonTeam = ({isOnView}: {isOnView: (node?: Element | null | undefined) => void}) => {
   const userPokemonTeam: PokemonWithDetails[] = useSelector((state: any) => state.pokemon.pokemonTeam, shallowEqual)
@@ -28,21 +28,20 @@ const PokemonTeam = ({isOnView}: {isOnView: (node?: Element | null | undefined) 
         
           <h2>¡Alto ahí persona! Es peligroso andar por la hierba alta sin Pokémon, elige a tus Pokémon favoritos para tu equipo</h2>
         </EmptyTeam>
-      }s
+      }
       {userPokemonTeam.length > 0 &&
         <PokemonChosenStyled>
           {userPokemonTeam.map((pokemon: PokemonWithDetails) => (
             <PokemonTeamMember key={`pokemon-team-${pokemon.id}`} pokemon={pokemon} />
-          ))}
-
-          {/* <SendPokemonToOak className='poke-gone'>
-            <img src="" alt="transfer-tube" />
-
-          </SendPokemonToOak> */}
-
-        </PokemonChosenStyled>
-        
+          ))}          
+        </PokemonChosenStyled>        
       }
+            <SendPokemonToOak className='poke-gone'>
+            <div className='pipe'></div>
+            <img className='pokemon' src={userPokemonTeam[0].sprites.front_default} alt="pokemon" />
+            <img className="pokeball" src="https://i.imgur.com/XzODe9l.png" alt="pokeball"/>
+            <div className='laser'></div>
+          </SendPokemonToOak>
     </TeamContainer>
   )
 }

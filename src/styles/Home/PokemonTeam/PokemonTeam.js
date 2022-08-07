@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const TeamContainer = styled.section`
-  padding: 25px 10px 0 10px; 
+  /* padding: 25px 10px 0 10px;  */
   width: 100%;
   max-width: 850px;
   display: ${props => props.showDetails ? 'none' : 'grid'};
@@ -36,7 +36,7 @@ export const TeamContainer = styled.section`
     background: #f4fafc;
     margin-top: 0;
     height: 100%;
-    padding: 10px;
+    /* padding: 10px; */
     grid-gap: 5px;
     z-index: 5;
     grid-template-rows: 100px 1fr;
