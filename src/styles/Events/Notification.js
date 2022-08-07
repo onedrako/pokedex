@@ -45,12 +45,12 @@ export const PlatformContainer = styled.div`
         border-radius: 50%;
         position: relative;
         z-index: 3;
-        /* animation-name: rotateAndGetBack;
+        animation-name: rotateAndGetBack;
         animation-duration: 7s;
         animation-fill-mode: forwards;
         animation-timing-function: ease-in-out;
         animation-iteration-count: 1;
-        animation-delay: 0.3s; */
+        animation-delay: 0.3s;
 
         @media (max-width: 735px) {
           width: 150px;
@@ -108,11 +108,11 @@ export const Banner = styled.div`
   border-top: solid #c11427 5px;
   justify-content: end;
   /* padding: 10px; */
-  /* left: -510px; */
-  left: 75px;
-  /* animation-name: extend;
+  left: -510px;
+  /* left: 75px; */
+  animation-name: extend;
   animation-duration: 7s;
-  animation-delay: 0.3s; */
+  animation-delay: 0.3s;
 
   @media (max-width: 735px) {
     width: 525px;

@@ -33,14 +33,11 @@ const Layout = ({children}: {children: ReactNode}) => {
         {children}
 
         {/* Events */}
-        {/* { MaxPokemonError && 
+        { MaxPokemonError && 
           <NotificationContainer>
             <Notification/>   
           </NotificationContainer>
-        } */}
-          <NotificationContainer>
-            <Notification/>   
-          </NotificationContainer>
+        }
         {showMessage && <ConfirmMessage/>}
         {!inView && <PokemonTeamMiniBar/>}
       </Main>
