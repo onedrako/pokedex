@@ -15,7 +15,7 @@ export const SendPokemonToOak = styled.div`
   margin: 10px 0 0 auto;
 
   & > .pipe{
-    width: 50%;
+    width: 49%;
     height: 35%;
     border-radius: 5px;
     border-top: 20px solid #2c2c2c;
@@ -34,7 +34,7 @@ export const SendPokemonToOak = styled.div`
         right: -100px;
       }
       to{
-        right: 0px;
+        right: -5px;
       }
     };
 
@@ -98,9 +98,60 @@ export const SendPokemonToOak = styled.div`
     height: 40px;
     position: absolute;
     bottom: 10px;
-    left: 48%;
-  }
+    /* left: 48%; */
+    left: 100%;
+    
+    animation: pokeball 7s ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
 
+    @keyframes pokeball{
+      0%{
+        left: 100%;
+        bottom: 10px;
+      }
+      3%{
+        bottom: 30px;
+      }
+      6%{
+        bottom: 10px;
+      }
+      9%{
+        bottom: 30px;
+      }
+      12%{
+        bottom: 10px;
+      }  
+      15%{
+        left: 50%;
+        bottom: 10px;
+      }
+      25%{
+        left: 50%;
+      }
+      40%{
+        left: 50%;
+        scale: 1;
+        bottom: 10px;
+      }
+      60%{
+        scale: 0.6;
+        left: 50%;
+        bottom: 85px;
+      }
+      70%{
+        left: 100%;
+        scale: 0.6;
+        bottom: 85px;
+      }
+      100%{
+        left: 100%;
+        scale: 0.6;
+        bottom: 85px;
+      }
+    } 
+  }
 
   & > .laser{
     position: absolute;
