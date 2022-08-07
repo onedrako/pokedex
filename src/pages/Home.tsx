@@ -30,7 +30,7 @@ const Home = () => {
 
   useEffect(() => {
     //This is in case the user scroll and reach the limit of the list that we stablish
-    if(pokemonList.length === pokemonListLimit) {
+    if(pokemonList.length >= pokemonListLimit) {
       return
     }
     //This is in case the user scroll but there are elements to charge when pokemon number is more than the limit per page

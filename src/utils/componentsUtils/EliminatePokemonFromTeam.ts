@@ -1,4 +1,5 @@
 import { kindOfMessage, PokemonWithDetails } from "@customTypes/pokemonCustomTypes"
+import { setPokemonToSendToEliminateAnimation } from "@redux/slices/pokemonSlice"
 import { setShowMessage, setTriggerMessageAnimation } from "@redux/slices/uiSlice"
 import { removePokemonFromTeam } from "@utils/reduxFuctions/addRemovePokemonTeam"
 import { removePokemonFromTeamOnList } from "@utils/reduxFuctions/addRemovePokemonTeamOnList"
@@ -23,6 +24,7 @@ export const confirmEliminatePokemonFromTeam = ({
   kindOfMessage
 }: eliminateProps) => {
 
+
   if(kindOfMessage === 'team'){
     removePokemonFromTeamOnList(pokemon, pokemonList, dispatch)
     removePokemonFromTeam(pokemon, pokemonTeam, dispatch)
@@ -46,6 +48,7 @@ export const confirmEliminatePokemonFromTeam = ({
     dispatch(setShowMessage(false))
     dispatch(setTriggerMessageAnimation(false))
   }, 500)
+  dispatch(setPokemonToSendToEliminateAnimation([pokemon]))
 }
 
 
