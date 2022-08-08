@@ -24,7 +24,7 @@ export const SendPokemonToOak = styled.div`
     position: absolute;
     margin: 0 0 0 auto;
     /* right: 0; */
-    right: -150px;
+    right: -200px;
     animation: pipe 7s ease-in-out;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
@@ -33,9 +33,12 @@ export const SendPokemonToOak = styled.div`
 
     @keyframes pipe{
       from{
-        right: -150px;
+        right: -300px;
       }
       15%{
+        right: -300px;
+      }
+      35%{
         right: -5px;
       }
       65%{
@@ -217,6 +220,32 @@ export const SendPokemonToOak = styled.div`
       100%{
         opacity: 0;
       }
+    }
+
+    @media (min-width: 1024px) {
+      @keyframes laser{
+      from{
+        left: 53%;
+        width: 10px;
+        opacity: 1;
+      }
+      15%{
+        left: 15%;
+        width: 200px      
+      }
+      50%{
+        left: 15%;
+        width: 200px;
+      }
+      to{
+        left: 53%;
+        width: 10px;
+        opacity: 1;
+      }
+      100%{
+        opacity: 0;
+      }
+    }
     }
   }
 

@@ -63,6 +63,10 @@ export const PokemonTeamTitlesStyled = styled.div`
     text-align: center;
     font-size: 1.5rem;
   }
+
+  @media (min-width: 1024px) {
+    width: 90%;
+  }
 `
 
 export const PokemonChosenStyled = styled.div`
