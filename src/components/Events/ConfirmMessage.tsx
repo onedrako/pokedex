@@ -20,6 +20,7 @@ const ConfirmMessage = () => {
   const pokemonList = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
   const showDetails = useSelector((state: any) => state.ui.showDetails)
   const kindOfMessage = useSelector((state: any) => state.ui.kindOfMessage)
+  const pokemonToSendToEliminateAnimation: PokemonWithDetails[] = useSelector((state: any) => state.pokemon.pokemonToSendToEliminateAnimation, shallowEqual)
 
   const triggerMessageAnimation = useSelector((state: any) => state.ui.triggerMessageAnimation)
 
@@ -34,7 +35,7 @@ const ConfirmMessage = () => {
           <p className='message__text'>¿Quieres enviar a {capitalizeFirstLetter(pokemon.name)} con el profesor Oak?</p>
         </div>
         <div className="buttons">
-          <button type='button' className='button confirm' onClick={() => confirmEliminatePokemonFromTeam({pokemon, pokemonList, pokemonTeam, showDetails, dispatch, kindOfMessage}) } >Si</button>
+          <button type='button' className='button confirm' onClick={() => confirmEliminatePokemonFromTeam({pokemon, pokemonList, pokemonTeam, showDetails, dispatch, kindOfMessage, pokemonToSendToEliminateAnimation}) } >Si</button>
           <button type='button' className='button cancel' onClick={() => cancelEliminatePokemonFromTeam(dispatch)} >No</button>
         </div>
       </ConfirmMessageStyled>

@@ -1,9 +1,57 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { capitalizeFirstLetter } from '@utils/capitalize'
 import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
 import { SendPokemonToOak } from '@styles/Home/PokemonTeam/PokemonTeamAnimation'
+import { useDispatch, useSelector } from 'react-redux'
+import { setPokemonListToEliminateAnimation, setPokemonToEliminateLength } from '@redux/slices/pokemonSlice'
 
 const SendPokemonOutOfTeam = ({pokemon}: {pokemon: PokemonWithDetails}) => {
+  const dispatch = useDispatch()
+  const pokemonListToAnimate = useSelector((state: any) => state.pokemon.pokemonToEliminateFromTeam)
+  const pokemonToEliminateLength = useSelector((state: any) => state.pokemon.pokemonToEliminateLength)
+
+  console.log("component", pokemonToEliminateLength)
+
+  const copy = [...pokemonListToAnimate]
+
+
+  useEffect(() => {
+    setTimeout(() => {
+      console.log(" inside set time",pokemonToEliminateLength)
+      let pokemonToAnimate
+      if (pokemonToEliminateLength >= 1) {
+        console.log("erase 1", pokemonToEliminateLength)
+        pokemonToAnimate = copy.splice(0, 1)
+
+      }else {
+        console.log("erase all", pokemonToEliminateLength)
+        pokemonToAnimate = []
+      }
+      console.log("dispatching")
+      console.log("lenght set", pokemonToEliminateLength - 1)
+      
+      dispatch(setPokemonToEliminateLength(pokemonToEliminateLength - 1))
+      console.log("dispatched", pokemonToEliminateLength)
+      dispatch(setPokemonListToEliminateAnimation(pokemonToAnimate as PokemonWithDetails[]))
+
+      }, 7500)
+  },[])
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     let pokemonToAnimate
+  //     if (length > 1) {
+  //       console.log("erase 1")
+  //       pokemonToAnimate = copy.shift()
+  //     }else {
+  //       console.log("erase all")
+  //       pokemonToAnimate = []
+  //     }
+  //     console.log("dispatching")
+  //     dispatch(setPokemonListToEliminateAnimation(pokemonToAnimate as PokemonWithDetails[]))
+  //     }, 7000)
+  // },[])
+
   return ( 
     <SendPokemonToOak className='poke-gone'>
       <div className='pipe'></div>

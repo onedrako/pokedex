@@ -41,7 +41,7 @@ const PokemonTeam = ({isOnView}: {isOnView: (node?: Element | null | undefined) 
       }
 
       {pokemonToSendToEliminateAnimation.length  &&
-        pokemonToSendToEliminateAnimation.map((pokemon: PokemonWithDetails) => 
+        pokemonToSendToEliminateAnimation?.map((pokemon: PokemonWithDetails) => 
           <SendPokemonOutOfTeam key={`pokemon-team-${pokemon.id}`} pokemon={pokemon} />
         )
       }

@@ -39,12 +39,14 @@ export const fetchPokemonsWithDetails = createAsyncThunk(
 
 
 type PokemonState = {
-  pokemon: PokemonWithDetails[], 
-  pokemonTeam: PokemonWithDetails[],  
+  pokemon: PokemonWithDetails[] 
+  pokemonTeam: PokemonWithDetails[]  
   paginationOffset: number
   
   pokemonToEliminateFromTeam: PokemonWithDetails
+
   pokemonToSendToEliminateAnimation: PokemonWithDetails[]
+  pokemonToEliminateLength: number 
 }
 
 // state
@@ -54,7 +56,9 @@ const initialState: PokemonState = {
   paginationOffset: 0,
   
   pokemonToEliminateFromTeam: {} as PokemonWithDetails,
-  pokemonToSendToEliminateAnimation:[]
+  
+  pokemonToSendToEliminateAnimation:[],
+  pokemonToEliminateLength: 1
 }
 
 // slice for pokemon
@@ -78,8 +82,16 @@ export const pokemonSlice = createSlice({
     setPokemonToEliminateFromTeam: (state: any, action: PayloadAction<PokemonWithDetails>) => {
       state.pokemonToEliminateFromTeam = action.payload
     },
+
+
     setPokemonToSendToEliminateAnimation: (state: any, action: PayloadAction<PokemonWithDetails[]>) => {
       state.pokemonToSendToEliminateAnimation.push(...action.payload)
+    },
+    setPokemonListToEliminateAnimation: (state: any, action: PayloadAction<PokemonWithDetails[]>) => {
+      state.pokemonToSendToEliminateAnimation = [...action.payload]
+    },
+    setPokemonToEliminateLength: (state: any, action: PayloadAction<number>) => {
+      state.pokemonToEliminateLength = action.payload
     }
   }
 })
@@ -93,7 +105,10 @@ export const {
 
   setPokemonTeam,
   setPokemonToEliminateFromTeam,
-  setPokemonToSendToEliminateAnimation
+
+  setPokemonToSendToEliminateAnimation,
+  setPokemonListToEliminateAnimation,
+  setPokemonToEliminateLength
 
 } = pokemonSlice.actions
 export default pokemonSlice.reducer

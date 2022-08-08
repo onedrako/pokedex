@@ -5,6 +5,7 @@ import { removePokemonFromTeam } from "@utils/reduxFuctions/addRemovePokemonTeam
 import { removePokemonFromTeamOnList } from "@utils/reduxFuctions/addRemovePokemonTeamOnList"
 import { updateTeamStateOnDetail } from "@utils/reduxFuctions/updateTeamStateOnDetail"
 import { AppDispatch } from "index"
+import { sendPokemonToSendToEliminateAnimation } from "./sendPokemonToEliminationAnimation"
 
 type eliminateProps = {
   pokemon: PokemonWithDetails,
@@ -13,6 +14,7 @@ type eliminateProps = {
   showDetails: boolean,
   dispatch: AppDispatch,
   kindOfMessage: kindOfMessage
+  pokemonToSendToEliminateAnimation: PokemonWithDetails[]
 }
 
 export const confirmEliminatePokemonFromTeam = ({
@@ -21,7 +23,8 @@ export const confirmEliminatePokemonFromTeam = ({
   pokemonTeam,
   showDetails,
   dispatch,
-  kindOfMessage
+  kindOfMessage,
+  pokemonToSendToEliminateAnimation,
 }: eliminateProps) => {
 
 
@@ -48,7 +51,9 @@ export const confirmEliminatePokemonFromTeam = ({
     dispatch(setShowMessage(false))
     dispatch(setTriggerMessageAnimation(false))
   }, 500)
-  dispatch(setPokemonToSendToEliminateAnimation([pokemon]))
+
+
+  sendPokemonToSendToEliminateAnimation(pokemon, pokemonToSendToEliminateAnimation, dispatch)
 }
 
 
