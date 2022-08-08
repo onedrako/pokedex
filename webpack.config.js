@@ -13,9 +13,9 @@ module.exports = {
     publicPath: '/'
   },
   resolve: {
-    extensions: ['.ts', '.tsx', 'js'],
+    extensions: ['.ts', '.tsx', '.js'],
     alias: {
-      '@assets': path.resolve(__dirname, 'src/assets/*'),
+      '@assets': path.resolve(__dirname, 'src/assets/'),
       '@components': path.resolve(__dirname, 'src/components/'),
       '@customTypes': path.resolve(__dirname, 'src/types/'),
       '@hooks': path.resolve(__dirname, 'src/hooks/'),
@@ -47,12 +47,8 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
-        loader: 'file-loader',
-        generator: {
-          filename: 'static/images/[hash][ext][query]'
-        }
+        test: /\.(png|jpg)$/,
+        type: 'asset/resource'
       }
     ]
   },

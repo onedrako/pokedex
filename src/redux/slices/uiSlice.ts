@@ -1,6 +1,5 @@
 import { kindOfMessage } from '@customTypes/pokemonCustomTypes'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { boolean } from 'joi'
 
 type initialStateType = {
   loading: boolean, 
