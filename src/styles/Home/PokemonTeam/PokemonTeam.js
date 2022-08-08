@@ -61,7 +61,7 @@ export const PokemonTeamTitlesStyled = styled.div`
   overflow: hidden;
   & > h1 {
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 `
 
@@ -69,7 +69,7 @@ export const PokemonChosenStyled = styled.div`
   grid-area: pokemon;
   width: 100%;
   display: grid;
-  padding: 10px;
+  padding: 16px;
   grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); 
   gap: 5px;
   justify-content: center;
@@ -102,8 +102,12 @@ export const EmptyTeam = styled.div`
     font-size: 1.2rem;
     text-align: center;
     width: 80%;
-    background: #f4fafc;
+    background: #fff;
     border-radius: 10px;
+
+    @media (min-width: 1024px) {
+      background: #f4fafc;
+    }
   }
 
   & > img{

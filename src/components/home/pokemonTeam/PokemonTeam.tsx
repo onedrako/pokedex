@@ -32,13 +32,13 @@ const PokemonTeam = ({isOnView}: {isOnView: (node?: Element | null | undefined) 
         </EmptyTeam>
       }
 
-      {userPokemonTeam.length > 0 &&
         <PokemonChosenStyled>
-          {userPokemonTeam.map((pokemon: PokemonWithDetails) => (
+      {userPokemonTeam.length > 0 &&
+          userPokemonTeam.map((pokemon: PokemonWithDetails) => (
             <PokemonTeamMember key={`pokemon-team-${pokemon.id}`} pokemon={pokemon} />
-          ))}          
-        </PokemonChosenStyled>        
+          ))         
       }
+        </PokemonChosenStyled>        
 
       {pokemonToSendToEliminateAnimation.length  &&
         pokemonToSendToEliminateAnimation?.map((pokemon: PokemonWithDetails) => 

@@ -5,6 +5,7 @@ import { setLoading } from './uiSlice'
 // Utils
 import { api } from '../../utils/axiosConfig'
 import { getData } from '../../utils/getData'
+import {pokemonListLimit} from '@utils/constants/constants'
 
 // Types
 import { Pokemon, PokemonWithDetails } from '../../types/pokemonCustomTypes'

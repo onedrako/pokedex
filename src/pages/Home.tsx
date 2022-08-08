@@ -24,7 +24,7 @@ const Home = () => {
 
   //Intersection Observer
   const { ref, inView } = useInView({
-    threshold: 1
+    threshold: 0.75
   })
 
 
@@ -33,8 +33,9 @@ const Home = () => {
     if(pokemonList.length >= pokemonListLimit) {
       return
     }
+      
     //This is in case the user scroll but there are elements to charge when pokemon number is more than the limit per page
-    if((pokemonListLimit - pokemonList.length) > limitOfPokemonToAPIRequest){
+    if((pokemonListLimit - pokemonList.length) >= limitOfPokemonToAPIRequest){
       dispatch(fetchPokemonsWithDetails(`/pokemon?limit=${limitOfPokemonToAPIRequest}&offset=${paginationOffset}`) as any) //TODO: fix type
       dispatch(setPaginationOffset(paginationOffset + limitOfPokemonToAPIRequest))
       return
@@ -50,7 +51,7 @@ const Home = () => {
     <>
       <SearchBar/>
       <PokemonList />
-      {pokemonList.length !== pokemonListLimit && <div ref={ref} ></div>}
+      {pokemonList.length < pokemonListLimit && <div ref={ref} style={{marginBottom: "100px", width:"100%", height:"200px"}} ></div>}
     </>
 
   )
