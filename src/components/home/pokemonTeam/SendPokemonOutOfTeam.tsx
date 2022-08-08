@@ -10,31 +10,30 @@ const SendPokemonOutOfTeam = ({pokemon}: {pokemon: PokemonWithDetails}) => {
   const pokemonListToAnimate = useSelector((state: any) => state.pokemon.pokemonToEliminateFromTeam)
   const pokemonToEliminateLength = useSelector((state: any) => state.pokemon.pokemonToEliminateLength)
 
-  console.log("component", pokemonToEliminateLength)
 
   const copy = [...pokemonListToAnimate]
 
-
+  //This Effect put the tail to the pokemon that have to be erased on [], eliminating all components with animation, only provitional and fot that the code below is commented
   useEffect(() => {
     setTimeout(() => {
-      console.log(" inside set time",pokemonToEliminateLength)
-      let pokemonToAnimate
-      if (pokemonToEliminateLength >= 1) {
-        console.log("erase 1", pokemonToEliminateLength)
-        pokemonToAnimate = copy.splice(0, 1)
+      // console.log(" inside set time",pokemonToEliminateLength)
+      let pokemonToAnimate: PokemonWithDetails[] = []
+      // if (pokemonToEliminateLength >= 1) {
+      //   // console.log("erase 1", pokemonToEliminateLength)
+      //   pokemonToAnimate = copy.splice(0, 1)
 
-      }else {
-        console.log("erase all", pokemonToEliminateLength)
-        pokemonToAnimate = []
-      }
-      console.log("dispatching")
-      console.log("lenght set", pokemonToEliminateLength - 1)
+      // }else {
+        // console.log("erase all", pokemonToEliminateLength)
+      //   pokemonToAnimate = []
+      // }
+      // console.log("dispatching")
+      // console.log("lenght set", pokemonToEliminateLength - 1)
       
       dispatch(setPokemonToEliminateLength(pokemonToEliminateLength - 1))
-      console.log("dispatched", pokemonToEliminateLength)
+      // console.log("dispatched", pokemonToEliminateLength)
       dispatch(setPokemonListToEliminateAnimation(pokemonToAnimate as PokemonWithDetails[]))
 
-      }, 7500)
+      }, 15000)
   },[])
 
   // useEffect(() => {

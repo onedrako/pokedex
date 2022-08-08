@@ -13,6 +13,7 @@ export const SendPokemonToOak = styled.div`
   bottom: 10px;
   right: -10px; */
   margin: 10px 0 0 auto;
+  overflow: hidden;
 
   & > .pipe{
     width: 49%;
@@ -28,6 +29,7 @@ export const SendPokemonToOak = styled.div`
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     animation-delay: 0s;
+    overflow: hidden;
 
     @keyframes pipe{
       from{
@@ -60,6 +62,7 @@ export const SendPokemonToOak = styled.div`
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     animation-delay: 0s;
+    overflow: hidden;
 
     @keyframes pokemon{
       0%{
@@ -116,6 +119,7 @@ export const SendPokemonToOak = styled.div`
     bottom: 10px;
     /* left: 48%; */
     left: 100%;
+    overflow: hidden;
     
     animation: pokeball 7s ease-in-out;
     animation-iteration-count: 1;
@@ -183,6 +187,7 @@ export const SendPokemonToOak = styled.div`
     left: 53%; 
     opacity: 0;
     transform: rotate(360deg);
+    overflow: hidden;
     
     animation: laser 2s ease-in-out;
     animation-iteration-count: 1;

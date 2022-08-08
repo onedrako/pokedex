@@ -25,7 +25,7 @@ const PokemonTeam = ({isOnView}: {isOnView: (node?: Element | null | undefined) 
     <TeamContainer showDetails={showDetails} ref={isOnView}>
       <PokemonTeamTitles/>
       <img src="https://i.imgur.com/XzODe9l.png" alt=""/>
-      {userPokemonTeam.length === 0 &&
+      {userPokemonTeam.length === 0 && pokemonToSendToEliminateAnimation.length === 0 && 
         <EmptyTeam>
           <img src="https://i.imgur.com/fTfcC3j.png" alt="" /> 
           <h2>¡Alto ahí persona! Es peligroso andar por la hierba alta sin Pokémon, elige a tus Pokémon favoritos para tu equipo</h2>
@@ -42,7 +42,7 @@ const PokemonTeam = ({isOnView}: {isOnView: (node?: Element | null | undefined) 
 
       {pokemonToSendToEliminateAnimation.length  &&
         pokemonToSendToEliminateAnimation?.map((pokemon: PokemonWithDetails) => 
-          <SendPokemonOutOfTeam key={`pokemon-team-${pokemon.id}`} pokemon={pokemon} />
+          <SendPokemonOutOfTeam key={`pokemon-sendf-${pokemon.id}`} pokemon={pokemon} />
         )
       }
       {/* <SendPokemonOutOfTeam pokemon={userPokemonTeam[0]} /> */}
