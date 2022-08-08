@@ -48,6 +48,8 @@ const PokemonTeamMember = ({pokemon}: {pokemon: PokemonWithDetails}) => {
         <p className='pokemon-member__hp--stat'>{pokemon.stats[0].base_stat}</p>
       </div>
       <p className='pokemon-member__name'>{capitalizeFirstLetter(pokemon.name)}</p>
+
+      <img className='pokeball-animated' src="https://i.imgur.com/XzODe9l.png" alt="pokeball image" />
     </PokemonMember>
   )
 }

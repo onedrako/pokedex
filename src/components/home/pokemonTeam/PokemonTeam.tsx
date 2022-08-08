@@ -19,15 +19,13 @@ const PokemonTeam = ({isOnView}: {isOnView: (node?: Element | null | undefined) 
   const showDetails = useSelector((state: any) => state.ui.showDetails, shallowEqual)
   const pokemonToSendToEliminateAnimation: PokemonWithDetails[] = useSelector((state: any) => state.pokemon.pokemonToSendToEliminateAnimation, shallowEqual)
 
-  console.log('pokemonToSendToEliminateAnimation', pokemonToSendToEliminateAnimation)
-
   return (
     <TeamContainer showDetails={showDetails} ref={isOnView}>
       <PokemonTeamTitles/>
-      <img src="https://i.imgur.com/XzODe9l.png" alt=""/>
+      <img src="https://i.imgur.com/XzODe9l.png" alt="pokeball image"/>
       {userPokemonTeam.length === 0 && pokemonToSendToEliminateAnimation.length === 0 && 
         <EmptyTeam>
-          <img src="https://i.imgur.com/fTfcC3j.png" alt="" /> 
+          <img src="https://i.imgur.com/fTfcC3j.png" alt="profesor Oak image" /> 
           <h2>¡Alto ahí persona! Es peligroso andar por la hierba alta sin Pokémon, elige a tus Pokémon favoritos para tu equipo</h2>
         </EmptyTeam>
       }
