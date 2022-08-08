@@ -29,7 +29,6 @@ const Home = () => {
 
 
   useEffect(() => {
-    console.log("getting")
     //This is in case the user scroll and reach the limit of the list that we stablish
     if(pokemonList.length >= pokemonListLimit) {
       return
