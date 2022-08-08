@@ -23,6 +23,7 @@ import { PokemonDetailContainer, PokemonDetailHeader } from '@styles/PokemonDeta
 import { IPokemonStat, IPokemonType } from 'pokeapi-typescript'
 import { PokemonType } from '../home/PokemonList/PokemonType'
 import { PokemonWithDetails, POKEMON_TYPE_NAME } from '@customTypes/pokemonCustomTypes'
+import { PokemonBuble } from './PokemonBuble'
 
 
 
@@ -31,7 +32,6 @@ const PokemonDetail = () => {
   const pokemonTeam: PokemonWithDetails[] = useSelector((state: any) => state.pokemon.pokemonTeam, shallowEqual)
   const pokemonList: PokemonWithDetails[] = useSelector((state: any) => state.pokemon.pokemon, shallowEqual)
   const showDetails: boolean = useSelector((state: any) => state.ui.showDetails)
-  const triggerPokedexAnimation: boolean = useSelector((state: any) => state.ui.triggerPokedexAnimation)
   const reloadPokedexAnimation = useSelector((state: any) => state.ui.reloadPokedexAnimation)
 
   const dispatch = useDispatch()
@@ -106,6 +106,8 @@ const PokemonDetail = () => {
         />
       )
     }
+
+    <PokemonBuble/>
     </PokemonDetailContainer>
   )
 }

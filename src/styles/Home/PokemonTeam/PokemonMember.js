@@ -22,7 +22,7 @@ export const PokemonMember = styled.div`
 
   @keyframes show {
     from {
-      transform: translate(150px, -50px);
+      transform: translate(100px, -50px);
     }
     to {
       transform: translate(0, 0);
