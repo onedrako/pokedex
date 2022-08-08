@@ -1,7 +1,7 @@
 {
-  "name": "wholemeaning_test_frontend",
+  "name": "Pokedex",
   "version": "1.0.0",
-  "description": "",
+  "description": "A pokedex with animations to show changes on pokemon team",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config webpackDevelop.config.js --mode development",
@@ -11,7 +11,7 @@
     "vercel-buid": "npm run build"
   },
   "keywords": [],
-  "author": "Gabriel <gabriel_hernandez_95@yahoo.com>",
+  "author": "Gabriel <gabrielhv@onedrako.com>",
   "license": "MIT",
   "dependencies": {
     "@reduxjs/toolkit": "1.8.3",
