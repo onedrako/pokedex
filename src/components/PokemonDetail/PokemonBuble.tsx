@@ -8,7 +8,7 @@ import { setPokemonDetail } from '@redux/slices/pokemonDetailSlice'
 import { getGradientByType } from '@utils/getGradientByType'
 
 //Styles
-import { PokemonBubleContainer } from '@styles/PokemonDetail/PokemonBuble'
+import { PokemonBubbleContainer } from '@styles/PokemonDetail/PokemonBubble'
 
 //Types Ts
 import { PokemonWithDetails } from '@customTypes/pokemonCustomTypes'
@@ -71,16 +71,16 @@ const PokemonBuble = () => {
   return (
     <>
       {previous >= 0 && (
-        <PokemonBubleContainer selector="previous" gradient={previousGradient} onClick={() => dispatch(setPokemonDetail(pokemonList[previous]))}>
+        <PokemonBubbleContainer selector="previous" gradient={previousGradient} onClick={() => dispatch(setPokemonDetail(pokemonList[previous]))}>
           <img src={pokemonList[previous].sprites.front_default} alt={previuosPokemon.name} />
-        </PokemonBubleContainer>
+        </PokemonBubbleContainer>
       )}
 
       {nextPokemon !== undefined && (
         next <= pokemonListLimit && (
-          <PokemonBubleContainer selector="next" gradient={nextGradient} onClick={() => dispatch(setPokemonDetail(nextPokemon))}>
+          <PokemonBubbleContainer selector="next" gradient={nextGradient} onClick={() => dispatch(setPokemonDetail(nextPokemon))}>
             <img src={nextPokemon?.sprites.front_default} alt={nextPokemon?.name} />
-          </PokemonBubleContainer>
+          </PokemonBubbleContainer>
           )
       )}
       
