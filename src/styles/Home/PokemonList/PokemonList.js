@@ -6,7 +6,7 @@ export const PokemonListContainer = styled.section`
   grid-gap: 10px;
   width: 100%;
   margin: 25px 0 25px 0;
-  padding-bottom: 100px;
+  padding-bottom: 125px;
   align-items: center;
   justify-content: center;
 
