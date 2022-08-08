@@ -51,3 +51,6 @@ export const closePokemonDetail = ({dispatch, navigate, route, reload}: closePok
   dispatch(setTriggerPokedexAnimation(true))
 }
 
+
+
+

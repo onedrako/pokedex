@@ -43,11 +43,13 @@ type PokemonState = {
   pokemon: PokemonWithDetails[] 
   pokemonTeam: PokemonWithDetails[]  
   paginationOffset: number
-  
+  getMorePokemon: boolean
+
   pokemonToEliminateFromTeam: PokemonWithDetails
 
   pokemonToSendToEliminateAnimation: PokemonWithDetails[]
   pokemonToEliminateLength: number 
+  
 }
 
 // state
@@ -55,6 +57,8 @@ const initialState: PokemonState = {
   pokemon: [],
   pokemonTeam: getTeamFromLocalStorage(),
   paginationOffset: 0,
+  // For pokemon detailPage
+  getMorePokemon: false,
   
   pokemonToEliminateFromTeam: {} as PokemonWithDetails,
   
@@ -76,6 +80,10 @@ export const pokemonSlice = createSlice({
     setPaginationOffset: (state: any, action: PayloadAction<number>) => {
       state.paginationOffset = action.payload
     },
+    setGetMorePokemon: (state: any, action: PayloadAction<boolean>) => {
+      state.getMorePokemon = action.payload
+    },
+
 
     setPokemonTeam: (state: any, action: PayloadAction<PokemonWithDetails[]>) => {
       state.pokemonTeam =  [...action.payload]
@@ -103,6 +111,7 @@ export const {
   setPokemons, 
   setPokemonsTeamOnList,  
   setPaginationOffset,
+  setGetMorePokemon,
 
   setPokemonTeam,
   setPokemonToEliminateFromTeam,

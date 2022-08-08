@@ -52,12 +52,16 @@ export const fetchPokemonSearched = createAsyncThunk(
 type PokemonSearcherState = {
   pokemonSearched: PokemonWithDetails
   term: string
+
+  nextPokemon: PokemonWithDetails
 }
 
 // state
 const initialState: PokemonSearcherState = {
   pokemonSearched: {} as PokemonWithDetails,
   term: "",
+
+  nextPokemon: {} as PokemonWithDetails,
 }
 
 // slice for pokemonSearcher
@@ -69,8 +73,11 @@ export const pokemonSearcherSlice = createSlice({
       state.pokemonSearched = {...action.payload}
     },
     setTerm: (state: any, action: PayloadAction<string>) => {
-      console.log("action.payload", action.payload)
       state.term = action.payload
+    },
+
+    setNextPokemon: (state: any, action: PayloadAction<PokemonWithDetails>) => {
+      state.nextPokemon = {...action.payload}
     }
   }
 })
@@ -78,7 +85,9 @@ export const pokemonSearcherSlice = createSlice({
 
 export const { 
   setPokemonSearched,
-  setTerm
+  setTerm,
+
+  setNextPokemon,
 
 } = pokemonSearcherSlice.actions
 export default pokemonSearcherSlice.reducer
