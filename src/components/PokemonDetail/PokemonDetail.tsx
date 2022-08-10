@@ -59,6 +59,10 @@ const PokemonDetail = () => {
     <PokemonDetailContainer>
       <PokemonDetailHeader className='pokemon-details__types-view' gradient={gradient} ></PokemonDetailHeader>
 
+      <figure className='pokemon-details__image-container'>
+        <img className='pokemon-details__image' src={pokemonSelected.sprites.front_default} alt={`${pokemonSelected.name} image`} />
+      </figure>
+
       <div className='pokemon-details'>
         <h2 className='pokemon-details__name'>{`#${pokemonSelected.id} ${capitalizeFirstLetter(pokemonSelected.name)}`}</h2>
         <div className='pokemon-item__types'>
@@ -80,9 +84,7 @@ const PokemonDetail = () => {
 
       </div>
 
-      <figure className='pokemon-details__image-container'>
-        <img className='pokemon-details__image' src={pokemonSelected.sprites.front_default} alt={`${pokemonSelected.name} image`} />
-      </figure>
+
 
       <img className='pokemon-details__back' src="https://i.imgur.com/06KKIXc.png" alt="Go back icon"
         onClick={() => {

@@ -3,13 +3,14 @@ import styled from 'styled-components';
 export const PokemonDetailContainer = styled.section`
   display: flex;
   flex-direction: column;
-  margin: 115px 0 25px 0;
+  margin: 35px 0 150px 0;
   width: 95%;
-  height: 70vh;
+  height: 550px;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
   border-radius: 10px;
   background-color: #fff;
-  position: fixed;
+  overflow: scroll;
+  /* position: fixed; */
   
   & > .pokemon-details{
     height: 70%;
@@ -82,10 +83,30 @@ export const PokemonDetailContainer = styled.section`
   } 
 
   & > .pokemon-details__image-container{
-    width: 100%;
+    /* width: 100%; */
+    max-width: 550px;
     position: absolute;
     display: flex;
     justify-content: center;
+    align-items: center;
+    left: 15%;
+
+    @media (min-width: 400px) {
+      left: 22%;
+    }
+
+    @media (min-width: 570px) {
+      left: 30%;
+    }
+
+    @media (min-width: 675px) {
+      left: 40%
+    }
+
+    @media (min-width: 1024px) {
+      left: 40%;
+    }
+
     & > .pokemon-details__image{
       width: 228px;
       right: 30px;
@@ -114,7 +135,9 @@ export const PokemonDetailContainer = styled.section`
 
   @media (min-width: 600px) {
     max-width: 550px;
-    margin: 130px 0 25px 0;
+    min-height: 535px;
+    margin: 50px 0 130px 0;
+    overflow: scroll;
   }
 
   `
