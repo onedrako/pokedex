@@ -10,7 +10,7 @@ export const PokemonDetailContainer = styled.section`
   border-radius: 10px;
   background-color: #fff;
   overflow: hidden;
-  /* position: fixed; */
+  position: relative;
   ::-webkit-scrollbar{
     display: none;
   }
@@ -92,7 +92,7 @@ export const PokemonDetailContainer = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    left: 15%;
+    left: 13%;
 
     @media (min-width: 400px) {
       left: 22%;
@@ -103,11 +103,11 @@ export const PokemonDetailContainer = styled.section`
     }
 
     @media (min-width: 675px) {
-      left: 40%
+      left: 30%
     }
 
     @media (min-width: 1024px) {
-      left: 40%;
+      left: 30%;
     }
 
     & > .pokemon-details__image{
@@ -130,6 +130,7 @@ export const PokemonDetailContainer = styled.section`
     right: 10px;
     top: 10px;
     cursor: pointer;
+    z-index: 2;
   }
 
   @media(min-width: 458px){
